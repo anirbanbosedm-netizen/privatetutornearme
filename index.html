@@ -34,7 +34,7 @@ nav{background:#fff;color:#0a0f1e;padding:0 2rem;height:68px;display:flex;align-
 .nav-logo{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:900;color:#0a0f1e;letter-spacing:-.5px;cursor:pointer;text-decoration:none}
 .nav-logo span{color:#2563eb}
 .nav-actions{display:flex;align-items:center;gap:.75rem}
-.nav-btn{padding:.45rem 1.1rem;border-radius:6px;font-size:.88rem;font-weight:600;cursor:pointer;border:none;transition:all .2s;font-family:'DM Sans',sans-serif}
+.nav-btn{padding:.4rem .8rem;border-radius:6px;font-size:.8rem;font-weight:600;cursor:pointer;border:none;transition:all .2s;font-family:'DM Sans',sans-serif;white-space:nowrap}
 .nav-btn-outline{background:transparent;border:1.5px solid #d1d9f0;color:#0a0f1e}.nav-btn-outline:hover{background:#e8eef8;color:#2563eb;border-color:#2563eb}
 .nav-btn-solid{background:#2563eb;color:#fff;border-radius:8px}.nav-btn-solid:hover{background:#1d4ed8}
 .nav-btn-ghost{background:transparent;color:#6b7280;border:1.5px solid #d1d9f0}.nav-btn-ghost:hover{background:#e8eef8;color:#0a0f1e}
@@ -204,14 +204,14 @@ nav{background:#fff;color:#0a0f1e;padding:0 2rem;height:68px;display:flex;align-
 .back-btn:hover{color:#fff}
 
 /* DASHBOARD */
-.dashboard-wrap{max-width:900px;margin:0 auto;padding:2.5rem 1.5rem}
-.dashboard-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:2rem;flex-wrap:wrap;gap:1rem}
-.dashboard-title{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:800}
+.dashboard-wrap{max-width:900px;margin:0 auto;padding:1.2rem 1rem}
+.dashboard-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.2rem;flex-wrap:wrap;gap:.7rem}
+.dashboard-title{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:800}
 .dashboard-card{background:#fff;border:1px solid #dde3f5;border-radius:16px;padding:2rem;margin-bottom:1.5rem;box-shadow:0 4px 24px rgba(26,58,143,.08)}
 .dashboard-card-title{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;margin-bottom:1.2rem;display:flex;align-items:center;justify-content:space-between}
 .edit-icon-btn{background:#f0f4ff;border:1px solid #dde3f5;border-radius:8px;padding:.3rem .7rem;cursor:pointer;font-size:.8rem;font-weight:600;color:#5a6a9a;transition:all .2s;font-family:'DM Sans',sans-serif}
 .edit-icon-btn:hover{background:#dde3f5;color:#1a3a8f}
-.profile-preview-mini{display:flex;gap:1.2rem;align-items:center;flex-wrap:wrap}
+.profile-preview-mini{display:flex;gap:.8rem;align-items:center;flex-wrap:wrap}
 .mini-avatar{width:56px;height:56px;border-radius:50%;background:#2563eb;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:#fff;flex-shrink:0}
 .mini-info .mini-name{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700}
 .mini-info .mini-meta{font-size:.84rem;color:var(--muted);margin-top:.2rem}
@@ -301,12 +301,25 @@ footer a{color:#9ca3af;text-decoration:none}footer a:hover{color:#60a5fa}
 .char-count{font-size:.75rem;color:var(--muted);text-align:right;margin-top:.2rem}
 
 @media(max-width:640px){
-  nav{padding:0 1rem}.nav-logo{font-size:1.05rem}
-  .hero{padding:3rem 1rem 3rem}
+  nav{padding:0 .8rem;height:58px}
+  .nav-logo{font-size:.95rem}
+  .nav-btn{padding:.35rem .65rem;font-size:.75rem}
+  .hero{padding:2.5rem 1rem 2.5rem}
   .profile-card-header{flex-direction:column}
   .connect-modes-grid{grid-template-columns:1fr}
   .gc-grid{grid-template-columns:1fr}
-  .stats-strip{gap:2rem}
+  .stats-strip{gap:1.5rem;padding:1rem}
+  .stat-num{font-size:1.5rem}
+  .dashboard-wrap{padding:1rem .8rem}
+  .dashboard-card{padding:1rem}
+  .profile-preview-mini{flex-direction:column;align-items:flex-start}
+  .btn-view-profile{margin-left:0;width:100%}
+  .mini-avatar{width:44px;height:44px;font-size:1rem}
+  .section{padding:2rem 1rem}
+  .section-title{font-size:1.5rem}
+  .modal{border-radius:16px 16px 0 0;position:fixed;bottom:0;left:0;right:0;max-width:100%;max-height:90vh}
+  .modal-overlay{align-items:flex-end;padding:0}
+  .dashboard-header{margin-bottom:1rem}
 }
 /* STEP BANNERS & BOARD QUICK PILLS */
 .step-section-banner{background:linear-gradient(135deg,rgba(26,58,143,.08),rgba(255,255,255,0));border:1px solid rgba(26,58,143,.2);border-radius:12px;padding:1rem 1.2rem;margin-bottom:1.3rem;display:flex;align-items:center;gap:.8rem}
@@ -381,6 +394,14 @@ footer a{color:#9ca3af;text-decoration:none}footer a:hover{color:#60a5fa}
 /* CHECKBOX CHECKMARK */
 .cb-check{display:none;font-size:.75rem;font-weight:900;color:#2563eb}
 .checkbox-item.checked .cb-check{display:inline}
+
+/* ── PROFILE PHOTO UPLOAD ── */
+.photo-upload-wrap{display:flex;flex-direction:column;align-items:center;gap:.7rem;margin-bottom:1.2rem;padding:1.2rem;background:#f0f5ff;border:2px dashed #d1d9f0;border-radius:14px;cursor:pointer;transition:all .2s}
+.photo-upload-wrap:hover{border-color:#2563eb;background:#e8f0ff}
+.photo-preview{width:80px;height:80px;border-radius:50%;object-fit:cover;border:3px solid #fff;box-shadow:0 2px 12px rgba(37,99,235,.2)}
+.photo-avatar-placeholder{width:80px;height:80px;border-radius:50%;background:#2563eb;display:flex;align-items:center;justify-content:center;font-size:2rem;color:#fff;font-weight:700;font-family:'Playfair Display',serif}
+.photo-upload-label{font-size:.82rem;font-weight:600;color:#2563eb;cursor:pointer}
+.photo-upload-hint{font-size:.72rem;color:var(--muted)}
 </style>
 </head>
 <body>
@@ -504,6 +525,16 @@ footer a{color:#9ca3af;text-decoration:none}footer a:hover{color:#60a5fa}
       <div class="dashboard-card-title">Your Tutor Profile <button class="edit-icon-btn" onclick="toggleEditProfile()">✏️ Edit</button></div>
       <div class="profile-preview-mini" id="dashProfilePreview"></div>
       <div class="edit-form" id="editProfileForm">
+        <!-- Profile Photo Upload -->
+        <div class="form-group">
+          <label class="form-label">Profile Photo</label>
+          <div class="photo-upload-wrap" onclick="document.getElementById('photoInput').click()">
+            <div id="photoPreviewWrap"><div class="photo-avatar-placeholder" id="photoPlaceholder"></div></div>
+            <div class="photo-upload-label">📷 Tap to upload photo</div>
+            <div class="photo-upload-hint">JPG or PNG · Max 2MB</div>
+          </div>
+          <input type="file" id="photoInput" accept="image/*" style="display:none" onchange="handlePhotoUpload(this)">
+        </div>
         <div class="form-group"><label class="form-label">Phone Number</label><input class="form-input" id="edit_phone" placeholder="+91 XXXXX XXXXX"></div>
         <div class="form-group"><label class="form-label">Location / City</label><input class="form-input" id="edit_location" placeholder="e.g. Andheri West, Mumbai"></div>
         <div class="form-group">
@@ -1024,7 +1055,7 @@ function teacherCard(t){
   return `<div class="teacher-card" onclick="viewProfile('${t.email}')">
     <div class="card-header"><span class="card-header-badge ${t.isAI?'badge-ai':'badge-real'}">${t.isAI?'AI Listed':'Verified'}</span></div>
     <div class="card-body">
-      <div class="card-avatar">${t.name[0].toUpperCase()}</div>
+      <div class="card-avatar">${t.photo?'<img src="'+t.photo+'" style="width:100%;height:100%;border-radius:50%;object-fit:cover;">':t.name[0].toUpperCase()}</div>
       <div class="card-name">${esc(t.name)}</div>
       <div class="card-location">📍 ${esc(t.location||'')}</div>
       <div class="card-subjects">${subs.map(s=>`<span class="subject-tag">${esc(s)}</span>`).join('')}</div>
@@ -1444,6 +1475,17 @@ function regStep3(){
     </div>`;
   showRegStep(4);
 }
+// Simple password hash — works reliably on all devices
+function simpleHash(str){
+  let hash=0;
+  for(let i=0;i<str.length;i++){
+    const char=str.charCodeAt(i);
+    hash=((hash<<5)-hash)+char;
+    hash=hash&hash;
+  }
+  return 'h'+Math.abs(hash).toString(36)+str.length;
+}
+
 function doRegister(){
   const pass=document.getElementById('reg_password').value, conf=document.getElementById('reg_confirm').value;
   if(pass.length<6){showAlert('regAlert','Password must be at least 6 characters.');return}
@@ -1461,7 +1503,7 @@ function doRegister(){
     bio:document.getElementById('reg_bio').value.trim(),
     meetLink:document.getElementById('reg_meet').value.trim(),
     modes:getCheckedModes('reg_modes'),
-    password:btoa(pass), isAI:false, createdAt:new Date().toISOString()
+    password:simpleHash(pass), isAI:false, createdAt:new Date().toISOString()
   };
   const teachers=DB.teachers; teachers.push(teacher); DB.teachers=teachers;
   DB.session={email:teacher.email,name:teacher.name};
@@ -1477,7 +1519,7 @@ function doLogin(){
   const email=document.getElementById('login_email').value.trim(), pass=document.getElementById('login_password').value;
   if(!email||!pass){showAlert('loginAlert','Please enter email and password.');return}
   const t=DB.teachers.find(t=>t.email.toLowerCase()===email.toLowerCase());
-  if(!t||atob(t.password)!==pass){showAlert('loginAlert','Invalid email or password.');return}
+  if(!t||t.password!==simpleHash(pass)){showAlert('loginAlert','Invalid email or password.');return}
   DB.session={email:t.email,name:t.name}; closeModal('login'); updateNav();
   showToast('Welcome back, '+t.name.split(' ')[0]+'!');
   setTimeout(()=>showPage('dashboard'),300);
@@ -1512,6 +1554,7 @@ function renderDashboard(){
     <div style="font-size:.75rem;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.5px;">${s.label}</div>
     <div style="font-size:.9rem;font-weight:600;margin-top:.2rem;word-break:break-all;">${esc(s.val)}</div>
   </div>`).join('');
+  loadPhotoPreview(t);
   document.getElementById('edit_phone').value=t.phone||'';
   document.getElementById('edit_location').value=t.location||'';
   document.getElementById('edit_board').value=t.board||'';
