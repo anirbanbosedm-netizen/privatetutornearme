@@ -402,6 +402,7 @@ footer a{color:#9ca3af;text-decoration:none}footer a:hover{color:#60a5fa}
 .photo-avatar-placeholder{width:80px;height:80px;border-radius:50%;background:#2563eb;display:flex;align-items:center;justify-content:center;font-size:2rem;color:#fff;font-weight:700;font-family:'Playfair Display',serif}
 .photo-upload-label{font-size:.82rem;font-weight:600;color:#2563eb;cursor:pointer}
 .photo-upload-hint{font-size:.72rem;color:var(--muted)}
+
 </style>
 </head>
 <body>
@@ -838,7 +839,37 @@ footer a{color:#9ca3af;text-decoration:none}footer a:hover{color:#60a5fa}
 
 <div class="toast" id="toast"></div>
 
+<!-- Firebase SDKs loaded here to ensure proper order -->
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database-compat.js"></script>
+
 <script>
+// ═══════════════════════════════════════════
+// FIREBASE REALTIME DATABASE CONFIGURATION
+// ═══════════════════════════════════════════
+const firebaseConfig = {
+  apiKey: "AIzaSyCy4EXmOgoVdJgKAXhR1JW3X83FcTB_7FM",
+  authDomain: "privatetutornearme-1303a.firebaseapp.com",
+  projectId: "privatetutornearme-1303a",
+  storageBucket: "privatetutornearme-1303a.firebasestorage.app",
+  messagingSenderId: "806182405144",
+  appId: "1:806182405144:web:8ef42c6a44b85765832f6d",
+  databaseURL: "https://privatetutornearme-1303a-default-rtdb.asia-southeast1.firebasedatabase.app"
+};
+
+// Initialize Firebase safely
+let rtdb;
+try {
+  firebase.initializeApp(firebaseConfig);
+  rtdb = firebase.database();
+  console.log('✅ Firebase Realtime Database connected!');
+} catch(e) {
+  console.error('Firebase init error:', e);
+}
+const TEACHERS_REF = 'teachers';
+const MESSAGES_REF = 'messages';
+
+
 // ══════════════════════════════════════════
 // AI KNOWLEDGE BASE
 // ══════════════════════════════════════════
@@ -989,20 +1020,110 @@ const GC_CATS = ['All','AI & Tech','Marketing','Data','Design','Business'];
 // DATA LAYER
 // ══════════════════════════════════════════
 const DB = {
-  get teachers(){ return JSON.parse(localStorage.getItem('ptn_teachers')||'[]') },
-  set teachers(v){ localStorage.setItem('ptn_teachers',JSON.stringify(v)) },
+  // Session stored locally (device specific)
   get session(){ return JSON.parse(localStorage.getItem('ptn_session')||'null') },
   set session(v){ localStorage.setItem('ptn_session',JSON.stringify(v)) },
   clearSession(){ localStorage.removeItem('ptn_session') },
-  get messages(){ return JSON.parse(localStorage.getItem('ptn_messages')||'[]') },
-  set messages(v){ localStorage.setItem('ptn_messages',JSON.stringify(v)) },
-  getMessages(){ return this.messages; },
+
+  // In-memory cache
+  _teachers: [],
+  _messages: [],
+
+  get teachers(){ return this._teachers; },
+  set teachers(v){ this._teachers = v; },
+  get messages(){ return this._messages; },
+  getMessages(){ return this._messages; },
+
   getAll(){
-    const real=this.teachers;
-    const realEmails=new Set(real.map(t=>t.email));
-    return [...real,...AI_TEACHERS.filter(t=>!realEmails.has(t.email))];
+    const real = this._teachers;
+    const realEmails = new Set(real.map(t=>t.email));
+    return [...real, ...AI_TEACHERS.filter(t=>!realEmails.has(t.email))];
+  },
+
+  // ── LOAD all teachers from Firebase ──
+  async loadTeachers(){
+    try {
+      if(!rtdb) throw new Error('Firebase not initialized');
+      const snap = await rtdb.ref(TEACHERS_REF).once('value');
+      const data = snap.val() || {};
+      this._teachers = Object.entries(data).map(([id,t])=>({...t, id}))
+        .sort((a,b)=> (b.createdAt||'').localeCompare(a.createdAt||''));
+      console.log('✅ Loaded', this._teachers.length, 'teachers');
+    } catch(e){
+      console.error('Load teachers error:', e);
+      this._teachers = [];
+    }
+  },
+
+  // ── SAVE teacher to Firebase ──
+  async saveTeacher(teacher){
+    try {
+      const newRef = rtdb.ref(TEACHERS_REF).push();
+      teacher.id = newRef.key;
+      teacher.createdAt = new Date().toISOString();
+      await newRef.set(teacher);
+      this._teachers.unshift(teacher);
+      console.log('✅ Teacher saved:', teacher.name);
+      return true;
+    } catch(e){
+      console.error('Save teacher error:', e);
+      return false;
+    }
+  },
+
+  // ── UPDATE teacher in Firebase ──
+  async updateTeacher(id, data){
+    try {
+      await rtdb.ref(TEACHERS_REF+'/'+id).update(data);
+      const idx = this._teachers.findIndex(t=>t.id===id);
+      if(idx>-1) this._teachers[idx] = {...this._teachers[idx], ...data};
+      console.log('✅ Teacher updated');
+      return true;
+    } catch(e){
+      console.error('Update teacher error:', e);
+      return false;
+    }
+  },
+
+  // ── LOAD all messages from Firebase ──
+  async loadMessages(){
+    try {
+      const snap = await rtdb.ref(MESSAGES_REF).once('value');
+      const data = snap.val() || {};
+      this._messages = Object.entries(data).map(([id,m])=>({...m, id}))
+        .sort((a,b)=> (b.createdAt||'').localeCompare(a.createdAt||''));
+      console.log('✅ Loaded', this._messages.length, 'messages');
+    } catch(e){
+      console.error('Load messages error:', e);
+      this._messages = [];
+    }
+  },
+
+  // ── SAVE message to Firebase ──
+  async saveMessage(msg){
+    try {
+      const newRef = rtdb.ref(MESSAGES_REF).push();
+      msg.id = newRef.key;
+      msg.createdAt = new Date().toISOString();
+      await newRef.set(msg);
+      this._messages.unshift(msg);
+      console.log('✅ Message saved');
+      return true;
+    } catch(e){
+      console.error('Save message error:', e);
+      return false;
+    }
+  },
+
+  // ── UPDATE message in Firebase ──
+  async updateMessage(id, data){
+    try {
+      await rtdb.ref(MESSAGES_REF+'/'+id).update(data);
+      const idx = this._messages.findIndex(m=>m.id===id);
+      if(idx>-1) this._messages[idx] = {...this._messages[idx], ...data};
+    } catch(e){ console.error('Update message error:', e); }
   }
-};
+}
 
 let curPage='home', profileReturnPage='home', activeCat='', activeGcCat='All';
 
@@ -1505,11 +1626,18 @@ function doRegister(){
     modes:getCheckedModes('reg_modes'),
     password:simpleHash(pass), isAI:false, createdAt:new Date().toISOString()
   };
-  const teachers=DB.teachers; teachers.push(teacher); DB.teachers=teachers;
-  DB.session={email:teacher.email,name:teacher.name};
-  closeModal('register'); updateNav();
-  showToast('🎉 Welcome, '+teacher.name.split(' ')[0]+'! Profile created.');
-  setTimeout(()=>showPage('dashboard'),300);
+  // Show saving indicator
+  showToast('⏳ Creating your profile...');
+  DB.saveTeacher(teacher).then(success=>{
+    if(success){
+      DB.session={email:teacher.email,name:teacher.name};
+      closeModal('register'); updateNav();
+      showToast('🎉 Welcome, '+teacher.name.split(' ')[0]+'! Profile created.');
+      setTimeout(()=>showPage('dashboard'),300);
+    } else {
+      showAlert('regAlert','❌ Error saving profile. Please try again.');
+    }
+  });
 }
 
 // ══════════════════════════════════════════
@@ -1518,11 +1646,22 @@ function doRegister(){
 function doLogin(){
   const email=document.getElementById('login_email').value.trim(), pass=document.getElementById('login_password').value;
   if(!email||!pass){showAlert('loginAlert','Please enter email and password.');return}
-  const t=DB.teachers.find(t=>t.email.toLowerCase()===email.toLowerCase());
-  if(!t||t.password!==simpleHash(pass)){showAlert('loginAlert','Invalid email or password.');return}
-  DB.session={email:t.email,name:t.name}; closeModal('login'); updateNav();
-  showToast('Welcome back, '+t.name.split(' ')[0]+'!');
-  setTimeout(()=>showPage('dashboard'),300);
+  showAlert('loginAlert','⏳ Signing in...');
+  // Search in Realtime Database
+  rtdb.ref(TEACHERS_REF).orderByChild('email').equalTo(email).once('value').then(snap=>{
+    if(!snap.exists()){showAlert('loginAlert','Invalid email or password.');return}
+    let t = null;
+    snap.forEach(child=>{ t = {...child.val(), id:child.key}; });
+    if(!t || t.password!==simpleHash(pass)){showAlert('loginAlert','Invalid email or password.');return}
+    DB.session={email:t.email, name:t.name, id:t.id};
+    if(!DB._teachers.find(x=>x.email===t.email)) DB._teachers.unshift(t);
+    closeModal('login'); updateNav();
+    showToast('Welcome back, '+t.name.split(' ')[0]+'!');
+    setTimeout(()=>showPage('dashboard'),300);
+  }).catch(e=>{
+    console.error(e);
+    showAlert('loginAlert','Connection error. Please try again.');
+  });
 }
 function logout(){ DB.clearSession(); updateNav(); showToast('Signed out successfully'); showPage('home'); }
 
@@ -1646,8 +1785,22 @@ function setupReveal(){ const obs=new IntersectionObserver(es=>{es.forEach(e=>{i
 
 // INIT
 window.addEventListener('DOMContentLoaded',()=>{
-  // Add sample real teachers on first load
-  if(DB.teachers.length === 0){
+  // Load teachers from Firebase first, then init UI
+  showLoadingOverlay();
+  DB.loadTeachers().then(()=>{
+    DB.loadMessages().then(()=>{
+      hideLoadingOverlay();
+      initApp();
+    });
+  }).catch(()=>{
+    hideLoadingOverlay();
+    initApp();
+  });
+});
+
+function initApp(){
+  // Add sample real teachers on first load (localStorage fallback)
+  if(DB._teachers.length === 0){
     const samples = [
       {
         name:'Priya Sharma', email:'priya@example.com', phone:'+91 98765 43210',
@@ -1704,7 +1857,7 @@ window.addEventListener('DOMContentLoaded',()=>{
   }
   updateNav(); buildHeroTags(); renderCatChips(); renderHomeTeachers(); renderGC(); setupReveal();
   document.getElementById('searchInput').addEventListener('keydown',e=>{if(e.key==='Enter')runSearch();});
-});
+}
 
 // ══════════════════════════════════════════
 // INBOX / MESSAGING SYSTEM
@@ -1763,10 +1916,10 @@ function doSendMessage() {
     read: false,
     createdAt: new Date().toISOString()
   };
-  msgs.push(newMsg);
-  DB.messages = msgs;
-  closeModal('sendmsg');
-  showToast('✅ Message sent! The teacher will reply soon.');
+  DB.saveMessage(newMsg).then(()=>{
+    closeModal('sendmsg');
+    showToast('✅ Message sent! The teacher will reply soon.');
+  });
 }
 
 function showPage_inbox() { showPage('inbox'); }
@@ -1880,16 +2033,17 @@ function sendReply() {
   const msgs = DB.messages;
   const idx = msgs.findIndex(m => m.id === currentThreadId);
   if (idx === -1) return;
-  msgs[idx].thread.push({
+  const newThread = [...msgs[idx].thread, {
     from: 'teacher',
     name: session.name,
     text: text,
     time: new Date().toISOString()
+  }];
+  DB.updateMessage(msgs[idx].id, {thread: newThread, read: true}).then(()=>{
+    document.getElementById('replyText').value = '';
+    renderThread(DB._messages[DB._messages.findIndex(m=>m.id===currentThreadId)]);
+    showToast('✅ Reply sent!');
   });
-  DB.messages = msgs;
-  document.getElementById('replyText').value = '';
-  renderThread(msgs[idx]);
-  showToast('✅ Reply sent!');
 }
 
 function closeThread() {
