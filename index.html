@@ -149,9 +149,9 @@ nav{background:#fff;color:#0a0f1e;padding:0 2rem;height:68px;display:flex;align-
 
 /* CHECKBOX MODES */
 .checkbox-group{display:flex;flex-wrap:wrap;gap:.5rem}
-.checkbox-item{display:flex;align-items:center;gap:.4rem;background:var(--warm);border:1.5px solid var(--border);border-radius:8px;padding:.4rem .8rem;cursor:pointer;transition:all .2s;font-size:.85rem;font-weight:500;user-select:none}
+.checkbox-item{display:flex;align-items:center;gap:.5rem;background:var(--warm);border:2px solid var(--border);border-radius:10px;padding:.6rem 1rem;cursor:pointer;transition:all .2s;font-size:.88rem;font-weight:600;user-select:none;-webkit-tap-highlight-color:transparent;touch-action:manipulation;min-height:44px}
 .checkbox-item input{display:none}
-.checkbox-item.checked{background:rgba(37,99,235,.1);border-color:#2563eb;color:#2563eb}
+.checkbox-item.checked{background:rgba(37,99,235,.12);border-color:#2563eb;color:#2563eb;font-weight:700}
 
 .btn-primary{width:100%;padding:.8rem;background:#2563eb;color:#fff;border:none;border-radius:10px;font-size:1rem;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s;margin-top:.5rem}
 .btn-primary:hover{background:#1d4ed8;transform:translateY(-1px)}
@@ -377,6 +377,10 @@ footer a{color:#9ca3af;text-decoration:none}footer a:hover{color:#60a5fa}
   .hero p{margin-left:auto;margin-right:auto}
   .hero-trust-row{justify-content:center}
 }
+
+/* CHECKBOX CHECKMARK */
+.cb-check{display:none;font-size:.75rem;font-weight:900;color:#2563eb}
+.checkbox-item.checked .cb-check{display:inline}
 </style>
 </head>
 <body>
@@ -510,15 +514,15 @@ footer a{color:#9ca3af;text-decoration:none}footer a:hover{color:#60a5fa}
           </div>
         </div>
         <div class="form-group"><label class="form-label">Subjects You Teach</label><input class="form-input" id="edit_subjects" placeholder="e.g. Mathematics, Physics, Chemistry"></div>
-        <div class="form-group"><label class="form-label">Teaching Hours / Timing</label><input class="form-input" id="edit_timing" placeholder="e.g. Mon–Sat, 4 PM – 8 PM"></div>
+
         <div class="form-group"><label class="form-label">Bio / About</label><textarea class="form-textarea" id="edit_bio" placeholder="Describe your teaching experience…"></textarea></div>
         <div class="form-group"><label class="form-label">Google Meet Link</label><input class="form-input" id="edit_meet" placeholder="https://meet.google.com/xxx-xxxx-xxx"></div>
         <div class="form-group">
           <label class="form-label">Teaching Modes</label>
           <div class="checkbox-group" id="edit_modes">
-            <label class="checkbox-item" data-val="Online (Google Meet)"><input type="checkbox"> 🖥 Online (Google Meet)</label>
-            <label class="checkbox-item" data-val="Home Tutor"><input type="checkbox"> 🏠 Home Tutor</label>
-            <label class="checkbox-item" data-val="Study Centre"><input type="checkbox"> 🏫 Study Centre</label>
+            <label class="checkbox-item" data-val="Online (Google Meet)"><input type="checkbox"><span class="cb-check">✓</span> 🖥 Online (Google Meet)</label>
+            <label class="checkbox-item" data-val="Home Tutor"><input type="checkbox"><span class="cb-check">✓</span> 🏠 Home Tutor</label>
+            <label class="checkbox-item" data-val="Study Centre"><input type="checkbox"><span class="cb-check">✓</span> 🏫 Study Centre</label>
           </div>
         </div>
         <button class="btn-primary" onclick="saveProfile()">Save Changes</button>
@@ -729,10 +733,7 @@ footer a{color:#9ca3af;text-decoration:none}footer a:hover{color:#60a5fa}
           <input class="form-input" id="reg_subjects" placeholder="e.g. Mathematics, Physics, Chemistry (auto-filled on board select)">
         </div>
 
-        <div class="form-group">
-          <label class="form-label">Teaching Hours / Timing</label>
-          <input class="form-input" id="reg_timing" placeholder="e.g. Mon–Sat, 4 PM – 8 PM">
-        </div>
+
 
         <div class="form-group">
           <label class="form-label">Bio / About Yourself</label>
@@ -747,9 +748,9 @@ footer a{color:#9ca3af;text-decoration:none}footer a:hover{color:#60a5fa}
         <div class="form-group">
           <label class="form-label">Teaching Mode <span>*</span></label>
           <div class="checkbox-group" id="reg_modes">
-            <label class="checkbox-item" data-val="Online (Google Meet)"><input type="checkbox"> 🖥 Online (Google Meet)</label>
-            <label class="checkbox-item" data-val="Home Tutor"><input type="checkbox"> 🏠 Home Tutor</label>
-            <label class="checkbox-item" data-val="Study Centre"><input type="checkbox"> 🏫 Study Centre</label>
+            <label class="checkbox-item" data-val="Online (Google Meet)"><input type="checkbox"><span class="cb-check">✓</span> 🖥 Online (Google Meet)</label>
+            <label class="checkbox-item" data-val="Home Tutor"><input type="checkbox"><span class="cb-check">✓</span> 🏠 Home Tutor</label>
+            <label class="checkbox-item" data-val="Study Centre"><input type="checkbox"><span class="cb-check">✓</span> 🏫 Study Centre</label>
           </div>
         </div>
 
@@ -1379,7 +1380,7 @@ function getSelectedLocation(){
 let regStep=1;
 function resetRegForm(){
   regStep=1; showRegStep(1);
-  ['reg_name','reg_email','reg_phone','reg_board','reg_subjects','reg_timing','reg_bio','reg_meet','reg_password','reg_confirm','reg_city_custom']
+  ['reg_name','reg_email','reg_phone','reg_board','reg_subjects','reg_bio','reg_meet','reg_password','reg_confirm','reg_city_custom']
     .forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
   document.getElementById('reg_region').innerHTML='<option value="">— Select State / Region —</option>';
   document.getElementById('reg_region').disabled=true;
@@ -1456,7 +1457,7 @@ function doRegister(){
     location:loc.full,
     board:document.getElementById('reg_board').value.trim(),
     subjects:document.getElementById('reg_subjects').value.trim(),
-    timing:document.getElementById('reg_timing').value.trim(),
+    timing:'',
     bio:document.getElementById('reg_bio').value.trim(),
     meetLink:document.getElementById('reg_meet').value.trim(),
     modes:getCheckedModes('reg_modes'),
@@ -1505,7 +1506,7 @@ function renderDashboard(){
     <button class="btn-view-profile" onclick="viewMyProfile()">View Profile</button>`;
   document.getElementById('dashStats').innerHTML=[
     {label:'Email',val:t.email,icon:'✉️'},{label:'Subjects',val:t.subjects||'Not set',icon:'📖'},
-    {label:'Timing',val:t.timing||'Not set',icon:'🕐'},{label:'Location',val:t.location||'Not set',icon:'📍'},
+{label:'Location',val:t.location||'Not set',icon:'📍'},
   ].map(s=>`<div style="background:var(--warm);border:1px solid var(--border);border-radius:10px;padding:1rem;">
     <div style="font-size:1.2rem;margin-bottom:.3rem;">${s.icon}</div>
     <div style="font-size:.75rem;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.5px;">${s.label}</div>
@@ -1515,7 +1516,7 @@ function renderDashboard(){
   document.getElementById('edit_location').value=t.location||'';
   document.getElementById('edit_board').value=t.board||'';
   document.getElementById('edit_subjects').value=t.subjects||'';
-  document.getElementById('edit_timing').value=t.timing||'';
+
   document.getElementById('edit_bio').value=t.bio||'';
   document.getElementById('edit_meet').value=t.meetLink||'';
   const cm=t.modes||[];
@@ -1530,7 +1531,7 @@ function saveProfile(){
   teachers[idx].location=document.getElementById('edit_location').value.trim();
   teachers[idx].board=document.getElementById('edit_board').value.trim();
   teachers[idx].subjects=document.getElementById('edit_subjects').value.trim();
-  teachers[idx].timing=document.getElementById('edit_timing').value.trim();
+
   teachers[idx].bio=document.getElementById('edit_bio').value.trim();
   teachers[idx].meetLink=document.getElementById('edit_meet').value.trim();
   teachers[idx].modes=getCheckedModes('edit_modes');
@@ -1570,10 +1571,24 @@ function closeModal(name){ document.getElementById('modal-'+name).classList.add(
 function closeModalOutside(e,name){ if(e.target===document.getElementById('modal-'+name))closeModal(name); }
 
 // CHECKBOX HELPER
-document.addEventListener('click',e=>{
-  const item=e.target.closest('.checkbox-item'); if(!item) return;
-  item.classList.toggle('checked'); item.querySelector('input').checked=item.classList.contains('checked');
+// Mobile-friendly checkbox handler
+document.addEventListener('click',function(e){
+  const item=e.target.closest('.checkbox-item');
+  if(!item) return;
+  e.preventDefault();
+  e.stopPropagation();
+  item.classList.toggle('checked');
+  const inp=item.querySelector('input');
+  if(inp) inp.checked=item.classList.contains('checked');
 });
+document.addEventListener('touchend',function(e){
+  const item=e.target.closest('.checkbox-item');
+  if(!item) return;
+  e.preventDefault();
+  item.classList.toggle('checked');
+  const inp=item.querySelector('input');
+  if(inp) inp.checked=item.classList.contains('checked');
+},{passive:false});
 function getCheckedModes(cid){
   const m=[]; document.querySelectorAll('#'+cid+' .checkbox-item.checked').forEach(el=>m.push(el.getAttribute('data-val'))); return m;
 }
