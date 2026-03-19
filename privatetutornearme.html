@@ -1,0 +1,2048 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PrivateTutorNearMe – Find Your Perfect Tutor in India</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0a0f1e;
+  --paper:#e8eef8;
+  --warm:#f0f4fb;
+  --accent:#2563eb;
+  --accent2:#1a3a8f;
+  --gold:#2563eb;
+  --muted:#6b7280;
+  --border:#d1d9f0;
+  --success:#16a34a;
+  --danger:#dc2626;
+  --card-bg:#ffffff;
+  --shadow:0 4px 24px rgba(10,15,30,.08);
+  --shadow-lg:0 12px 48px rgba(10,15,30,.15);
+  --red:#e8001c;
+  --blue:#2563eb;
+  --red-light:rgba(37,99,235,.08);
+  --blue-light:rgba(37,99,235,.08);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'DM Sans',sans-serif;background:#e8eef8;color:#0a0f1e;min-height:100vh;overflow-x:hidden}
+.hidden{display:none!important}.text-center{text-align:center}
+
+/* NAV */
+nav{background:#fff;color:#0a0f1e;padding:0 2rem;height:68px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(10,15,30,.08);border-bottom:1px solid #d1d9f0}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:900;color:#0a0f1e;letter-spacing:-.5px;cursor:pointer;text-decoration:none}
+.nav-logo span{color:#2563eb}
+.nav-actions{display:flex;align-items:center;gap:.75rem}
+.nav-btn{padding:.45rem 1.1rem;border-radius:6px;font-size:.88rem;font-weight:600;cursor:pointer;border:none;transition:all .2s;font-family:'DM Sans',sans-serif}
+.nav-btn-outline{background:transparent;border:1.5px solid #d1d9f0;color:#0a0f1e}.nav-btn-outline:hover{background:#e8eef8;color:#2563eb;border-color:#2563eb}
+.nav-btn-solid{background:#2563eb;color:#fff;border-radius:8px}.nav-btn-solid:hover{background:#1d4ed8}
+.nav-btn-ghost{background:transparent;color:#6b7280;border:1.5px solid #d1d9f0}.nav-btn-ghost:hover{background:#e8eef8;color:#0a0f1e}
+.nav-user-info{display:flex;align-items:center;gap:.6rem;color:#0a0f1e;font-weight:600;font-size:.9rem}
+.nav-avatar{width:34px;height:34px;border-radius:50%;background:#2563eb;display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;font-size:.85rem}
+
+.page{display:none;min-height:calc(100vh - 64px)}.page.active{display:block}
+
+/* HERO */
+.hero{background:linear-gradient(160deg,#dce8fb 0%,#e8eef8 50%,#d6e4f7 100%);color:#0a0f1e;padding:5.5rem 2rem 5rem;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 30%,rgba(37,99,235,.12) 0%,transparent 60%),radial-gradient(ellipse at 80% 70%,rgba(37,99,235,.08) 0%,transparent 55%)}
+.hero-pattern{position:absolute;inset:0;opacity:.4;background-image:radial-gradient(circle,#2563eb 1px,transparent 1px);background-size:32px 32px}
+.hero-content{position:relative;z-index:1;max-width:720px;margin:0 auto}
+.hero-eyebrow{font-size:.8rem;letter-spacing:3px;text-transform:uppercase;color:#2563eb;font-weight:700;margin-bottom:1.2rem}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.4rem,5.5vw,4rem);font-weight:900;line-height:1.05;margin-bottom:1.2rem;color:#0a0f1e;letter-spacing:-1px}
+.hero h1 em{color:#2563eb;font-style:normal}
+.hero p{font-size:1.05rem;color:#6b7280;margin-bottom:2.5rem;line-height:1.7}
+
+.search-wrap{background:#fff;border-radius:50px;padding:.4rem .4rem .4rem 1.2rem;display:flex;gap:.5rem;max-width:600px;margin:0 auto 2rem;box-shadow:0 4px 24px rgba(37,99,235,.15),0 1px 4px rgba(10,15,30,.08);position:relative;border:1.5px solid #d1d9f0;align-items:center}
+.search-wrap input{flex:1;border:none;outline:none;font-size:.95rem;padding:.55rem .5rem;color:#0a0f1e;font-family:'DM Sans',sans-serif;background:transparent}
+.search-wrap input::placeholder{color:#9ca3af}
+.btn-search{background:#2563eb;color:#fff;border:none;border-radius:50px;padding:.7rem 1.8rem;font-size:.92rem;font-weight:700;cursor:pointer;transition:all .2s;font-family:'DM Sans',sans-serif;white-space:nowrap;letter-spacing:.3px}
+.btn-search:hover{background:#1d4ed8;transform:scale(1.02)}
+
+.autocomplete-list{position:absolute;top:calc(100% + .3rem);left:0;right:0;background:#fff;border:1.5px solid var(--border);border-radius:12px;z-index:200;max-height:220px;overflow-y:auto;box-shadow:var(--shadow-lg);display:none}
+.autocomplete-list.open{display:block}
+.ac-item{padding:.6rem 1.1rem;font-size:.9rem;cursor:pointer;color:var(--ink);border-bottom:1px solid var(--border)}.ac-item:last-child{border-bottom:none}.ac-item:hover{background:var(--warm)}
+
+.hero-tags{display:flex;gap:.5rem;flex-wrap:wrap;justify-content:center}
+.hero-tag{background:#fff;border:1px solid #d1d9f0;color:#374151;padding:.3rem .9rem;border-radius:20px;font-size:.8rem;cursor:pointer;transition:all .2s;box-shadow:0 1px 4px rgba(10,15,30,.06)}
+.hero-tag:hover{background:#2563eb;color:#fff;border-color:#2563eb}
+
+.stats-strip{background:#fff;border-top:1px solid #d1d9f0;border-bottom:1px solid #d1d9f0;padding:1.5rem 2rem;display:flex;justify-content:center;gap:4rem;flex-wrap:wrap;box-shadow:0 2px 8px rgba(10,15,30,.05)}
+.stat{text-align:center}.stat-num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;color:#2563eb}.stat-label{font-size:.82rem;color:#6b7280;font-weight:500;margin-top:.1rem}
+
+.section{max-width:1100px;margin:0 auto;padding:3.5rem 1.5rem}
+.section-title{font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;margin-bottom:.4rem;color:#0a0f1e}
+.section-sub{color:var(--muted);font-size:.95rem;margin-bottom:2rem}
+
+/* AI BADGE */
+.ai-badge{display:inline-flex;align-items:center;gap:.3rem;background:rgba(37,99,235,.08);border:1px solid rgba(37,99,235,.2);border-radius:20px;padding:.25rem .7rem;font-size:.72rem;font-weight:700;color:#2563eb;margin-bottom:.8rem}
+
+/* CATEGORY CHIPS */
+.ai-categories{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.5rem}
+.ai-cat-chip{background:#fff;border:1.5px solid #d1d9f0;color:#374151;padding:.35rem .9rem;border-radius:25px;font-size:.82rem;font-weight:600;cursor:pointer;transition:all .2s;box-shadow:0 1px 3px rgba(10,15,30,.05)}
+.ai-cat-chip:hover,.ai-cat-chip.active{background:#2563eb;color:#fff;border-color:#2563eb}
+
+/* AI SUGGEST BOX */
+.ai-suggest-box{background:rgba(37,99,235,.04);border:1.5px solid rgba(37,99,235,.15);border-radius:16px;padding:1.5rem;margin-bottom:1.5rem;display:none}
+.ai-suggest-box.show{display:block}
+.ai-suggest-title{font-weight:700;font-size:.95rem;display:flex;align-items:center;gap:.5rem;margin-bottom:.8rem}
+.ai-suggest-tags{display:flex;gap:.5rem;flex-wrap:wrap}
+.ai-suggest-tag{background:#fff;border:1px solid #d1d9f0;color:#2563eb;padding:.3rem .75rem;border-radius:20px;font-size:.82rem;font-weight:600;cursor:pointer;transition:all .2s}
+.ai-suggest-tag:hover{background:#2563eb;color:#fff}
+
+/* TEACHER CARDS */
+.teachers-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:1.5rem}
+.teacher-card{background:#fff;border:1px solid #d1d9f0;border-radius:16px;overflow:hidden;cursor:pointer;transition:all .25s;box-shadow:0 2px 12px rgba(10,15,30,.06)}
+.teacher-card:hover{transform:translateY(-5px);box-shadow:0 16px 48px rgba(37,99,235,.18);border-color:#2563eb}
+.card-header{background:linear-gradient(135deg,#1e40af 0%,#2563eb 100%);padding:1.5rem 1.5rem 3.5rem;position:relative}
+.card-header-badge{position:absolute;top:1rem;right:1rem;font-size:.7rem;font-weight:700;padding:.2rem .6rem;border-radius:20px;text-transform:uppercase;letter-spacing:.5px}
+.badge-real{background:#2563eb;color:#fff}.badge-ai{background:#1a3a8f;color:#fff}
+.card-body{padding:0 1.5rem 1.5rem;position:relative}
+.card-avatar{width:60px;height:60px;border-radius:50%;border:3px solid #fff;background:#2563eb;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:#fff;margin-top:-30px;margin-bottom:.6rem;box-shadow:0 2px 12px rgba(37,99,235,.3)}
+.card-name{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:var(--ink)}
+.card-location{font-size:.82rem;color:var(--muted);margin:.2rem 0 .6rem;display:flex;align-items:center;gap:.3rem}
+.card-subjects{display:flex;flex-wrap:wrap;gap:.35rem;margin-bottom:.8rem}
+.subject-tag{background:var(--warm);border:1px solid var(--border);color:var(--ink);padding:.2rem .6rem;border-radius:20px;font-size:.75rem;font-weight:500}
+.card-modes{display:flex;gap:.4rem;margin-bottom:.8rem;flex-wrap:wrap}
+.mode-badge{font-size:.72rem;padding:.22rem .6rem;border-radius:5px;font-weight:600;text-transform:uppercase;letter-spacing:.3px}
+.mode-online{background:rgba(37,99,235,.1);color:#2563eb}.mode-home{background:rgba(16,163,74,.1);color:#16a34a}.mode-centre{background:rgba(124,58,237,.1);color:#7c3aed}
+.card-bio{font-size:.84rem;color:var(--muted);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.card-footer{border-top:1px solid var(--border);margin:.8rem -1.5rem -1.5rem;padding:.8rem 1.5rem;display:flex;align-items:center;justify-content:space-between}
+.card-board{font-size:.78rem;color:var(--muted);font-weight:500}.view-profile-btn{font-size:.8rem;font-weight:700;color:#2563eb}
+
+.no-results{text-align:center;padding:4rem 2rem;color:var(--muted)}.no-results-icon{font-size:3rem;margin-bottom:1rem}
+.no-results h3{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--ink);margin-bottom:.5rem}
+
+/* MODAL */
+.modal-overlay{position:fixed;inset:0;background:rgba(26,18,8,.7);z-index:200;display:flex;align-items:center;justify-content:center;padding:1rem;backdrop-filter:blur(4px);animation:fadeIn .2s}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.modal{background:#fff;border-radius:20px;max-width:540px;width:100%;max-height:92vh;overflow-y:auto;box-shadow:0 20px 60px rgba(10,15,30,.2);animation:slideUp .3s cubic-bezier(.34,1.56,.64,1)}
+@keyframes slideUp{from{transform:translateY(40px);opacity:0}to{transform:translateY(0);opacity:1}}
+.modal-header{padding:1.8rem 2rem 0;display:flex;align-items:flex-start;justify-content:space-between}
+.modal-title{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:800}
+.modal-close{width:32px;height:32px;border-radius:50%;border:none;background:var(--warm);cursor:pointer;font-size:1.1rem;display:flex;align-items:center;justify-content:center;color:var(--muted);transition:all .2s}
+.modal-close:hover{background:var(--border);color:var(--ink)}
+.modal-body{padding:1.5rem 2rem 2rem}
+
+/* FORMS */
+.form-step{display:none}.form-step.active{display:block}
+.step-indicator{display:flex;gap:.5rem;margin-bottom:1.8rem;align-items:center}
+.step-dot{width:8px;height:8px;border-radius:50%;background:var(--border);transition:all .3s}
+.step-dot.done{background:#16a34a}.step-dot.active{background:#2563eb;width:24px;border-radius:4px}
+.step-label{font-size:.8rem;color:var(--muted);margin-left:auto}
+.form-group{margin-bottom:1.1rem}
+.form-label{display:block;font-size:.84rem;font-weight:600;color:var(--ink);margin-bottom:.35rem}
+.form-label span{color:var(--accent)}
+.form-input,.form-select,.form-textarea{width:100%;border:1.5px solid #d1d9f0;border-radius:10px;padding:.65rem .9rem;font-size:.95rem;font-family:'DM Sans',sans-serif;color:#0a0f1e;background:#fff;transition:border-color .2s,box-shadow .2s;outline:none}
+.form-input:focus,.form-select:focus,.form-textarea:focus{border-color:#2563eb;box-shadow:0 0 0 3px rgba(37,99,235,.12);background:#fff}
+.form-textarea{resize:vertical;min-height:90px;line-height:1.6}
+.form-hint{font-size:.78rem;color:var(--muted);margin-top:.3rem}
+
+/* BOARD DROPDOWN */
+.board-select-wrap{position:relative}
+.board-dropdown{position:absolute;top:100%;left:0;right:0;background:#fff;border:1.5px solid var(--border);border-radius:10px;margin-top:.3rem;z-index:300;max-height:240px;overflow-y:auto;box-shadow:var(--shadow-lg);display:none}
+.board-dropdown.open{display:block}
+.board-opt-group{padding:.4rem .8rem;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--muted);background:var(--warm);border-bottom:1px solid var(--border);position:sticky;top:0}
+.board-opt{padding:.55rem 1rem;font-size:.9rem;cursor:pointer;color:var(--ink);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.board-opt:last-child{border-bottom:none}.board-opt:hover{background:var(--warm)}
+.board-opt-badge{font-size:.68rem;padding:.15rem .5rem;border-radius:10px;font-weight:600;background:rgba(37,99,235,.1);color:#2563eb}
+
+/* CHECKBOX MODES */
+.checkbox-group{display:flex;flex-wrap:wrap;gap:.5rem}
+.checkbox-item{display:flex;align-items:center;gap:.4rem;background:var(--warm);border:1.5px solid var(--border);border-radius:8px;padding:.4rem .8rem;cursor:pointer;transition:all .2s;font-size:.85rem;font-weight:500;user-select:none}
+.checkbox-item input{display:none}
+.checkbox-item.checked{background:rgba(37,99,235,.1);border-color:#2563eb;color:#2563eb}
+
+.btn-primary{width:100%;padding:.8rem;background:#2563eb;color:#fff;border:none;border-radius:10px;font-size:1rem;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s;margin-top:.5rem}
+.btn-primary:hover{background:#1d4ed8;transform:translateY(-1px)}
+.btn-secondary{width:100%;padding:.75rem;background:transparent;color:var(--ink);border:1.5px solid var(--border);border-radius:10px;font-size:.95rem;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s;margin-top:.5rem}
+.btn-secondary:hover{border-color:var(--ink)}
+.form-divider{text-align:center;color:var(--muted);font-size:.83rem;margin:.8rem 0;position:relative}
+.form-divider::before,.form-divider::after{content:'';position:absolute;top:50%;width:40%;height:1px;background:var(--border)}
+.form-divider::before{left:0}.form-divider::after{right:0}
+.form-link{color:#2563eb;cursor:pointer;font-weight:600;text-decoration:none}.form-link:hover{text-decoration:underline}
+.alert{padding:.7rem 1rem;border-radius:8px;font-size:.87rem;font-weight:500;margin-bottom:1rem}
+.alert-error{background:rgba(232,0,28,.08);color:#e8001c;border:1px solid rgba(232,0,28,.2)}
+
+/* PROFILE */
+.profile-hero{background:linear-gradient(135deg,#1e40af 0%,#2563eb 100%);padding:3rem 2rem 5rem;color:#fff}
+.profile-content{max-width:900px;margin:-3rem auto 0;padding:0 1.5rem 3rem}
+.profile-card{background:#fff;border-radius:20px;box-shadow:var(--shadow-lg);overflow:hidden;margin-bottom:1.5rem}
+.profile-card-header{padding:2rem;display:flex;gap:1.5rem;align-items:flex-start;border-bottom:1px solid var(--border)}
+.profile-avatar-lg{width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,#2563eb,#1e40af);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:#fff;flex-shrink:0}
+.profile-name{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:800}
+.profile-meta{display:flex;flex-wrap:wrap;gap:.5rem;margin:.5rem 0}
+.profile-meta-item{display:flex;align-items:center;gap:.3rem;font-size:.85rem;color:var(--muted)}
+.profile-card-body{padding:2rem}
+.profile-section-title{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;margin-bottom:.8rem;color:var(--ink)}
+.profile-bio{color:var(--muted);line-height:1.8;font-size:.95rem}
+.subjects-list{display:flex;flex-wrap:wrap;gap:.5rem}
+.subject-pill{background:var(--warm);border:1.5px solid var(--border);color:var(--ink);padding:.4rem .9rem;border-radius:25px;font-size:.85rem;font-weight:500}
+
+/* CONNECT SECTION MULTI-SELECT */
+.connect-section{background:#f0f5ff;border:1px solid #d1d9f0;border-radius:16px;padding:1.5rem;margin-top:1rem}
+.connect-title{font-weight:700;font-size:1rem;margin-bottom:1rem;color:var(--ink)}
+.connect-subtitle{font-size:.83rem;color:var(--muted);margin-bottom:1.2rem;margin-top:-.6rem}
+.connect-modes-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.8rem;margin-bottom:1.2rem}
+.connect-mode-btn{display:flex;flex-direction:column;align-items:center;gap:.4rem;padding:1rem .8rem;border-radius:12px;border:2px solid var(--border);background:#fff;cursor:pointer;transition:all .25s;font-family:'DM Sans',sans-serif;text-align:center}
+.connect-mode-btn:hover{border-color:#2563eb;box-shadow:0 4px 16px rgba(37,99,235,.15)}
+.connect-mode-btn.selected{border-color:#2563eb;background:rgba(37,99,235,.06);box-shadow:0 4px 16px rgba(37,99,235,.15)}
+.connect-mode-btn.selected .mode-icon{transform:scale(1.15)}
+.connect-mode-btn .mode-icon{font-size:1.8rem;transition:transform .2s}
+.connect-mode-btn .mode-label{font-size:.85rem;font-weight:700;color:var(--ink)}
+.connect-mode-btn .mode-sub{font-size:.72rem;color:var(--muted)}
+.connect-mode-btn.disabled{opacity:.35;cursor:not-allowed;pointer-events:none}
+.connect-actions{display:flex;gap:.7rem;flex-wrap:wrap;margin-top:1rem;display:none}
+.connect-actions.show{display:flex}
+.action-btn{display:flex;align-items:center;gap:.5rem;padding:.7rem 1.4rem;border-radius:10px;font-size:.9rem;font-weight:700;cursor:pointer;border:none;font-family:'DM Sans',sans-serif;transition:all .2s;text-decoration:none}
+.action-btn:hover{transform:translateY(-1px)}
+.action-btn-meet{background:#1a73e8;color:#fff}.action-btn-meet:hover{background:#1557b0}
+.action-btn-contact{background:#2563eb;color:#fff}.action-btn-contact:hover{background:#1d4ed8}
+.action-btn-home{background:rgba(37,99,235,.08);color:#2563eb;border:1.5px solid rgba(37,99,235,.2)}
+.action-btn-centre{background:rgba(37,99,235,.06);color:#2563eb;border:1.5px solid rgba(37,99,235,.15)}
+.back-btn{display:inline-flex;align-items:center;gap:.4rem;color:rgba(255,255,255,.85);cursor:pointer;font-size:.9rem;font-weight:500;background:none;border:none;font-family:'DM Sans',sans-serif;margin-bottom:1.5rem;transition:color .2s}
+.back-btn:hover{color:#fff}
+
+/* DASHBOARD */
+.dashboard-wrap{max-width:900px;margin:0 auto;padding:2.5rem 1.5rem}
+.dashboard-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:2rem;flex-wrap:wrap;gap:1rem}
+.dashboard-title{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:800}
+.dashboard-card{background:#fff;border:1px solid #dde3f5;border-radius:16px;padding:2rem;margin-bottom:1.5rem;box-shadow:0 4px 24px rgba(26,58,143,.08)}
+.dashboard-card-title{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;margin-bottom:1.2rem;display:flex;align-items:center;justify-content:space-between}
+.edit-icon-btn{background:#f0f4ff;border:1px solid #dde3f5;border-radius:8px;padding:.3rem .7rem;cursor:pointer;font-size:.8rem;font-weight:600;color:#5a6a9a;transition:all .2s;font-family:'DM Sans',sans-serif}
+.edit-icon-btn:hover{background:#dde3f5;color:#1a3a8f}
+.profile-preview-mini{display:flex;gap:1.2rem;align-items:center;flex-wrap:wrap}
+.mini-avatar{width:56px;height:56px;border-radius:50%;background:#2563eb;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:#fff;flex-shrink:0}
+.mini-info .mini-name{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700}
+.mini-info .mini-meta{font-size:.84rem;color:var(--muted);margin-top:.2rem}
+.btn-view-profile{margin-left:auto;background:#2563eb;color:#fff;border:none;border-radius:8px;padding:.5rem 1.1rem;font-size:.88rem;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s}
+.btn-view-profile:hover{background:#1d4ed8}
+.edit-form{display:none}.edit-form.open{display:block;margin-top:1.2rem;border-top:1px solid var(--border);padding-top:1.2rem}
+
+/* SEARCH PAGE */
+.search-bar-inline{background:#fff;border:1.5px solid var(--border);border-radius:12px;display:flex;margin-bottom:2rem;overflow:hidden;box-shadow:var(--shadow)}
+.search-bar-inline input{flex:1;border:none;outline:none;padding:.8rem 1.2rem;font-size:.95rem;font-family:'DM Sans',sans-serif;color:var(--ink)}
+.search-bar-inline button{background:#1a3a8f;color:#fff;border:none;padding:.8rem 1.5rem;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:.9rem}
+.search-result-count{font-size:.9rem;color:var(--muted);margin-bottom:1.2rem}.search-result-count strong{color:var(--ink)}
+
+/* LEARN FREE */
+.learn-section{background:linear-gradient(135deg,#0d1b2a 0%,#1a3a4a 100%);padding:4.5rem 0;position:relative;overflow:hidden}
+.learn-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 80% 20%,rgba(66,133,244,.15) 0%,transparent 60%),radial-gradient(ellipse at 20% 80%,rgba(52,168,83,.1) 0%,transparent 50%)}
+.learn-inner{max-width:1100px;margin:0 auto;padding:0 1.5rem;position:relative;z-index:1}
+.learn-header{text-align:center;margin-bottom:2.5rem}
+.learn-eyebrow{font-size:.78rem;letter-spacing:3px;text-transform:uppercase;color:#4fc3f7;font-weight:600;margin-bottom:.8rem}
+.learn-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.5rem);font-weight:900;color:#fff;margin-bottom:.6rem}
+.learn-title span{color:#fbbc04}
+.learn-sub{color:#90a4b0;font-size:.95rem;max-width:560px;margin:0 auto 2rem}
+.gc-cat-filter{display:flex;gap:.5rem;flex-wrap:wrap;justify-content:center;margin-bottom:2rem}
+.gc-cat-btn{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:#ccc;padding:.4rem 1rem;border-radius:20px;font-size:.82rem;font-weight:600;cursor:pointer;transition:all .2s;font-family:'DM Sans',sans-serif}
+.gc-cat-btn:hover,.gc-cat-btn.active{background:rgba(66,133,244,.3);color:#fff;border-color:rgba(66,133,244,.5)}
+.gc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.2rem}
+.gc-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:1.5rem;transition:all .25s;text-decoration:none;display:block;position:relative;overflow:hidden}
+.gc-card:hover{transform:translateY(-4px);border-color:rgba(255,255,255,.25);box-shadow:0 12px 40px rgba(0,0,0,.3);background:rgba(255,255,255,.09)}
+.gc-card-top{display:flex;align-items:center;gap:1rem;margin-bottom:1rem}
+.gc-logo{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0}
+.gc-platform{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#4fc3f7;margin-bottom:.2rem}
+.gc-course-name{font-size:.95rem;font-weight:700;color:#fff;line-height:1.3}
+.gc-desc{font-size:.82rem;color:#90a4b0;line-height:1.6;margin-bottom:1rem}
+.gc-footer{display:flex;align-items:center;justify-content:space-between}
+.gc-badge{font-size:.72rem;padding:.2rem .6rem;border-radius:10px;font-weight:700}
+.gc-free{background:rgba(52,168,83,.2);color:#4caf50}
+.gc-cert{background:rgba(66,133,244,.2);color:#64b5f6}
+.gc-arrow{color:rgba(255,255,255,.4);font-size:.9rem;transition:transform .2s}
+.gc-card:hover .gc-arrow{transform:translateX(4px);color:#fff}
+
+footer{background:#0a0f1e;color:#9ca3af;text-align:center;padding:2rem;font-size:.85rem}
+footer .footer-brand{font-family:'Playfair Display',serif;color:#60a5fa;font-size:1.1rem;font-weight:700;margin-bottom:.4rem}
+footer a{color:#9ca3af;text-decoration:none}footer a:hover{color:#60a5fa}
+.reveal{opacity:0;transform:translateY(20px);transition:all .5s}.reveal.visible{opacity:1;transform:translateY(0)}
+.toast{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(20px);background:#0a0f1e;color:#fff;padding:.8rem 1.8rem;border-radius:50px;font-size:.9rem;font-weight:500;z-index:999;opacity:0;transition:all .3s;white-space:nowrap;box-shadow:0 4px 20px rgba(10,15,30,.3)}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* ── INBOX STYLES ── */
+.inbox-wrap{max-width:900px;margin:0 auto;padding:2.5rem 1.5rem}
+.inbox-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem;flex-wrap:wrap;gap:1rem}
+.inbox-title{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:800}
+.inbox-tabs{display:flex;gap:.5rem;background:var(--warm);border:1px solid var(--border);border-radius:10px;padding:.3rem}
+.inbox-tab{padding:.4rem 1rem;border-radius:7px;font-size:.85rem;font-weight:600;cursor:pointer;border:none;background:transparent;color:var(--muted);font-family:'DM Sans',sans-serif;transition:all .2s}
+.inbox-tab.active{background:#fff;color:var(--ink);box-shadow:var(--shadow)}
+.inbox-badge{background:var(--accent);color:#fff;border-radius:50px;font-size:.65rem;padding:.1rem .4rem;margin-left:.3rem;font-weight:700}
+.msg-list{display:flex;flex-direction:column;gap:.8rem}
+.msg-item{background:#fff;border:1.5px solid var(--border);border-radius:14px;padding:1.2rem 1.5rem;cursor:pointer;transition:all .2s;position:relative}
+.msg-item:hover{border-color:var(--accent);box-shadow:var(--shadow)}
+.msg-item.unread{border-left:3px solid #2563eb}
+.msg-item-top{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;margin-bottom:.4rem}
+.msg-sender{font-weight:700;font-size:.95rem;color:var(--ink)}
+.msg-time{font-size:.75rem;color:var(--muted);white-space:nowrap}
+.msg-subject{font-size:.85rem;color:var(--ink);font-weight:600;margin-bottom:.2rem}
+.msg-preview{font-size:.82rem;color:var(--muted);display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden}
+.msg-unread-dot{position:absolute;top:1.2rem;right:1.2rem;width:8px;height:8px;background:var(--accent);border-radius:50%}
+.msg-empty{text-align:center;padding:3rem 2rem;color:var(--muted)}
+.msg-empty-icon{font-size:2.5rem;margin-bottom:.8rem;opacity:.4}
+/* THREAD VIEW */
+.thread-wrap{background:#fff;border:1px solid var(--border);border-radius:16px;overflow:hidden}
+.thread-head{padding:1.2rem 1.5rem;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:1rem}
+.thread-back{background:var(--warm);border:1px solid var(--border);border-radius:8px;padding:.3rem .8rem;font-size:.82rem;font-weight:600;cursor:pointer;color:var(--muted);font-family:'DM Sans',sans-serif;transition:all .2s}
+.thread-back:hover{background:var(--border);color:var(--ink)}
+.thread-subject{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700}
+.thread-teacher{font-size:.82rem;color:var(--muted);margin-top:.1rem}
+.thread-msgs{padding:1.5rem;display:flex;flex-direction:column;gap:1rem;max-height:400px;overflow-y:auto}
+.bubble{max-width:80%;padding:.9rem 1.1rem;border-radius:14px;font-size:.88rem;line-height:1.6}
+.bubble-student{background:var(--warm);border:1px solid var(--border);align-self:flex-start;border-bottom-left-radius:4px}
+.bubble-teacher{background:#2563eb;color:#fff;align-self:flex-end;border-bottom-right-radius:4px}
+.bubble-meta{font-size:.72rem;margin-top:.4rem;opacity:.6}
+.thread-reply{padding:1rem 1.5rem;border-top:1px solid var(--border);display:flex;gap:.7rem;align-items:flex-end}
+.thread-reply textarea{flex:1;border:1.5px solid var(--border);border-radius:10px;padding:.6rem .9rem;font-size:.88rem;font-family:'DM Sans',sans-serif;color:var(--ink);background:var(--paper);outline:none;resize:none;min-height:60px;transition:border-color .2s}
+.thread-reply textarea:focus{border-color:var(--accent)}
+.reply-send-btn{background:#2563eb;color:#fff;border:none;border-radius:10px;padding:.65rem 1.2rem;font-size:.88rem;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;white-space:nowrap;transition:all .2s}
+.reply-send-btn:hover{background:#1d4ed8}
+/* SEND MESSAGE MODAL */
+.send-msg-form .form-group{margin-bottom:.9rem}
+.char-count{font-size:.75rem;color:var(--muted);text-align:right;margin-top:.2rem}
+
+@media(max-width:640px){
+  nav{padding:0 1rem}.nav-logo{font-size:1.05rem}
+  .hero{padding:3rem 1rem 3rem}
+  .profile-card-header{flex-direction:column}
+  .connect-modes-grid{grid-template-columns:1fr}
+  .gc-grid{grid-template-columns:1fr}
+  .stats-strip{gap:2rem}
+}
+/* STEP BANNERS & BOARD QUICK PILLS */
+.step-section-banner{background:linear-gradient(135deg,rgba(26,58,143,.08),rgba(255,255,255,0));border:1px solid rgba(26,58,143,.2);border-radius:12px;padding:1rem 1.2rem;margin-bottom:1.3rem;display:flex;align-items:center;gap:.8rem}
+.step-section-banner>span{font-size:1.6rem;flex-shrink:0}
+.step-section-banner strong{font-size:.92rem;display:block;margin-bottom:.1rem}
+.step-section-banner small{font-size:.77rem;color:var(--muted);line-height:1.4}
+.board-quick-pill{background:#fff;border:1.5px solid var(--border);color:var(--ink);padding:.3rem .8rem;border-radius:20px;font-size:.76rem;font-weight:600;cursor:pointer;transition:all .18s;white-space:nowrap}
+.board-quick-pill:hover{background:#1a3a8f;color:#fff;border-color:#1a3a8f}
+
+/* ── ADMIN PANEL ── */
+.admin-wrap{max-width:1100px;margin:0 auto;padding:2rem 1.5rem}
+.admin-topbar{background:linear-gradient(135deg,#2563eb,#1e40af);color:#fff;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;margin-bottom:2rem;border-radius:12px}
+.admin-topbar h2{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:800;color:#ff9999}
+.admin-stats-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem;margin-bottom:2rem}
+.admin-stat{background:#fff;border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.5rem;box-shadow:var(--shadow)}
+.admin-stat-num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;color:#2563eb}
+.admin-stat-label{font-size:.8rem;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin-top:.2rem}
+.admin-section{background:#fff;border:1px solid var(--border);border-radius:14px;margin-bottom:1.5rem;overflow:hidden;box-shadow:var(--shadow)}
+.admin-section-head{padding:1rem 1.5rem;border-bottom:1px solid #dde3f5;display:flex;align-items:center;justify-content:space-between;background:#f0f4ff}
+.admin-section-title{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700}
+.admin-export-btn{background:var(--success);color:#fff;border:none;border-radius:8px;padding:.4rem .9rem;font-size:.8rem;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s}
+.admin-export-btn:hover{background:#2a6e47}
+.admin-table-wrap{overflow-x:auto}
+.admin-table{width:100%;border-collapse:collapse;font-size:.83rem}
+.admin-table th{background:#2563eb;color:#fff;padding:.7rem 1rem;text-align:left;font-weight:600;font-size:.78rem;text-transform:uppercase;letter-spacing:.5px;white-space:nowrap}
+.admin-table td{padding:.7rem 1rem;border-bottom:1px solid var(--border);vertical-align:top;max-width:200px;word-break:break-word;color:var(--ink)}
+.admin-table tr:last-child td{border-bottom:none}
+.admin-table tr:hover td{background:#f0f4ff}
+.admin-badge{display:inline-block;padding:.15rem .55rem;border-radius:5px;font-size:.7rem;font-weight:700;text-transform:uppercase}
+.admin-badge-real{background:rgba(212,168,75,.2);color:#8a6a10}
+.admin-badge-ai{background:rgba(42,124,138,.15);color:var(--accent2)}
+.admin-badge-new{background:rgba(232,0,28,.12);color:#e8001c}
+.admin-empty{text-align:center;padding:2.5rem;color:var(--muted);font-size:.9rem}
+.admin-login-wrap{max-width:420px;margin:6rem auto;background:#fff;border:1px solid var(--border);border-radius:20px;padding:2.5rem;box-shadow:var(--shadow-lg);text-align:center}
+.admin-login-icon{font-size:3rem;margin-bottom:1rem}
+.admin-login-title{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:800;margin-bottom:.4rem}
+.admin-login-sub{font-size:.85rem;color:var(--muted);margin-bottom:1.5rem}
+.email-status{margin-top:.5rem;font-size:.78rem;padding:.3rem .7rem;border-radius:6px;display:none}
+.email-status.sending{background:rgba(42,124,138,.1);color:var(--accent2);display:block}
+.email-status.sent{background:rgba(58,138,92,.1);color:var(--success);display:block}
+.email-status.failed{background:rgba(200,42,42,.1);color:var(--danger);display:block}
+
+/* ── FOUNDER PHOTO IN HERO ── */
+
+.hero-photo-wrap{flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:1rem;position:relative;z-index:2}
+.hero-photo-ring{position:relative;width:185px;height:185px}
+.hero-photo-ring::before{content:'';position:absolute;inset:-6px;border-radius:50%;
+  background:conic-gradient(#e8001c 0deg,#ff6666 90deg,#1a3a8f 180deg,#4466cc 270deg,#e8001c 360deg);
+  animation:spin 8s linear infinite;z-index:0}
+.hero-photo-ring::after{content:'';position:absolute;inset:-2px;border-radius:50%;background:linear-gradient(135deg,#0d2060,#1a3a8f);z-index:1}
+@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+.hero-photo{width:180px;height:180px;border-radius:50%;object-fit:cover;object-position:top center;border:4px solid #fff;position:relative;z-index:2;display:block;box-shadow:0 8px 40px rgba(0,0,0,.5)}
+.hero-photo-badge{background:linear-gradient(135deg,#e8001c,#b8000f);color:#fff;font-size:.72rem;font-weight:800;padding:.35rem 1rem;border-radius:50px;letter-spacing:1px;text-transform:uppercase;box-shadow:0 4px 16px rgba(232,0,28,.5);display:flex;align-items:center;gap:.35rem}
+.hero-photo-stats{display:flex;gap:1rem;margin-top:.3rem}
+.hero-photo-stat{text-align:center}
+.hero-photo-stat-num{font-size:.95rem;font-weight:800;color:#fff}
+.hero-photo-stat-label{font-size:.65rem;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:.5px}
+
+.hero-trust-row{display:flex;align-items:center;gap:1rem;margin-top:1.2rem;flex-wrap:wrap}
+.hero-trust-item{display:flex;align-items:center;gap:.4rem;font-size:.78rem;color:rgba(255,255,255,.7);font-weight:500}
+.hero-trust-icon{width:20px;height:20px;border-radius:50%;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-size:.7rem}
+@media(max-width:700px){
+  .hero-layout{flex-direction:column;text-align:center}
+  .hero-text-wrap{text-align:center;min-width:unset}
+  .hero-photo-ring{width:150px;height:150px}
+  .hero-photo{width:145px;height:145px}
+  .hero-eyebrow{justify-content:center}
+  .hero p{margin-left:auto;margin-right:auto}
+  .hero-trust-row{justify-content:center}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" onclick="showPage('home')">Private<span>Tutor</span>NearMe</a>
+  <div class="nav-actions" id="navActions">
+    <button class="nav-btn nav-btn-outline" onclick="openModal('login')">Sign In</button>
+    <button class="nav-btn nav-btn-solid" onclick="openModal('register')">Register as Tutor</button>
+  </div>
+</nav>
+
+<!-- HOME PAGE -->
+<div id="page-home" class="page active">
+  <div class="hero">
+    <div class="hero-pattern"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">India's #1 Private Tutor Discovery Platform</div>
+      <h1>Find the <em>Perfect Tutor</em> Near You</h1>
+      <p>Connect with expert private tutors for CBSE, ICSE, IB, skill courses, and more — online or near you across India.</p>
+      <div class="search-wrap" id="heroSearchWrap">
+        <input type="text" id="heroSearch" placeholder="Search by subject, board, location, or tutor name…" oninput="showAC(this.value)" onkeydown="if(event.key==='Enter'){closeAC();doSearch()}" autocomplete="off">
+        <button class="btn-search" onclick="closeAC();doSearch()">🔍 Search</button>
+        <div class="autocomplete-list" id="acList"></div>
+      </div>
+      <div class="hero-tags" id="heroTags"></div>
+    </div>
+  </div>
+
+  <div class="stats-strip">
+    <div class="stat"><div class="stat-num" id="statTeachers">15+</div><div class="stat-label">Registered Tutors</div></div>
+    <div class="stat"><div class="stat-num">30+</div><div class="stat-label">Boards &amp; Courses</div></div>
+    <div class="stat"><div class="stat-num">3</div><div class="stat-label">Teaching Modes</div></div>
+    <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Free for Students</div></div>
+  </div>
+
+  <div class="section">
+    <div class="ai-badge">✨ AI-Powered Tutor Directory</div>
+    <div class="section-title reveal">Browse Tutors by Category</div>
+    <div class="section-sub reveal">Tap a category to filter tutors instantly — AI backend ensures results are always available</div>
+    <div class="ai-categories" id="categoryChips"></div>
+    <div class="ai-suggest-box" id="aiSuggestBox">
+      <div class="ai-suggest-title">🤖 AI Suggestion — Try searching for:</div>
+      <div class="ai-suggest-tags" id="aiSuggestTags"></div>
+    </div>
+    <div class="teachers-grid" id="homeTeachersGrid"></div>
+    <div id="homeNoTeachers" class="no-results hidden">
+      <div class="no-results-icon">🎓</div>
+      <h3>No Teachers Found</h3>
+      <p>Try another category or search term above.</p>
+    </div>
+  </div>
+
+  <!-- LEARN FREE -->
+  <div class="learn-section">
+    <div class="learn-inner">
+      <div class="learn-header">
+        <div class="learn-eyebrow">Completely Free · No Login Required · Official Google Courses</div>
+        <div class="learn-title">Learn Free with <span>Google</span></div>
+        <div class="learn-sub">World-class courses from Google — gain skills, earn certificates, and boost your career at zero cost.</div>
+      </div>
+      <div class="gc-cat-filter" id="gcCatFilter"></div>
+      <div class="gc-grid" id="gcGrid"></div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-brand">PrivateTutorNearMe</div>
+    <p>© 2025 PrivateTutorNearMe · <a href="#">Privacy Policy</a> · <a href="#">Terms of Use</a></p>
+    <p style="margin-top:.5rem;font-size:.78rem;">Empowering tutors &amp; learners across India 🇮🇳</p>
+  </footer>
+</div>
+
+<!-- SEARCH PAGE -->
+<div id="page-search" class="page">
+  <div class="section">
+    <button class="back-btn" style="color:var(--muted);margin-bottom:1rem;" onclick="showPage('home')">← Back to Home</button>
+    <div class="section-title">Search Results</div>
+    <div class="search-bar-inline">
+      <input type="text" id="searchInput" placeholder="Search tutor, board, location…" onkeydown="if(event.key==='Enter')runSearch()">
+      <button onclick="runSearch()">Search</button>
+    </div>
+    <div class="ai-suggest-box" id="searchAiBox">
+      <div class="ai-suggest-title">🤖 AI Suggestion — No exact match. Did you mean:</div>
+      <div class="ai-suggest-tags" id="searchAiTags"></div>
+    </div>
+    <div class="search-result-count" id="searchCount"></div>
+    <div class="teachers-grid" id="searchGrid"></div>
+    <div id="searchNoResults" class="no-results hidden">
+      <div class="no-results-icon">🔎</div>
+      <h3>No teachers found</h3>
+      <p>Try different keywords — board, subject, city, or teaching mode.</p>
+    </div>
+  </div>
+  <footer><div class="footer-brand">PrivateTutorNearMe</div><p>© 2025 PrivateTutorNearMe</p></footer>
+</div>
+
+<!-- PROFILE PAGE -->
+<div id="page-profile" class="page">
+  <div class="profile-hero">
+    <div style="max-width:900px;margin:0 auto;padding:0 1.5rem;">
+      <button class="back-btn" onclick="goBackFromProfile()">← Back</button>
+    </div>
+  </div>
+  <div class="profile-content" id="profileContent"></div>
+  <footer><div class="footer-brand">PrivateTutorNearMe</div><p>© 2025 PrivateTutorNearMe</p></footer>
+</div>
+
+<!-- DASHBOARD PAGE -->
+<div id="page-dashboard" class="page">
+  <div class="dashboard-wrap">
+    <div class="dashboard-header">
+      <div>
+        <div style="font-size:.8rem;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:.2rem;">Tutor Dashboard</div>
+        <div class="dashboard-title" id="dashWelcome">Welcome back!</div>
+      </div>
+      <button class="nav-btn nav-btn-ghost" onclick="viewMyProfile()">👁 View My Profile</button>
+    </div>
+    <div class="dashboard-card">
+      <div class="dashboard-card-title">Your Tutor Profile <button class="edit-icon-btn" onclick="toggleEditProfile()">✏️ Edit</button></div>
+      <div class="profile-preview-mini" id="dashProfilePreview"></div>
+      <div class="edit-form" id="editProfileForm">
+        <div class="form-group"><label class="form-label">Phone Number</label><input class="form-input" id="edit_phone" placeholder="+91 XXXXX XXXXX"></div>
+        <div class="form-group"><label class="form-label">Location / City</label><input class="form-input" id="edit_location" placeholder="e.g. Andheri West, Mumbai"></div>
+        <div class="form-group">
+          <label class="form-label">Board / Course</label>
+          <div class="board-select-wrap">
+            <input class="form-input" id="edit_board" placeholder="Type or select board/course…" oninput="showBoardDD('edit_board','edit_bd')" onfocus="showBoardDD('edit_board','edit_bd')" autocomplete="off">
+            <div class="board-dropdown" id="edit_bd"></div>
+          </div>
+        </div>
+        <div class="form-group"><label class="form-label">Subjects You Teach</label><input class="form-input" id="edit_subjects" placeholder="e.g. Mathematics, Physics, Chemistry"></div>
+        <div class="form-group"><label class="form-label">Teaching Hours / Timing</label><input class="form-input" id="edit_timing" placeholder="e.g. Mon–Sat, 4 PM – 8 PM"></div>
+        <div class="form-group"><label class="form-label">Bio / About</label><textarea class="form-textarea" id="edit_bio" placeholder="Describe your teaching experience…"></textarea></div>
+        <div class="form-group"><label class="form-label">Google Meet Link</label><input class="form-input" id="edit_meet" placeholder="https://meet.google.com/xxx-xxxx-xxx"></div>
+        <div class="form-group">
+          <label class="form-label">Teaching Modes</label>
+          <div class="checkbox-group" id="edit_modes">
+            <label class="checkbox-item" data-val="Online (Google Meet)"><input type="checkbox"> 🖥 Online (Google Meet)</label>
+            <label class="checkbox-item" data-val="Home Tutor"><input type="checkbox"> 🏠 Home Tutor</label>
+            <label class="checkbox-item" data-val="Study Centre"><input type="checkbox"> 🏫 Study Centre</label>
+          </div>
+        </div>
+        <button class="btn-primary" onclick="saveProfile()">Save Changes</button>
+      </div>
+    </div>
+    <div class="dashboard-card">
+      <div class="dashboard-card-title">Profile Summary</div>
+      <div id="dashStats" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1rem;"></div>
+    </div>
+  </div>
+  <footer><div class="footer-brand">PrivateTutorNearMe</div><p>© 2025 PrivateTutorNearMe</p></footer>
+</div>
+
+<!-- INBOX PAGE -->
+<div id="page-inbox" class="page">
+  <div class="inbox-wrap">
+    <div class="inbox-header">
+      <div>
+        <div style="font-size:.8rem;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:.2rem;">Messages</div>
+        <div class="inbox-title">📬 Inbox</div>
+      </div>
+      <div class="inbox-tabs">
+        <button class="inbox-tab active" id="tab-received" onclick="switchInboxTab('received')">Received <span class="inbox-badge" id="unreadBadge" style="display:none">0</span></button>
+        <button class="inbox-tab" id="tab-sent" onclick="switchInboxTab('sent')">Sent</button>
+      </div>
+    </div>
+    <div id="inboxListView">
+      <div class="msg-list" id="msgList"></div>
+      <div class="msg-empty hidden" id="msgEmpty">
+        <div class="msg-empty-icon">📭</div>
+        <div style="font-weight:600;color:var(--ink);margin-bottom:.3rem;">No messages yet</div>
+        <div style="font-size:.85rem;">Messages from students will appear here</div>
+      </div>
+    </div>
+    <div id="inboxThreadView" class="hidden">
+      <div class="thread-wrap">
+        <div class="thread-head">
+          <button class="thread-back" onclick="closeThread()">← Back</button>
+          <div>
+            <div class="thread-subject" id="threadSubject"></div>
+            <div class="thread-teacher" id="threadMeta"></div>
+          </div>
+        </div>
+        <div class="thread-msgs" id="threadMsgs"></div>
+        <div class="thread-reply" id="threadReplyArea">
+          <textarea id="replyText" placeholder="Type your reply…" rows="2" maxlength="500"></textarea>
+          <button class="reply-send-btn" onclick="sendReply()">Send ↗</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer><div class="footer-brand">PrivateTutorNearMe</div><p>© 2025 PrivateTutorNearMe</p></footer>
+</div>
+
+<!-- SEND MESSAGE MODAL -->
+<div id="modal-sendmsg" class="modal-overlay hidden" onclick="closeModalOutside(event,'sendmsg')">
+  <div class="modal">
+    <div class="modal-header">
+      <div>
+        <div class="modal-title">✉️ Message Teacher</div>
+        <div style="font-size:.83rem;color:var(--muted);margin-top:.2rem;">Send a query to <span id="msgTeacherName" style="font-weight:700;color:var(--ink);"></span></div>
+      </div>
+      <button class="modal-close" onclick="closeModal('sendmsg')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div id="msgSendAlert" class="alert alert-error hidden"></div>
+      <div id="studentInfoFields">
+        <div class="form-group">
+          <label class="form-label">Your Name <span>*</span></label>
+          <input class="form-input" id="msg_student_name" placeholder="e.g. Rahul Singh">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Your Email <span>*</span></label>
+          <input class="form-input" id="msg_student_email" type="email" placeholder="yourname@email.com">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Subject <span>*</span></label>
+        <input class="form-input" id="msg_subject" placeholder="e.g. Inquiry about CBSE Maths classes">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Your Message <span>*</span></label>
+        <textarea class="form-textarea" id="msg_body" placeholder="Write your question or inquiry here…" maxlength="500" oninput="updateMsgCount()" style="min-height:110px;"></textarea>
+        <div style="font-size:.75rem;color:var(--muted);text-align:right;margin-top:.2rem;"><span id="msgCharCount">0</span>/500</div>
+      </div>
+      <button class="btn-primary" onclick="doSendMessage()">Send Message ↗</button>
+    </div>
+  </div>
+</div>
+
+<!-- REGISTER MODAL -->
+<div id="modal-register" class="modal-overlay hidden" onclick="closeModalOutside(event,'register')">
+  <div class="modal">
+    <div class="modal-header">
+      <div>
+        <div class="modal-title">Create Tutor Profile</div>
+        <div style="font-size:.83rem;color:var(--muted);margin-top:.2rem;">Join thousands of tutors across India 🇮🇳 &amp; worldwide</div>
+      </div>
+      <button class="modal-close" onclick="closeModal('register')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div id="regAlert" class="alert alert-error hidden"></div>
+
+      <!-- Step Progress Bar -->
+      <div class="step-indicator">
+        <div class="step-dot active" id="sd1"></div>
+        <div class="step-dot" id="sd2"></div>
+        <div class="step-dot" id="sd3"></div>
+        <div class="step-dot" id="sd4"></div>
+        <div class="step-label" id="stepLabel">Step 1 of 4 · Personal Info</div>
+      </div>
+
+      <!-- ── STEP 1 · Personal Info ── -->
+      <div class="form-step active" id="reg-step1">
+        <div class="step-section-banner" style="--bc:rgba(200,98,42,.12);--bi:rgba(200,98,42,.25);">
+          <span>👤</span>
+          <div><strong>Personal Information</strong><br><small>Basic details so students can find and contact you</small></div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Full Name <span>*</span></label>
+          <input class="form-input" id="reg_name" placeholder="e.g. Priya Sharma">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email Address <span>*</span></label>
+          <input class="form-input" id="reg_email" type="email" placeholder="yourname@email.com">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Phone Number <span>*</span></label>
+          <input class="form-input" id="reg_phone" placeholder="+91 XXXXX XXXXX">
+        </div>
+        <button class="btn-primary" onclick="regStep1()">Continue → Location</button>
+      </div>
+
+      <!-- ── STEP 2 · Location ── -->
+      <div class="form-step" id="reg-step2">
+        <div class="step-section-banner" style="--bc:rgba(42,124,138,.12);--bi:rgba(42,124,138,.25);">
+          <span>📍</span>
+          <div><strong>Your Location</strong><br><small>Helps students nearby discover you easily</small></div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Country <span>*</span></label>
+          <select class="form-select" id="reg_country" onchange="onCountryChange()">
+            <option value="">— Select Country —</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">State / Region <span>*</span></label>
+          <select class="form-select" id="reg_region" onchange="onRegionChange()" disabled>
+            <option value="">— Select State / Region —</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">City <span>*</span></label>
+          <select class="form-select" id="reg_city" disabled>
+            <option value="">— Select City —</option>
+          </select>
+          <div class="form-hint">Can't find your city? <span class="form-link" onclick="showCustomCity()">Enter it manually</span></div>
+        </div>
+
+        <div class="form-group hidden" id="custom_city_wrap">
+          <label class="form-label">Your City / Area <span>*</span></label>
+          <input class="form-input" id="reg_city_custom" placeholder="Type your city or area name">
+        </div>
+
+        <!-- Live location preview pill -->
+        <div id="loc_preview" class="hidden" style="background:var(--warm);border:1px solid var(--border);border-radius:10px;padding:.7rem 1rem;font-size:.88rem;color:var(--ink);display:flex;align-items:center;gap:.5rem;margin-bottom:1rem;">
+          📍 <span id="loc_preview_text" style="font-weight:600;"></span>
+        </div>
+
+        <div style="display:flex;gap:.6rem;">
+          <button class="btn-secondary" onclick="showRegStep(1)" style="width:auto;padding:.7rem 1.2rem;margin-top:.5rem;">← Back</button>
+          <button class="btn-primary" onclick="regStep2()" style="margin-top:.5rem;">Continue → Course</button>
+        </div>
+      </div>
+
+      <!-- ── STEP 3 · Board / Course & Teaching ── -->
+      <div class="form-step" id="reg-step3">
+        <div class="step-section-banner" style="--bc:rgba(212,168,75,.12);--bi:rgba(212,168,75,.35);">
+          <span>📚</span>
+          <div><strong>Board / Course &amp; Teaching Details</strong><br><small>Select what you teach from 50+ boards &amp; skill courses</small></div>
+        </div>
+
+        <!-- Board / Course smart picker -->
+        <div class="form-group">
+          <label class="form-label">Board / Course <span>*</span></label>
+          <div class="board-select-wrap">
+            <input class="form-input" id="reg_board"
+              placeholder="🔍  Type to search — CBSE, IB, Digital Marketing, Python…"
+              oninput="showBoardDD('reg_board','reg_bd')"
+              onfocus="showBoardDD('reg_board','reg_bd')"
+              autocomplete="off">
+            <div class="board-dropdown" id="reg_bd"></div>
+          </div>
+          <div class="form-hint">Choose from the dropdown or type your own board / course name</div>
+        </div>
+
+        <!-- Quick category pills for fast board selection -->
+        <div style="margin-bottom:1rem;">
+          <div style="font-size:.75rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.8px;margin-bottom:.5rem;">Quick Select Category</div>
+          <div style="display:flex;flex-wrap:wrap;gap:.4rem;" id="boardQuickPills"></div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Subjects You Teach <span>*</span></label>
+          <input class="form-input" id="reg_subjects" placeholder="e.g. Mathematics, Physics, Chemistry (auto-filled on board select)">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Teaching Hours / Timing</label>
+          <input class="form-input" id="reg_timing" placeholder="e.g. Mon–Sat, 4 PM – 8 PM">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Bio / About Yourself</label>
+          <textarea class="form-textarea" id="reg_bio" placeholder="Tell students about your experience, qualifications, teaching style…"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Google Meet Link <span style="color:var(--muted);font-weight:400;">(optional)</span></label>
+          <input class="form-input" id="reg_meet" placeholder="https://meet.google.com/xxx-xxxx-xxx">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Teaching Mode <span>*</span></label>
+          <div class="checkbox-group" id="reg_modes">
+            <label class="checkbox-item" data-val="Online (Google Meet)"><input type="checkbox"> 🖥 Online (Google Meet)</label>
+            <label class="checkbox-item" data-val="Home Tutor"><input type="checkbox"> 🏠 Home Tutor</label>
+            <label class="checkbox-item" data-val="Study Centre"><input type="checkbox"> 🏫 Study Centre</label>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:.6rem;">
+          <button class="btn-secondary" onclick="showRegStep(2)" style="width:auto;padding:.7rem 1.2rem;margin-top:.5rem;">← Back</button>
+          <button class="btn-primary" onclick="regStep3()" style="margin-top:.5rem;">Continue → Password</button>
+        </div>
+      </div>
+
+      <!-- ── STEP 4 · Password ── -->
+      <div class="form-step" id="reg-step4">
+        <div style="text-align:center;margin-bottom:1.5rem;">
+          <div style="font-size:2.5rem;margin-bottom:.5rem;">🔐</div>
+          <div style="font-weight:700;font-size:1.1rem;">Almost done!</div>
+          <div style="color:var(--muted);font-size:.87rem;margin-top:.3rem;">Set a secure password for your teacher dashboard</div>
+        </div>
+        <!-- Summary pill -->
+        <div id="reg_summary" style="background:var(--warm);border:1px dashed var(--border);border-radius:12px;padding:1rem 1.2rem;margin-bottom:1.2rem;font-size:.84rem;line-height:1.8;color:var(--muted);"></div>
+        <div class="form-group">
+          <label class="form-label">Password <span>*</span></label>
+          <input class="form-input" id="reg_password" type="password" placeholder="Minimum 6 characters">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Confirm Password <span>*</span></label>
+          <input class="form-input" id="reg_confirm" type="password" placeholder="Re-enter password">
+        </div>
+        <div style="display:flex;gap:.6rem;">
+          <button class="btn-secondary" onclick="showRegStep(3)" style="width:auto;padding:.7rem 1.2rem;margin-top:.5rem;">← Back</button>
+          <button class="btn-primary" onclick="doRegister()" style="margin-top:.5rem;">🎉 Create My Profile</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- LOGIN MODAL -->
+<div id="modal-login" class="modal-overlay hidden" onclick="closeModalOutside(event,'login')">
+  <div class="modal">
+    <div class="modal-header">
+      <div><div class="modal-title">Tutor Sign In</div><div style="font-size:.83rem;color:var(--muted);margin-top:.2rem;">Access your teacher dashboard</div></div>
+      <button class="modal-close" onclick="closeModal('login')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div id="loginAlert" class="alert alert-error hidden"></div>
+      <div class="form-group"><label class="form-label">Email Address</label><input class="form-input" id="login_email" type="email" placeholder="yourname@email.com" onkeydown="if(event.key==='Enter')doLogin()"></div>
+      <div class="form-group"><label class="form-label">Password</label><input class="form-input" id="login_password" type="password" placeholder="Your password" onkeydown="if(event.key==='Enter')doLogin()"></div>
+      <button class="btn-primary" onclick="doLogin()">Sign In →</button>
+      <div class="form-divider">or</div>
+      <div style="text-align:center;font-size:.87rem;color:var(--muted);">New teacher? <a class="form-link" onclick="closeModal('login');openModal('register');">Register here</a></div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ══════════════════════════════════════════
+// AI KNOWLEDGE BASE
+// ══════════════════════════════════════════
+const AI_BOARDS = [
+  {group:'School Boards – National',items:[{name:'CBSE',badge:'National'},{name:'CISCE (ICSE)',badge:'National'},{name:'NIOS',badge:'Open'}]},
+  {group:'School Boards – State',items:[
+    {name:'Maharashtra State Board (SSC/HSC)',badge:'State'},{name:'UP Board (UPMSP)',badge:'State'},
+    {name:'Karnataka State Board (SSLC)',badge:'State'},{name:'Tamil Nadu State Board (TNSB)',badge:'State'},
+    {name:'West Bengal Board (WBBSE/WBCHSE)',badge:'State'},{name:'Gujarat Secondary Board (GSEB)',badge:'State'},
+    {name:'Rajasthan Board (RBSE)',badge:'State'},{name:'MP Board (MPBSE)',badge:'State'},
+    {name:'Bihar Board (BSEB)',badge:'State'},{name:'AP Board (BSEAP)',badge:'State'},
+    {name:'Telangana Board (BSETS)',badge:'State'},{name:'Kerala Board (DHSE)',badge:'State'},
+    {name:'Delhi Board (DBSE)',badge:'State'},
+  ]},
+  {group:'International Curricula',items:[
+    {name:'IB (International Baccalaureate)',badge:'International'},{name:'Cambridge IGCSE / A Level',badge:'International'},
+    {name:'Edexcel (Pearson)',badge:'International'},
+  ]},
+  {group:'Competitive Exam Prep',items:[
+    {name:'JEE Main & Advanced',badge:'Entrance'},{name:'NEET (Medical)',badge:'Entrance'},
+    {name:'UPSC Civil Services',badge:'Entrance'},{name:'SSC / Banking / Railway',badge:'Entrance'},
+    {name:'CAT / MBA Entrance',badge:'Entrance'},{name:'GATE Exam',badge:'Entrance'},
+    {name:'NDA / Defence Exams',badge:'Entrance'},{name:'CLAT (Law Entrance)',badge:'Entrance'},
+    {name:'CUET (UG Entrance)',badge:'Entrance'},
+  ]},
+  {group:'Technology & IT Skills',items:[
+    {name:'Computer Centre / IT Training',badge:'Skill'},{name:'Web Development (HTML/CSS/JS)',badge:'Skill'},
+    {name:'Python Programming',badge:'Skill'},{name:'Data Science & AI / ML',badge:'Skill'},
+    {name:'Java / C++ Programming',badge:'Skill'},{name:'Mobile App Development',badge:'Skill'},
+    {name:'Cybersecurity',badge:'Skill'},{name:'Cloud Computing (AWS/Azure)',badge:'Skill'},
+    {name:'MS Office / Tally / Excel',badge:'Skill'},{name:'Graphic Design (Canva/Photoshop)',badge:'Skill'},
+    {name:'Video Editing',badge:'Skill'},
+  ]},
+  {group:'Digital Marketing & Business',items:[
+    {name:'Digital Marketing',badge:'Skill'},{name:'SEO & Content Marketing',badge:'Skill'},
+    {name:'Social Media Marketing',badge:'Skill'},{name:'Google Ads & Facebook Ads',badge:'Skill'},
+    {name:'E-commerce & Dropshipping',badge:'Skill'},{name:'Accounting & Finance',badge:'Skill'},
+  ]},
+  {group:'Language & Communication',items:[
+    {name:'Spoken English',badge:'Language'},{name:'Hindi Language',badge:'Language'},
+    {name:'French / German / Spanish',badge:'Language'},{name:'Sanskrit',badge:'Language'},
+    {name:'IELTS / TOEFL Preparation',badge:'Language'},{name:'Public Speaking',badge:'Language'},
+  ]},
+  {group:'Arts, Music & Fitness',items:[
+    {name:'Classical Music / Vocal Training',badge:'Arts'},{name:'Guitar / Piano / Keyboard',badge:'Arts'},
+    {name:'Classical Dance (Bharatanatyam)',badge:'Arts'},{name:'Drawing & Painting',badge:'Arts'},
+    {name:'Yoga & Meditation',badge:'Fitness'},{name:'Chess / Rubik\'s Cube',badge:'Sports'},
+  ]},
+  {group:'Early Childhood & Foundation',items:[
+    {name:'Kindergarten / Pre-School',badge:'Foundation'},{name:'Abacus & Mental Maths',badge:'Foundation'},
+    {name:'Handwriting Improvement',badge:'Foundation'},{name:'Vedic Mathematics',badge:'Foundation'},
+  ]},
+];
+
+const ALL_BOARDS_FLAT = AI_BOARDS.flatMap(g=>g.items.map(i=>({...i,group:g.group})));
+
+const BOARD_SUBJECTS = {
+  'CBSE':'Mathematics, Science, Social Studies, English, Hindi',
+  'CISCE (ICSE)':'English Literature, Mathematics, History, Geography, Biology, Chemistry, Physics',
+  'Tamil Nadu State Board (TNSB)':'Mathematics, Physics, Chemistry, Biology, Tamil, English',
+  'IB (International Baccalaureate)':'IB Mathematics AA, IB Physics HL, IB Chemistry, TOK, Extended Essay',
+  'JEE Main & Advanced':'Mathematics, Physics, Chemistry (PCM)',
+  'NEET (Medical)':'Biology, Physics, Chemistry',
+  'UPSC Civil Services':'GS Paper 1, GS Paper 2, GS Paper 3, Essay, Current Affairs',
+  'Digital Marketing':'SEO, Social Media Marketing, Google Ads, Content Strategy, Email Marketing',
+  'Python Programming':'Python Basics, Data Structures, OOP, Django, Pandas, NumPy',
+  'Web Development (HTML/CSS/JS)':'HTML5, CSS3, JavaScript, React, Node.js',
+  'Spoken English':'Spoken English, Grammar, Pronunciation, IELTS, Public Speaking',
+  'Classical Music / Vocal Training':'Hindustani Classical, Riyaz, Light Music, Bhajans',
+  'Yoga & Meditation':'Hatha Yoga, Pranayama, Mindfulness, Stress Management',
+  'Abacus & Mental Maths':'Abacus Levels 1-10, Vedic Maths, Mental Arithmetic',
+  'MS Office / Tally / Excel':'Tally ERP9, MS Excel Advanced, Word, PowerPoint, GST Filing',
+  'Data Science & AI / ML':'Python, pandas, scikit-learn, TensorFlow, Statistics',
+};
+
+const AI_EXPAND = {
+  'cbse':['Mathematics','Science','English','CBSE','Hindi'],
+  'icse':['CISCE (ICSE)','English Literature','History','Biology'],
+  'ib':['IB Mathematics','IB Physics HL','TOK'],
+  'jee':['JEE Main & Advanced','Physics','Chemistry','Mathematics'],
+  'neet':['NEET (Medical)','Biology','Chemistry','Physics'],
+  'digital':['Digital Marketing','SEO','Social Media','Google Ads'],
+  'marketing':['Digital Marketing','Social Media Marketing','SEO & Content Marketing'],
+  'coding':['Python Programming','Web Development','Java / C++ Programming'],
+  'python':['Python Programming','Data Science & AI / ML'],
+  'web':['Web Development (HTML/CSS/JS)','React','Node.js'],
+  'english':['Spoken English','IELTS / TOEFL Preparation','English Literature'],
+  'music':['Classical Music / Vocal Training','Guitar / Piano / Keyboard'],
+  'yoga':['Yoga & Meditation','Pranayama','Mindfulness'],
+  'upsc':['UPSC Civil Services','GS Paper 1','Current Affairs'],
+  'near me':['CBSE','ICSE','Digital Marketing','Spoken English','Yoga & Meditation'],
+  'tally':['MS Office / Tally / Excel','Accounting & Finance'],
+  'abacus':['Abacus & Mental Maths','Vedic Mathematics'],
+  'dance':['Classical Dance (Bharatanatyam)','Drawing & Painting'],
+  'science':['Mathematics, Science, Social Studies','Biology','Chemistry','Physics'],
+};
+
+// AI Virtual Teachers (fill backend so searches always have results)
+const AI_TEACHERS = [
+  {name:'Aisha Verma',email:'aisha.v@ptm.ai',phone:'+91 98100 11001',location:'Bandra West, Mumbai',board:'CBSE',subjects:'Mathematics, Science, Social Studies, English',timing:'Mon–Sat 3–7 PM',bio:'10 years of CBSE teaching experience. Expert in conceptual learning and board exam preparation with 95%+ student results consistently.',meetLink:'https://meet.google.com/ptm-aisha-001',modes:['Online (Google Meet)','Home Tutor'],password:'x',isAI:true,createdAt:'2025-01-01'},
+  {name:'Ravi Nair',email:'ravi.n@ptm.ai',phone:'+91 98200 22002',location:'Koramangala, Bangalore',board:'CISCE (ICSE)',subjects:'English Literature, History, Geography, Economics',timing:'Tue–Sun 5–9 PM',bio:'Former ICSE school principal with 18 years of experience. Specializes in English Literature and scoring 90+ in Humanities subjects.',meetLink:'',modes:['Home Tutor','Study Centre'],password:'x',isAI:true,createdAt:'2025-01-02'},
+  {name:'Meera Pillai',email:'meera.p@ptm.ai',phone:'+91 98300 33003',location:'T-Nagar, Chennai',board:'Tamil Nadu State Board (TNSB)',subjects:'Mathematics, Physics, Chemistry',timing:'Mon–Fri 4–8 PM',bio:'Experienced state board tutor with deep knowledge of TN syllabus. Helped 200+ students crack state-level entrance exams.',meetLink:'https://meet.google.com/ptm-meera-003',modes:['Online (Google Meet)','Study Centre'],password:'x',isAI:true,createdAt:'2025-01-03'},
+  {name:'Ankit Joshi',email:'ankit.j@ptm.ai',phone:'+91 98400 44004',location:'Navrangpura, Ahmedabad',board:'JEE Main & Advanced',subjects:'Physics, Chemistry, Mathematics (PCM)',timing:'Mon–Sat 6–9 AM & 6–8 PM',bio:'IIT Bombay alumnus. 8 years of JEE coaching. Students placed in IITs and NITs. Both batch and 1-on-1 sessions available.',meetLink:'https://meet.google.com/ptm-ankit-004',modes:['Online (Google Meet)','Study Centre'],password:'x',isAI:true,createdAt:'2025-01-04'},
+  {name:'Priya Mehta',email:'priya.m@ptm.ai',phone:'+91 98500 55005',location:'Lajpat Nagar, Delhi',board:'Digital Marketing',subjects:'SEO, Google Ads, Social Media, Content Strategy, Analytics',timing:'Mon–Fri 10 AM–6 PM',bio:'Google & Meta certified marketer. 7 years in digital marketing. Hands-on training with live campaigns and placement support.',meetLink:'https://meet.google.com/ptm-priya-005',modes:['Online (Google Meet)','Study Centre'],password:'x',isAI:true,createdAt:'2025-01-05'},
+  {name:'Suresh Rao',email:'suresh.r@ptm.ai',phone:'+91 98600 66006',location:'Kothrud, Pune',board:'Python Programming',subjects:'Python Basics, Data Structures, Django, AI/ML Intro',timing:'Weekends 9 AM–1 PM',bio:'Software engineer turned educator. 5 years teaching Python. Projects-based learning approach with GitHub portfolio building.',meetLink:'https://meet.google.com/ptm-suresh-006',modes:['Online (Google Meet)','Home Tutor'],password:'x',isAI:true,createdAt:'2025-01-06'},
+  {name:'Fatima Sheikh',email:'fatima.s@ptm.ai',phone:'+91 98700 77007',location:'Shivajinagar, Pune',board:'Spoken English',subjects:'Spoken English, Grammar, IELTS, Public Speaking, Personality',timing:'Mon–Sat 8–10 AM & 7–9 PM',bio:'British Council certified English trainer. 12 years experience. Helped professionals and students achieve IELTS 7+ band scores.',meetLink:'https://meet.google.com/ptm-fatima-007',modes:['Online (Google Meet)','Home Tutor','Study Centre'],password:'x',isAI:true,createdAt:'2025-01-07'},
+  {name:'Deepak Sharma',email:'deepak.s@ptm.ai',phone:'+91 98800 88008',location:'Gomti Nagar, Lucknow',board:'UPSC Civil Services',subjects:'GS Paper 1, 2, 3, 4, Current Affairs, Essay, CSAT',timing:'Mon–Sun 7–9 AM & 8–10 PM',bio:'IAS aspirant mentor with 6 years track record. Personalized study plans, mock interviews, and answer-writing workshops.',meetLink:'https://meet.google.com/ptm-deepak-008',modes:['Online (Google Meet)','Study Centre'],password:'x',isAI:true,createdAt:'2025-01-08'},
+  {name:'Lakshmi Iyer',email:'lakshmi.i@ptm.ai',phone:'+91 98900 99009',location:'Anna Nagar, Chennai',board:'Abacus & Mental Maths',subjects:'Abacus Level 1-10, Vedic Maths, Speed Calculation',timing:'Mon–Fri 3:30–6:30 PM',bio:'Certified Abacus trainer for 9 years. Kids aged 5–14. Improves concentration, memory and mathematical confidence dramatically.',meetLink:'',modes:['Home Tutor','Study Centre'],password:'x',isAI:true,createdAt:'2025-01-09'},
+  {name:'Karan Malhotra',email:'karan.m@ptm.ai',phone:'+91 99000 10010',location:'Sector 15, Gurgaon',board:'Web Development (HTML/CSS/JS)',subjects:'HTML5, CSS3, JavaScript, React, Node.js',timing:'Tue–Sat 6–9 PM',bio:'Full-stack developer with 10 years industry experience. Learn by building 5 real projects with GitHub portfolio.',meetLink:'https://meet.google.com/ptm-karan-010',modes:['Online (Google Meet)','Study Centre'],password:'x',isAI:true,createdAt:'2025-01-10'},
+  {name:'Neha Kulkarni',email:'neha.k@ptm.ai',phone:'+91 99100 11011',location:'Deccan, Pune',board:'Classical Music / Vocal Training',subjects:'Hindustani Classical, Light Music, Bhajans, Riyaz',timing:'Mon–Sat 7–9 AM',bio:'Gandharva Mahavidyalaya graduate. 15 years teaching Hindustani classical music to beginners and advanced students.',meetLink:'https://meet.google.com/ptm-neha-011',modes:['Online (Google Meet)','Home Tutor'],password:'x',isAI:true,createdAt:'2025-01-11'},
+  {name:'Sanjay Gupta',email:'sanjay.g@ptm.ai',phone:'+91 99200 22012',location:'Gomti Nagar, Lucknow',board:'NEET (Medical)',subjects:'Biology, Chemistry, Physics (NEET pattern)',timing:'Mon–Sat 5–7 AM & 7–9 PM',bio:'NEET specialist coach with 11 years experience. 150+ students in MBBS colleges. Chapter-wise and full-length mock tests.',meetLink:'https://meet.google.com/ptm-sanjay-012',modes:['Online (Google Meet)','Study Centre'],password:'x',isAI:true,createdAt:'2025-01-12'},
+  {name:'Amrita Das',email:'amrita.d@ptm.ai',phone:'+91 99300 33013',location:'Salt Lake, Kolkata',board:'IB (International Baccalaureate)',subjects:'IB Mathematics AA/AI, Physics HL, TOK, Extended Essay',timing:'Weekdays 3–7 PM',bio:'Former IB examiner with 13 years experience. Expert in HL mathematics and extended essay supervision.',meetLink:'https://meet.google.com/ptm-amrita-013',modes:['Online (Google Meet)','Home Tutor'],password:'x',isAI:true,createdAt:'2025-01-13'},
+  {name:'Vikram Patel',email:'vikram.p@ptm.ai',phone:'+91 99400 44014',location:'Satellite, Ahmedabad',board:'MS Office / Tally / Excel',subjects:'Tally ERP9, MS Excel Advanced, Word, PowerPoint, GST Filing',timing:'Mon–Fri 9 AM–5 PM',bio:'Commerce and IT trainer running a successful computer centre since 2010. Practical training for students and working professionals.',meetLink:'',modes:['Study Centre'],password:'x',isAI:true,createdAt:'2025-01-14'},
+  {name:'Rohini Menon',email:'rohini.m@ptm.ai',phone:'+91 99500 55015',location:'Indiranagar, Bangalore',board:'Yoga & Meditation',subjects:'Hatha Yoga, Pranayama, Mindfulness, Stress Management',timing:'Mon–Sat 6–8 AM & 6–7 PM',bio:'Yoga Alliance certified instructor with 8 years experience. Personalized sessions for all ages focusing on wellness and mental clarity.',meetLink:'https://meet.google.com/ptm-rohini-015',modes:['Online (Google Meet)','Home Tutor'],password:'x',isAI:true,createdAt:'2025-01-15'},
+];
+
+// Category chips
+const CATS = [
+  {label:'All',key:''},{label:'CBSE',key:'cbse'},{label:'ICSE',key:'icse'},
+  {label:'IB',key:'ib'},{label:'JEE / NEET',key:'jee'},{label:'Digital Marketing',key:'digital marketing'},
+  {label:'Coding / IT',key:'python'},{label:'Spoken English',key:'spoken english'},
+  {label:'Music',key:'music'},{label:'UPSC',key:'upsc'},{label:'Yoga',key:'yoga'},
+  {label:'Abacus',key:'abacus'},{label:'Tally',key:'tally'},
+];
+
+// Google Free Courses
+const GC_COURSES = [
+  {name:'Fundamentals of Digital Marketing',platform:'Google Digital Garage',icon:'🎯',color:'#4285f4',desc:'24 modules covering SEO, email marketing, and social media. Industry-recognised free certificate.',url:'https://learndigital.withgoogle.com/digitalgarage/course/digital-marketing',cat:'Marketing',cert:true},
+  {name:'Google AI Essentials',platform:'Google Career Certificates',icon:'🤖',color:'#34a853',desc:'Use AI tools like Gemini to boost productivity. Shareable certificate from Google.',url:'https://grow.google/certificates/',cat:'AI & Tech',cert:true},
+  {name:'Google IT Support Certificate',platform:'Coursera × Google',icon:'💻',color:'#ea4335',desc:'Entry-level IT support training — troubleshooting, networking, OS fundamentals, and security.',url:'https://grow.google/certificates/',cat:'AI & Tech',cert:true},
+  {name:'Google UX Design Certificate',platform:'Coursera × Google',icon:'🎨',color:'#4285f4',desc:'Design thinking, Figma, wireframes, and user research — build a portfolio from scratch.',url:'https://grow.google/certificates/',cat:'Design',cert:true},
+  {name:'Google Project Management',platform:'Coursera × Google',icon:'📋',color:'#34a853',desc:'Master Agile, Scrum, risk management, and stakeholder communication. No experience needed.',url:'https://grow.google/certificates/',cat:'Business',cert:true},
+  {name:'Machine Learning Crash Course',platform:'Google for Developers',icon:'🧠',color:'#ea4335',desc:'Google engineers teach ML fundamentals with TensorFlow. 15 hours of interactive content.',url:'https://developers.google.com/machine-learning/crash-course',cat:'AI & Tech'},
+  {name:'Android Development with Kotlin',platform:'Google Developers',icon:'📱',color:'#34a853',desc:'Build Android apps from zero. Official curriculum from Google developer experts.',url:'https://developer.android.com/courses',cat:'AI & Tech',cert:true},
+  {name:'Google Cybersecurity Certificate',platform:'Coursera × Google',icon:'🔐',color:'#4285f4',desc:'Entry-level cybersecurity skills — network security, Python scripting, and SIEM tools.',url:'https://grow.google/certificates/',cat:'AI & Tech',cert:true},
+  {name:'Advanced Google Analytics (GA4)',platform:'Google Analytics Academy',icon:'📈',color:'#fbbc04',desc:'Deep-dive into GA4, custom reports, attribution modelling, and ecommerce tracking.',url:'https://analytics.google.com/analytics/academy/',cat:'Marketing'},
+  {name:'Google Cloud Digital Leader',platform:'Google Cloud Skills Boost',icon:'☁️',color:'#4285f4',desc:'Understand cloud technology and how Google Cloud products support business transformation.',url:'https://cloud.google.com/training',cat:'AI & Tech',cert:true},
+  {name:'Grow with Google — Career Development',platform:'Google Career Garage',icon:'🚀',color:'#34a853',desc:'Resume building, job searching, interview prep, and professional networking skills.',url:'https://grow.google/',cat:'Business'},
+  {name:'Google Ads Measurement Certification',platform:'Google Skillshop',icon:'💰',color:'#fbbc04',desc:'Master Google Ads attribution, conversion tracking, and performance measurement. Free cert.',url:'https://skillshop.exceedlms.com/',cat:'Marketing',cert:true},
+  {name:'Introduction to Generative AI',platform:'Google Cloud',icon:'✨',color:'#ea4335',desc:'Understand what generative AI is, how it differs from traditional ML, and how it is applied today.',url:'https://cloud.google.com/training',cat:'AI & Tech'},
+  {name:'Data Science with Python (Kaggle)',platform:'Kaggle × Google',icon:'🐍',color:'#34a853',desc:'Python, pandas, matplotlib, and machine learning on Kaggle — completely free and hands-on.',url:'https://www.kaggle.com/learn',cat:'Data'},
+  {name:'Introduction to Data Analytics',platform:'Google Career Certificates',icon:'📊',color:'#fbbc04',desc:'Hands-on data analytics training with real-world cases. Prepare for entry-level analytics roles.',url:'https://grow.google/certificates/',cat:'Data',cert:true},
+  {name:'Fundamentals of Cybersecurity',platform:'Google Digital Garage',icon:'🛡️',color:'#ea4335',desc:'Understand online threats, password security, phishing defence, and data protection basics.',url:'https://learndigital.withgoogle.com/digitalgarage',cat:'AI & Tech'},
+];
+const GC_CATS = ['All','AI & Tech','Marketing','Data','Design','Business'];
+
+// ══════════════════════════════════════════
+// DATA LAYER
+// ══════════════════════════════════════════
+const DB = {
+  get teachers(){ return JSON.parse(localStorage.getItem('ptn_teachers')||'[]') },
+  set teachers(v){ localStorage.setItem('ptn_teachers',JSON.stringify(v)) },
+  get session(){ return JSON.parse(localStorage.getItem('ptn_session')||'null') },
+  set session(v){ localStorage.setItem('ptn_session',JSON.stringify(v)) },
+  clearSession(){ localStorage.removeItem('ptn_session') },
+  get messages(){ return JSON.parse(localStorage.getItem('ptn_messages')||'[]') },
+  set messages(v){ localStorage.setItem('ptn_messages',JSON.stringify(v)) },
+  getMessages(){ return this.messages; },
+  getAll(){
+    const real=this.teachers;
+    const realEmails=new Set(real.map(t=>t.email));
+    return [...real,...AI_TEACHERS.filter(t=>!realEmails.has(t.email))];
+  }
+};
+
+let curPage='home', profileReturnPage='home', activeCat='', activeGcCat='All';
+
+// ══════════════════════════════════════════
+// NAVIGATION
+// ══════════════════════════════════════════
+function showPage(name){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('page-'+name).classList.add('active');
+  curPage=name; window.scrollTo(0,0);
+  if(name==='home'){activeCat='';renderCatChips();renderHomeTeachers();renderGC();}
+  if(name==='dashboard') renderDashboard();
+  if(name==='inbox') renderInbox();
+  if(name==='admin'){ if(adminLoggedIn) renderAdminPanel(); }
+  if(name==='admin'){ if(adminLoggedIn) renderAdminPanel(); }
+  setupReveal();
+}
+function updateNav(){
+  const s=DB.session, nav=document.getElementById('navActions');
+  if(s){
+    const unread=DB.getMessages().filter(m=>m.toEmail===s.email&&!m.read).length;
+    nav.innerHTML=`<div class="nav-user-info"><div class="nav-avatar">${s.name[0].toUpperCase()}</div><span>${s.name.split(' ')[0]}</span></div>
+      <button class="nav-btn nav-btn-outline" onclick="showPage('dashboard')">Dashboard</button>
+      <button class="nav-btn nav-btn-outline" onclick="showPage('inbox')" style="position:relative;">
+        📬 Inbox${unread>0?`<span style="position:absolute;top:-6px;right:-6px;background:var(--accent);color:#fff;border-radius:50%;width:18px;height:18px;font-size:.65rem;display:flex;align-items:center;justify-content:center;font-weight:700;">${unread}</span>`:''}
+      </button>
+      <button class="nav-btn nav-btn-ghost" onclick="logout()">Sign Out</button>`;
+  } else {
+    nav.innerHTML=`<button class="nav-btn nav-btn-outline" onclick="openModal('login')">Sign In</button>
+      <button class="nav-btn nav-btn-solid" onclick="openModal('register')">Register as Tutor</button>`;
+  }
+}
+
+// ══════════════════════════════════════════
+// CATEGORY CHIPS
+// ══════════════════════════════════════════
+function renderCatChips(){
+  document.getElementById('categoryChips').innerHTML=CATS.map(c=>
+    `<button class="ai-cat-chip${activeCat===c.key?' active':''}" onclick="filterCat('${c.key}')">${c.label}</button>`
+  ).join('');
+}
+function filterCat(key){ activeCat=key; renderCatChips(); renderHomeTeachers(); }
+
+// ══════════════════════════════════════════
+// TEACHER CARDS
+// ══════════════════════════════════════════
+function teacherCard(t){
+  const subs=(t.subjects||'').split(',').map(s=>s.trim()).filter(Boolean).slice(0,4);
+  const modes=t.modes||[];
+  return `<div class="teacher-card" onclick="viewProfile('${t.email}')">
+    <div class="card-header"><span class="card-header-badge ${t.isAI?'badge-ai':'badge-real'}">${t.isAI?'AI Listed':'Verified'}</span></div>
+    <div class="card-body">
+      <div class="card-avatar">${t.name[0].toUpperCase()}</div>
+      <div class="card-name">${esc(t.name)}</div>
+      <div class="card-location">📍 ${esc(t.location||'')}</div>
+      <div class="card-subjects">${subs.map(s=>`<span class="subject-tag">${esc(s)}</span>`).join('')}</div>
+      <div class="card-modes">
+        ${modes.includes('Online (Google Meet)')?'<span class="mode-badge mode-online">🖥 Online</span>':''}
+        ${modes.includes('Home Tutor')?'<span class="mode-badge mode-home">🏠 Home</span>':''}
+        ${modes.includes('Study Centre')?'<span class="mode-badge mode-centre">🏫 Centre</span>':''}
+      </div>
+      <div class="card-bio">${esc(t.bio||'Experienced teacher ready to help students excel.')}</div>
+      <div class="card-footer">
+        <span class="card-board">📚 ${esc(t.board||'')}</span>
+        <span class="view-profile-btn">View Profile →</span>
+      </div>
+    </div>
+  </div>`;
+}
+function renderHomeTeachers(){
+  const all=DB.getAll(), q=activeCat.toLowerCase();
+  const filtered=q===''?all:all.filter(t=>[t.name,t.board,t.subjects,t.location,...(t.modes||[])].some(f=>f&&f.toLowerCase().includes(q)));
+  const grid=document.getElementById('homeTeachersGrid'), nr=document.getElementById('homeNoTeachers'), ab=document.getElementById('aiSuggestBox');
+  document.getElementById('statTeachers').textContent=DB.teachers.length||'15+';
+  if(filtered.length===0){grid.innerHTML='';nr.classList.remove('hidden');showAISuggest(ab,document.getElementById('aiSuggestTags'),q);}
+  else{nr.classList.add('hidden');ab.classList.remove('show');grid.innerHTML=filtered.map(t=>teacherCard(t)).join('');}
+}
+
+function showAISuggest(box,tagsEl,q){
+  const exp=Object.entries(AI_EXPAND).find(([k])=>q.includes(k)||k.includes(q));
+  const tags=exp?exp[1]:['CBSE','ICSE','Digital Marketing','Spoken English','Yoga & Meditation'];
+  tagsEl.innerHTML=tags.map(t=>`<span class="ai-suggest-tag" onclick="quickSearch('${t}')">${t}</span>`).join('');
+  box.classList.add('show');
+}
+
+// ══════════════════════════════════════════
+// SEARCH
+// ══════════════════════════════════════════
+function doSearch(){ performSearch(document.getElementById('heroSearch').value.trim()); }
+function quickSearch(q){ document.getElementById('heroSearch').value=q; performSearch(q); }
+function performSearch(q){ profileReturnPage='search'; showPage('search'); document.getElementById('searchInput').value=q; renderSearchResults(q); }
+function runSearch(){ renderSearchResults(document.getElementById('searchInput').value.trim()); }
+function renderSearchResults(q){
+  const all=DB.getAll(), ql=q.toLowerCase();
+  const filtered=q===''?all:all.filter(t=>[t.name,t.location,t.board,t.subjects,t.bio,...(t.modes||[])].some(f=>f&&f.toLowerCase().includes(ql)));
+  const grid=document.getElementById('searchGrid'), nr=document.getElementById('searchNoResults'), ab=document.getElementById('searchAiBox');
+  document.getElementById('searchCount').innerHTML=q?`Found <strong>${filtered.length}</strong> teacher${filtered.length!==1?'s':''} for "<strong>${q}</strong>"`:
+    `Showing all <strong>${filtered.length}</strong> teachers`;
+  if(filtered.length===0){grid.innerHTML='';nr.classList.remove('hidden');showAISuggest(ab,document.getElementById('searchAiTags'),ql);}
+  else{nr.classList.add('hidden');ab.classList.remove('show');grid.innerHTML=filtered.map(t=>teacherCard(t)).join('');}
+}
+
+// AUTOCOMPLETE
+function showAC(val){
+  const list=document.getElementById('acList');
+  if(!val||val.length<2){list.classList.remove('open');return}
+  const v=val.toLowerCase();
+  const bm=ALL_BOARDS_FLAT.filter(b=>b.name.toLowerCase().includes(v)).slice(0,4).map(b=>b.name);
+  const km=Object.entries(AI_EXPAND).filter(([k])=>k.includes(v)||v.includes(k)).flatMap(([,v])=>v);
+  const items=[...new Set([...bm,...km])].slice(0,8);
+  if(!items.length){list.classList.remove('open');return}
+  list.innerHTML=items.map(i=>`<div class="ac-item" onclick="selectAC('${i.replace(/'/g,"\\'")}')">🔍 ${i}</div>`).join('');
+  list.classList.add('open');
+}
+function selectAC(v){ document.getElementById('heroSearch').value=v; closeAC(); performSearch(v); }
+function closeAC(){ document.getElementById('acList').classList.remove('open'); }
+document.addEventListener('click',e=>{if(!document.getElementById('heroSearchWrap').contains(e.target))closeAC();});
+
+// HERO TAGS
+function buildHeroTags(){
+  const tags=['CBSE','ICSE','JEE','NEET','Digital Marketing','Python','Spoken English','Music','Yoga','UPSC','Near Me'];
+  document.getElementById('heroTags').innerHTML=tags.map(t=>`<span class="hero-tag" onclick="quickSearch('${t}')">${t}</span>`).join('');
+}
+
+// ══════════════════════════════════════════
+// BOARD DROPDOWN
+// ══════════════════════════════════════════
+function showBoardDD(inputId, ddId){
+  const val=document.getElementById(inputId).value.toLowerCase(), dd=document.getElementById(ddId);
+  let html='';
+  AI_BOARDS.forEach(g=>{
+    const ms=g.items.filter(i=>!val||i.name.toLowerCase().includes(val));
+    if(!ms.length)return;
+    html+=`<div class="board-opt-group">${g.group}</div>`;
+    ms.forEach(i=>{ html+=`<div class="board-opt" onclick="selectBoard('${inputId}','${ddId}','${i.name.replace(/'/g,"\\'")}')"><span>${i.name}</span><span class="board-opt-badge">${i.badge}</span></div>`; });
+  });
+  if(!html){dd.classList.remove('open');return}
+  dd.innerHTML=html; dd.classList.add('open');
+}
+function selectBoard(inputId,ddId,val){
+  document.getElementById(inputId).value=val;
+  document.getElementById(ddId).classList.remove('open');
+  if(inputId==='reg_board'&&BOARD_SUBJECTS[val]&&!document.getElementById('reg_subjects').value)
+    document.getElementById('reg_subjects').value=BOARD_SUBJECTS[val];
+}
+document.addEventListener('click',e=>{
+  ['reg_bd','edit_bd'].forEach(id=>{const dd=document.getElementById(id);if(dd&&!dd.closest('.board-select-wrap').contains(e.target))dd.classList.remove('open');});
+});
+
+// ══════════════════════════════════════════
+// PROFILE VIEW
+// ══════════════════════════════════════════
+function viewProfile(email){
+  const all=DB.getAll();
+  const t=all.find(t=>t.email===email); if(!t)return;
+  const subs=(t.subjects||'').split(',').map(s=>s.trim()).filter(Boolean);
+  const modes=t.modes||[];
+  const uid='u'+Math.random().toString(36).slice(2,7);
+
+  // Build mode buttons
+  let modeBtns='';
+  if(modes.includes('Online (Google Meet)'))
+    modeBtns+=`<button class="connect-mode-btn" id="cm-on-${uid}" onclick="toggleMode('${uid}','on')"><span class="mode-icon">🖥️</span><span class="mode-label">Online Study</span><span class="mode-sub">Google Meet</span></button>`;
+  if(modes.includes('Home Tutor'))
+    modeBtns+=`<button class="connect-mode-btn" id="cm-hm-${uid}" onclick="toggleMode('${uid}','hm')"><span class="mode-icon">🏠</span><span class="mode-label">Home Tuition</span><span class="mode-sub">Teacher visits you</span></button>`;
+  if(modes.includes('Study Centre'))
+    modeBtns+=`<button class="connect-mode-btn" id="cm-ct-${uid}" onclick="toggleMode('${uid}','ct')"><span class="mode-icon">🏫</span><span class="mode-label">Centre Tuition</span><span class="mode-sub">Visit the centre</span></button>`;
+
+  // Build action buttons
+  let actionBtns='';
+  if(modes.includes('Online (Google Meet)'))
+    actionBtns+=`<a class="action-btn action-btn-meet" id="ca-on-${uid}" href="${esc(t.meetLink||'#')}" target="_blank" style="display:none;">🎥 Join Google Meet</a>`;
+  if(modes.includes('Home Tutor'))
+    actionBtns+=`<button class="action-btn action-btn-home" id="ca-hm-${uid}" onclick="showToast('📞 Contact teacher via message for Home Tuition')" style="display:none;">🏠 Book Home Tuition</button>`;
+  if(modes.includes('Study Centre'))
+    actionBtns+=`<button class="action-btn action-btn-centre" id="ca-ct-${uid}" onclick="showToast('📍 Contact teacher via message for Study Centre details')" style="display:none;">🏫 Visit Study Centre</button>`;
+
+  // Safe teacher name for onclick (escape single quotes)
+  const safeName = t.name.replace(/\\/g,'\\\\').replace(/'/g,"\\'");
+  const safeEmail = t.email;
+
+  document.getElementById('profileContent').innerHTML=`
+    <div class="profile-card">
+      <div class="profile-card-header">
+        <div class="profile-avatar-lg">${t.name[0].toUpperCase()}</div>
+        <div style="flex:1;">
+          <div class="profile-name">${esc(t.name)}</div>
+          ${t.isAI?'<div class="ai-badge">✨ AI-Listed Tutor Profile</div>':''}
+          <div class="profile-meta">
+            <span class="profile-meta-item">📍 ${esc(t.location||'')}</span>
+            ${t.timing?`<span class="profile-meta-item">🕐 ${esc(t.timing)}</span>`:''}
+          </div>
+          <div class="card-modes" style="margin-top:.6rem;">
+            ${modes.includes('Online (Google Meet)')?'<span class="mode-badge mode-online">🖥 Online</span>':''}
+            ${modes.includes('Home Tutor')?'<span class="mode-badge mode-home">🏠 Home</span>':''}
+            ${modes.includes('Study Centre')?'<span class="mode-badge mode-centre">🏫 Centre</span>':''}
+          </div>
+        </div>
+      </div>
+      <div class="profile-card-body">
+        ${t.bio?`<div class="profile-section-title">About</div><div class="profile-bio">${esc(t.bio)}</div><hr style="border:none;border-top:1px solid var(--border);margin:1.5rem 0;">`:''}
+        <div class="profile-section-title">Board / Course</div>
+        <p style="color:var(--muted);font-size:.95rem;margin-bottom:1.2rem;">📚 ${esc(t.board||'')}</p>
+        ${subs.length?`<div class="profile-section-title">Subjects</div>
+        <div class="subjects-list" style="margin-bottom:1.5rem;">${subs.map(s=>`<span class="subject-pill">${esc(s)}</span>`).join('')}</div>`:''}
+        <div class="profile-section-title">Connect with ${esc(t.name.split(' ')[0])}</div>
+        <div class="connect-section">
+          <div class="connect-title">📌 How would you like to connect with your tutor?</div>
+          <div class="connect-subtitle">You can select multiple options — then click the action buttons below.</div>
+          <div class="connect-modes-grid">${modeBtns}</div>
+          <div class="connect-actions" id="ca-${uid}">${actionBtns}</div>
+          <div style="margin-top:1rem;">
+            <button class="action-btn action-btn-contact" id="sendMsgBtn-${uid}" onclick="openSendMsg('${safeEmail}','${safeName}')">✉️ Send Message to Teacher</button>
+          </div>
+          <div style="margin-top:.8rem;padding:.8rem 1rem;background:#fff;border:1px solid var(--border);border-radius:10px;font-size:.83rem;color:var(--muted);">
+            🔒 Phone number is private. Use the message button to contact this teacher.
+          </div>
+        </div>
+      </div>
+    </div>`;
+  showPage('profile');
+}
+
+function toggleMode(uid,mode){
+  const btn=document.getElementById('cm-'+mode+'-'+uid); if(!btn)return;
+  btn.classList.toggle('selected');
+  const any=document.querySelectorAll('[id^="cm-"][id$="-'+uid+'"].selected').length>0;
+  const actRow=document.getElementById('ca-'+uid);
+  if(actRow) actRow.style.display=any?'flex':'none';
+  ['on','hm','ct'].forEach(m=>{
+    const b=document.getElementById('ca-'+m+'-'+uid);
+    if(b) b.style.display=document.getElementById('cm-'+m+'-'+uid)?.classList.contains('selected')?'flex':'none';
+  });
+}
+
+
+function goBackFromProfile(){ showPage(profileReturnPage); }
+function viewMyProfile(){
+  const s=DB.session; if(!s) return;
+  profileReturnPage='dashboard'; viewProfile(s.email);
+}
+
+// ══════════════════════════════════════════
+// GEO DATA — Country → Region → City
+// ══════════════════════════════════════════
+const GEO = {
+  'India':{
+    'Andhra Pradesh':['Vijayawada','Visakhapatnam','Guntur','Kurnool','Tirupati','Nellore','Kakinada','Rajahmundry'],
+    'Bihar':['Patna','Gaya','Bhagalpur','Muzaffarpur','Purnia','Darbhanga','Ara','Begusarai'],
+    'Delhi':['New Delhi','Dwarka','Rohini','Janakpuri','Lajpat Nagar','Karol Bagh','Saket','Noida Extension'],
+    'Gujarat':['Ahmedabad','Surat','Vadodara','Rajkot','Gandhinagar','Bhavnagar','Jamnagar','Anand'],
+    'Karnataka':['Bangalore','Mysore','Hubli','Mangalore','Belgaum','Davangere','Shimoga','Udupi'],
+    'Kerala':['Kochi','Trivandrum','Kozhikode','Thrissur','Kollam','Palakkad','Alappuzha','Kannur'],
+    'Madhya Pradesh':['Bhopal','Indore','Jabalpur','Gwalior','Ujjain','Sagar','Dewas','Satna'],
+    'Maharashtra':['Mumbai','Pune','Nagpur','Nashik','Aurangabad','Thane','Solapur','Kolhapur'],
+    'Punjab':['Ludhiana','Amritsar','Jalandhar','Patiala','Bathinda','Mohali','Hoshiarpur','Pathankot'],
+    'Rajasthan':['Jaipur','Jodhpur','Udaipur','Kota','Ajmer','Bikaner','Alwar','Bharatpur'],
+    'Tamil Nadu':['Chennai','Coimbatore','Madurai','Tiruchirappalli','Salem','Tirunelveli','Erode','Vellore'],
+    'Telangana':['Hyderabad','Warangal','Nizamabad','Karimnagar','Khammam','Ramagundam','Secunderabad','Nalgonda'],
+    'Uttar Pradesh':['Lucknow','Kanpur','Agra','Varanasi','Meerut','Allahabad','Bareilly','Aligarh'],
+    'West Bengal':['Kolkata','Howrah','Durgapur','Asansol','Siliguri','Bardhaman','Malda','Kharagpur'],
+  },
+  'United States':{
+    'California':['Los Angeles','San Francisco','San Diego','San Jose','Sacramento','Fresno','Oakland','Irvine'],
+    'New York':['New York City','Buffalo','Rochester','Yonkers','Syracuse','Albany','New Rochelle','Mount Vernon'],
+    'Texas':['Houston','Dallas','San Antonio','Austin','Fort Worth','El Paso','Arlington','Corpus Christi'],
+    'Florida':['Miami','Orlando','Tampa','Jacksonville','St. Petersburg','Hialeah','Tallahassee','Fort Lauderdale'],
+    'Illinois':['Chicago','Aurora','Naperville','Rockford','Joliet','Springfield','Elgin','Peoria'],
+    'Georgia':['Atlanta','Columbus','Augusta','Savannah','Athens','Sandy Springs','Roswell','Macon'],
+    'Washington':['Seattle','Spokane','Tacoma','Vancouver','Bellevue','Everett','Renton','Kirkland'],
+    'Arizona':['Phoenix','Tucson','Mesa','Chandler','Scottsdale','Glendale','Gilbert','Tempe'],
+  },
+  'United Kingdom':{
+    'England':['London','Manchester','Birmingham','Leeds','Liverpool','Sheffield','Bristol','Nottingham'],
+    'Scotland':['Edinburgh','Glasgow','Aberdeen','Dundee','Inverness','Stirling','Perth','Livingston'],
+    'Wales':['Cardiff','Swansea','Newport','Wrexham','Barry','Neath','Rhondda','Bridgend'],
+    'Northern Ireland':['Belfast','Derry','Lisburn','Newry','Armagh','Ballymena','Coleraine','Bangor'],
+  },
+  'Canada':{
+    'Ontario':['Toronto','Ottawa','Mississauga','Brampton','Hamilton','London','Markham','Vaughan'],
+    'Quebec':['Montreal','Quebec City','Laval','Gatineau','Longueuil','Sherbrooke','Saguenay','Lévis'],
+    'British Columbia':['Vancouver','Surrey','Burnaby','Richmond','Kelowna','Abbotsford','Coquitlam','Langley'],
+    'Alberta':['Calgary','Edmonton','Red Deer','Lethbridge','St. Albert','Medicine Hat','Grande Prairie','Airdrie'],
+  },
+  'Australia':{
+    'New South Wales':['Sydney','Newcastle','Wollongong','Central Coast','Maitland','Wagga Wagga','Albury','Bathurst'],
+    'Victoria':['Melbourne','Geelong','Ballarat','Bendigo','Shepparton','Melton','Mildura','Wodonga'],
+    'Queensland':['Brisbane','Gold Coast','Sunshine Coast','Townsville','Cairns','Toowoomba','Mackay','Rockhampton'],
+    'Western Australia':['Perth','Fremantle','Bunbury','Geraldton','Kalgoorlie','Albany','Mandurah','Broome'],
+  },
+  'Pakistan':{
+    'Punjab':['Lahore','Faisalabad','Rawalpindi','Gujranwala','Multan','Sialkot','Bahawalpur','Sargodha'],
+    'Sindh':['Karachi','Hyderabad','Sukkur','Larkana','Nawabshah','Mirpur Khas','Jacobabad','Shikarpur'],
+    'Khyber Pakhtunkhwa':['Peshawar','Mardan','Mingora','Kohat','Abbottabad','Dera Ismail Khan','Swabi','Nowshera'],
+    'Balochistan':['Quetta','Turbat','Khuzdar','Gwadar','Chaman','Zhob','Dera Murad Jamali','Loralai'],
+  },
+  'Bangladesh':{
+    'Dhaka Division':['Dhaka','Narayanganj','Gazipur','Manikganj','Munshiganj','Rajbari','Shariatpur','Madaripur'],
+    'Chittagong Division':['Chittagong','Comilla','Feni','Brahmanbaria','Chandpur','Cox\'s Bazar','Khagrachhari','Rangamati'],
+    'Rajshahi Division':['Rajshahi','Pabna','Sirajganj','Bogra','Natore','Chapainawabganj','Naogaon','Joypurhat'],
+    'Khulna Division':['Khulna','Jessore','Satkhira','Narail','Chuadanga','Kushtia','Magura','Meherpur'],
+  },
+  'UAE':{
+    'Abu Dhabi':['Abu Dhabi City','Al Ain','Ruwais','Madinat Zayed','Liwa','Gayathi'],
+    'Dubai':['Dubai City','Deira','Bur Dubai','Jumeirah','Al Quoz','Business Bay','Dubai Marina'],
+    'Sharjah':['Sharjah City','Khor Fakkan','Kalba','Dhaid','Al Hamriyah'],
+    'Other Emirates':['Ajman','Ras Al Khaimah','Fujairah','Umm Al Quwain'],
+  },
+  'Singapore':{
+    'Central Region':['City Hall','Clarke Quay','Raffles Place','Bugis','Orchard','Novena','Toa Payoh'],
+    'East Region':['Tampines','Bedok','Pasir Ris','Changi','Geylang','Katong','Marine Parade'],
+    'West Region':['Jurong East','Jurong West','Clementi','Buona Vista','West Coast','Boon Lay'],
+    'North Region':['Woodlands','Yishun','Sembawang','Admiralty','Canberra'],
+  },
+  'Other':{'Other Region':['Other City']},
+};
+
+function populateCountries(){
+  const sel=document.getElementById('reg_country');
+  sel.innerHTML='<option value="">— Select Country —</option>';
+  Object.keys(GEO).forEach(c=>{const o=document.createElement('option');o.value=c;o.textContent=c;sel.appendChild(o);});
+  // Default to India
+  sel.value='India'; onCountryChange();
+}
+function buildBoardQuickPills(){
+  const pills=[
+    {label:'🏫 CBSE/ICSE',q:'CBSE'},{label:'🌍 IB',q:'IB'},{label:'🎯 JEE/NEET',q:'JEE'},
+    {label:'💻 Tech/IT',q:'Python'},{label:'📣 Marketing',q:'Digital'},{label:'🗣 Languages',q:'Spoken'},
+    {label:'🎵 Music/Arts',q:'Music'},{label:'🏛 UPSC',q:'UPSC'},{label:'🧮 Abacus',q:'Abacus'},
+  ];
+  const el=document.getElementById('boardQuickPills');
+  if(!el)return;
+  el.innerHTML=pills.map(p=>`<span class="board-quick-pill" onclick="filterBoardDD('${p.q}')">${p.label}</span>`).join('');
+}
+function filterBoardDD(q){
+  const input=document.getElementById('reg_board');
+  input.value=q; input.focus(); showBoardDD('reg_board','reg_bd');
+}
+function updateLocPreview(){
+  const country=document.getElementById('reg_country').value;
+  const region=document.getElementById('reg_region').value;
+  const cityV=document.getElementById('reg_city').value;
+  const cityC=(document.getElementById('reg_city_custom')||{}).value||'';
+  const city=cityV==='__other__'?cityC:cityV;
+  const parts=[city,region,country].filter(Boolean);
+  const lp=document.getElementById('loc_preview');
+  if(!lp)return;
+  if(parts.length>=2){
+    document.getElementById('loc_preview_text').textContent=parts.join(', ');
+    lp.style.display='flex'; lp.classList.remove('hidden');
+  } else {
+    lp.style.display='none';
+  }
+}
+function onCountryChange(){
+  const country=document.getElementById('reg_country').value;
+  const regSel=document.getElementById('reg_region'), citySel=document.getElementById('reg_city');
+  regSel.innerHTML='<option value="">— Select State / Region —</option>';
+  citySel.innerHTML='<option value="">— Select City —</option>';
+  regSel.disabled=!country; citySel.disabled=true;
+  if(!country){updateLocPreview();return}
+  const regions=GEO[country]||{};
+  Object.keys(regions).forEach(r=>{const o=document.createElement('option');o.value=r;o.textContent=r;regSel.appendChild(o);});
+  updateLocPreview();
+}
+function onRegionChange(){
+  const country=document.getElementById('reg_country').value, region=document.getElementById('reg_region').value;
+  const citySel=document.getElementById('reg_city');
+  citySel.innerHTML='<option value="">— Select City —</option>';
+  citySel.disabled=!region;
+  if(!region){updateLocPreview();return}
+  const cities=(GEO[country]||{})[region]||[];
+  cities.forEach(c=>{const o=document.createElement('option');o.value=c;o.textContent=c;citySel.appendChild(o);});
+  citySel.innerHTML+='<option value="__other__">Other (Enter manually)</option>';
+  updateLocPreview();
+}
+document.addEventListener('change',e=>{
+  if(e.target.id==='reg_city'){
+    const wrap=document.getElementById('custom_city_wrap');
+    const isOther=e.target.value==='__other__';
+    wrap.classList.toggle('hidden',!isOther);
+    if(isOther) document.getElementById('reg_city_custom').focus();
+    updateLocPreview();
+  }
+});
+document.addEventListener('input',e=>{
+  if(e.target.id==='reg_city_custom') updateLocPreview();
+});
+function showCustomCity(){
+  document.getElementById('custom_city_wrap').classList.remove('hidden');
+  document.getElementById('reg_city_custom').focus();
+}
+function getSelectedLocation(){
+  const country=document.getElementById('reg_country').value;
+  const region=document.getElementById('reg_region').value;
+  const citySelect=document.getElementById('reg_city').value;
+  const cityCustom=document.getElementById('reg_city_custom').value.trim();
+  const city=citySelect==='__other__'||!citySelect ? cityCustom : citySelect;
+  if(!country||!region||!city)return null;
+  return {country,region,city, full:`${city}, ${region}, ${country}`};
+}
+
+// ══════════════════════════════════════════
+// REGISTER (4 Steps)
+// ══════════════════════════════════════════
+let regStep=1;
+function resetRegForm(){
+  regStep=1; showRegStep(1);
+  ['reg_name','reg_email','reg_phone','reg_board','reg_subjects','reg_timing','reg_bio','reg_meet','reg_password','reg_confirm','reg_city_custom']
+    .forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
+  document.getElementById('reg_region').innerHTML='<option value="">— Select State / Region —</option>';
+  document.getElementById('reg_region').disabled=true;
+  document.getElementById('reg_city').innerHTML='<option value="">— Select City —</option>';
+  document.getElementById('reg_city').disabled=true;
+  document.getElementById('custom_city_wrap').classList.add('hidden');
+  const lp=document.getElementById('loc_preview'); if(lp){lp.classList.add('hidden');lp.style.display='';}
+  const rs=document.getElementById('reg_summary'); if(rs) rs.innerHTML='';
+  document.querySelectorAll('#modal-register .checkbox-item').forEach(el=>{el.classList.remove('checked');el.querySelector('input').checked=false;});
+  hideAlert('regAlert');
+  document.getElementById('reg_bd').classList.remove('open');
+  populateCountries();
+  buildBoardQuickPills();
+}
+function showRegStep(n){
+  [1,2,3,4].forEach(i=>{
+    document.getElementById('reg-step'+i).classList.toggle('active',i===n);
+    const dot=document.getElementById('sd'+i);
+    dot.classList.toggle('active',i===n); dot.classList.toggle('done',i<n);
+  });
+  document.getElementById('stepLabel').textContent=[
+    'Step 1 of 4 · Personal Info','Step 2 of 4 · Your Location',
+    'Step 3 of 4 · What You Teach','Step 4 of 4 · Set Password'
+  ][n-1];
+  regStep=n;
+}
+function regStep1(){
+  const name=document.getElementById('reg_name').value.trim();
+  const email=document.getElementById('reg_email').value.trim();
+  const phone=document.getElementById('reg_phone').value.trim();
+  if(!name||!email||!phone){showAlert('regAlert','Please fill all required fields.');return}
+  if(!email.includes('@')){showAlert('regAlert','Please enter a valid email.');return}
+  if(DB.teachers.find(t=>t.email.toLowerCase()===email.toLowerCase())){showAlert('regAlert','This email is already registered.');return}
+  hideAlert('regAlert'); showRegStep(2);
+}
+function regStep2(){
+  const loc=getSelectedLocation();
+  if(!loc){showAlert('regAlert','Please select your Country, Region and City.');return}
+  hideAlert('regAlert'); showRegStep(3);
+}
+function regStep3(){
+  const board=document.getElementById('reg_board').value.trim();
+  const subj=document.getElementById('reg_subjects').value.trim();
+  const modes=getCheckedModes('reg_modes');
+  if(!board){showAlert('regAlert','Please select or type your board/course.');return}
+  if(!subj){showAlert('regAlert','Please enter subjects you teach.');return}
+  if(!modes.length){showAlert('regAlert','Please select at least one teaching mode.');return}
+  hideAlert('regAlert');
+  // Build registration summary
+  const name=document.getElementById('reg_name').value.trim();
+  const loc=getSelectedLocation();
+  const rs=document.getElementById('reg_summary');
+  if(rs) rs.innerHTML=`
+    <div style="font-weight:700;color:var(--ink);font-size:.9rem;margin-bottom:.6rem;border-bottom:1px solid var(--border);padding-bottom:.5rem;">📋 Your Registration Summary</div>
+    <div style="display:grid;gap:.25rem;">
+      <div>👤 <strong>${esc(name)}</strong></div>
+      <div>📍 <strong>${esc(loc?loc.full:'')}</strong></div>
+      <div>📚 <strong>${esc(board)}</strong></div>
+      <div>📖 ${esc(subj)}</div>
+      <div>🎓 ${modes.map(m=>`<span style="background:rgba(200,98,42,.12);color:var(--accent);padding:.1rem .5rem;border-radius:5px;font-size:.8rem;font-weight:600;">${m}</span>`).join(' ')}</div>
+    </div>`;
+  showRegStep(4);
+}
+function doRegister(){
+  const pass=document.getElementById('reg_password').value, conf=document.getElementById('reg_confirm').value;
+  if(pass.length<6){showAlert('regAlert','Password must be at least 6 characters.');return}
+  if(pass!==conf){showAlert('regAlert','Passwords do not match.');return}
+  const loc=getSelectedLocation();
+  const teacher={
+    name:document.getElementById('reg_name').value.trim(),
+    email:document.getElementById('reg_email').value.trim(),
+    phone:document.getElementById('reg_phone').value.trim(),
+    country:loc.country, region:loc.region, city:loc.city,
+    location:loc.full,
+    board:document.getElementById('reg_board').value.trim(),
+    subjects:document.getElementById('reg_subjects').value.trim(),
+    timing:document.getElementById('reg_timing').value.trim(),
+    bio:document.getElementById('reg_bio').value.trim(),
+    meetLink:document.getElementById('reg_meet').value.trim(),
+    modes:getCheckedModes('reg_modes'),
+    password:btoa(pass), isAI:false, createdAt:new Date().toISOString()
+  };
+  const teachers=DB.teachers; teachers.push(teacher); DB.teachers=teachers;
+  DB.session={email:teacher.email,name:teacher.name};
+  closeModal('register'); updateNav();
+  showToast('🎉 Welcome, '+teacher.name.split(' ')[0]+'! Profile created.');
+  setTimeout(()=>showPage('dashboard'),300);
+}
+
+// ══════════════════════════════════════════
+// LOGIN / LOGOUT
+// ══════════════════════════════════════════
+function doLogin(){
+  const email=document.getElementById('login_email').value.trim(), pass=document.getElementById('login_password').value;
+  if(!email||!pass){showAlert('loginAlert','Please enter email and password.');return}
+  const t=DB.teachers.find(t=>t.email.toLowerCase()===email.toLowerCase());
+  if(!t||atob(t.password)!==pass){showAlert('loginAlert','Invalid email or password.');return}
+  DB.session={email:t.email,name:t.name}; closeModal('login'); updateNav();
+  showToast('Welcome back, '+t.name.split(' ')[0]+'!');
+  setTimeout(()=>showPage('dashboard'),300);
+}
+function logout(){ DB.clearSession(); updateNav(); showToast('Signed out successfully'); showPage('home'); }
+
+// ══════════════════════════════════════════
+// DASHBOARD
+// ══════════════════════════════════════════
+function renderDashboard(){
+  const s=DB.session; if(!s){showPage('home');return}
+  const t=DB.teachers.find(t=>t.email===s.email); if(!t) return;
+  document.getElementById('dashWelcome').textContent='Welcome back, '+t.name.split(' ')[0]+'!';
+  const modes=t.modes||[];
+  document.getElementById('dashProfilePreview').innerHTML=`
+    <div class="mini-avatar">${t.name[0].toUpperCase()}</div>
+    <div class="mini-info">
+      <div class="mini-name">${esc(t.name)}</div>
+      <div class="mini-meta">📍 ${esc(t.location||'')} · 📚 ${esc(t.board||'')}</div>
+      <div class="card-modes" style="margin-top:.4rem;">
+        ${modes.includes('Online (Google Meet)')?'<span class="mode-badge mode-online">🖥 Online</span>':''}
+        ${modes.includes('Home Tutor')?'<span class="mode-badge mode-home">🏠 Home</span>':''}
+        ${modes.includes('Study Centre')?'<span class="mode-badge mode-centre">🏫 Centre</span>':''}
+      </div>
+    </div>
+    <button class="btn-view-profile" onclick="viewMyProfile()">View Profile</button>`;
+  document.getElementById('dashStats').innerHTML=[
+    {label:'Email',val:t.email,icon:'✉️'},{label:'Subjects',val:t.subjects||'Not set',icon:'📖'},
+    {label:'Timing',val:t.timing||'Not set',icon:'🕐'},{label:'Location',val:t.location||'Not set',icon:'📍'},
+  ].map(s=>`<div style="background:var(--warm);border:1px solid var(--border);border-radius:10px;padding:1rem;">
+    <div style="font-size:1.2rem;margin-bottom:.3rem;">${s.icon}</div>
+    <div style="font-size:.75rem;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.5px;">${s.label}</div>
+    <div style="font-size:.9rem;font-weight:600;margin-top:.2rem;word-break:break-all;">${esc(s.val)}</div>
+  </div>`).join('');
+  document.getElementById('edit_phone').value=t.phone||'';
+  document.getElementById('edit_location').value=t.location||'';
+  document.getElementById('edit_board').value=t.board||'';
+  document.getElementById('edit_subjects').value=t.subjects||'';
+  document.getElementById('edit_timing').value=t.timing||'';
+  document.getElementById('edit_bio').value=t.bio||'';
+  document.getElementById('edit_meet').value=t.meetLink||'';
+  const cm=t.modes||[];
+  document.querySelectorAll('#edit_modes .checkbox-item').forEach(el=>{
+    const chk=cm.includes(el.getAttribute('data-val')); el.classList.toggle('checked',chk); el.querySelector('input').checked=chk;
+  });
+}
+function toggleEditProfile(){ document.getElementById('editProfileForm').classList.toggle('open'); }
+function saveProfile(){
+  const s=DB.session, teachers=DB.teachers, idx=teachers.findIndex(t=>t.email===s.email); if(idx===-1)return;
+  teachers[idx].phone=document.getElementById('edit_phone').value.trim();
+  teachers[idx].location=document.getElementById('edit_location').value.trim();
+  teachers[idx].board=document.getElementById('edit_board').value.trim();
+  teachers[idx].subjects=document.getElementById('edit_subjects').value.trim();
+  teachers[idx].timing=document.getElementById('edit_timing').value.trim();
+  teachers[idx].bio=document.getElementById('edit_bio').value.trim();
+  teachers[idx].meetLink=document.getElementById('edit_meet').value.trim();
+  teachers[idx].modes=getCheckedModes('edit_modes');
+  DB.teachers=teachers; showToast('✅ Profile updated!');
+  document.getElementById('editProfileForm').classList.remove('open'); renderDashboard();
+}
+
+// ══════════════════════════════════════════
+// GOOGLE COURSES
+// ══════════════════════════════════════════
+function renderGC(){
+  document.getElementById('gcCatFilter').innerHTML=GC_CATS.map(c=>
+    `<button class="gc-cat-btn${activeGcCat===c?' active':''}" onclick="filterGC('${c}')">${c}</button>`).join('');
+  const courses=activeGcCat==='All'?GC_COURSES:GC_COURSES.filter(c=>c.cat===activeGcCat);
+  document.getElementById('gcGrid').innerHTML=courses.map(c=>`
+    <a class="gc-card" href="${c.url}" target="_blank" rel="noopener">
+      <div class="gc-card-top">
+        <div class="gc-logo" style="background:${c.color}22;">${c.icon}</div>
+        <div><div class="gc-platform">${c.platform}</div><div class="gc-course-name">${c.name}</div></div>
+      </div>
+      <div class="gc-desc">${c.desc}</div>
+      <div class="gc-footer">
+        <div style="display:flex;gap:.4rem;flex-wrap:wrap;">
+          <span class="gc-badge gc-free">FREE</span>${c.cert?'<span class="gc-badge gc-cert">🎓 Certificate</span>':''}
+        </div>
+        <span class="gc-arrow">→</span>
+      </div>
+    </a>`).join('');
+}
+function filterGC(cat){ activeGcCat=cat; renderGC(); }
+
+// ══════════════════════════════════════════
+// MODALS
+// ══════════════════════════════════════════
+function openModal(name){ document.getElementById('modal-'+name).classList.remove('hidden'); if(name==='register')resetRegForm(); }
+function closeModal(name){ document.getElementById('modal-'+name).classList.add('hidden'); }
+function closeModalOutside(e,name){ if(e.target===document.getElementById('modal-'+name))closeModal(name); }
+
+// CHECKBOX HELPER
+document.addEventListener('click',e=>{
+  const item=e.target.closest('.checkbox-item'); if(!item) return;
+  item.classList.toggle('checked'); item.querySelector('input').checked=item.classList.contains('checked');
+});
+function getCheckedModes(cid){
+  const m=[]; document.querySelectorAll('#'+cid+' .checkbox-item.checked').forEach(el=>m.push(el.getAttribute('data-val'))); return m;
+}
+
+// UTILS
+function esc(str){ if(!str)return''; return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function showAlert(id,msg){ const el=document.getElementById(id); el.textContent=msg; el.classList.remove('hidden'); }
+function hideAlert(id){ document.getElementById(id).classList.add('hidden'); }
+let toastTimer;
+function showToast(msg){ const t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show'); clearTimeout(toastTimer); toastTimer=setTimeout(()=>t.classList.remove('show'),3200); }
+function setupReveal(){ const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});},{threshold:.1}); document.querySelectorAll('.reveal').forEach(el=>obs.observe(el)); }
+
+// INIT
+window.addEventListener('DOMContentLoaded',()=>{
+  // Add sample real teachers on first load
+  if(DB.teachers.length === 0){
+    const samples = [
+      {
+        name:'Priya Sharma', email:'priya@example.com', phone:'+91 98765 43210',
+        location:'Andheri West, Mumbai', board:'CBSE',
+        subjects:'Mathematics, Physics, Chemistry',
+        timing:'Mon–Sat, 4 PM – 8 PM',
+        bio:'IIT graduate with 8 years of teaching experience. Specialized in making complex concepts simple and helping students score 90+ in board exams. Friendly and patient teaching style.',
+        meetLink:'https://meet.google.com/abc-defg-hij',
+        modes:['Online (Google Meet)','Home Tutor'],
+        password:btoa('sample123'), isAI:false, createdAt: new Date().toISOString()
+      },
+      {
+        name:'Rajesh Kumar', email:'rajesh@example.com', phone:'+91 87654 32109',
+        location:'Koramangala, Bangalore', board:'CISCE (ICSE)',
+        subjects:'English Literature, History, Economics',
+        timing:'Tue–Sun, 5 PM – 9 PM',
+        bio:'Former school principal with 15 years experience. Expertise in ICSE English and Humanities. Proven track record of 95%+ results. Strong focus on writing skills and critical thinking.',
+        meetLink:'',
+        modes:['Home Tutor','Study Centre'],
+        password:btoa('sample123'), isAI:false, createdAt: new Date().toISOString()
+      },
+      {
+        name:'Meera Patel', email:'meera@example.com', phone:'+91 76543 21098',
+        location:'Navrangpura, Ahmedabad', board:'Digital Marketing',
+        subjects:'SEO, Google Ads, Social Media Marketing, Content Strategy',
+        timing:'Mon–Fri, 10 AM – 6 PM',
+        bio:'Certified Google & Meta marketing professional with 6 years industry experience. Hands-on training with live projects and placement assistance for students and working professionals.',
+        meetLink:'https://meet.google.com/xyz-uvwx-abc',
+        modes:['Online (Google Meet)','Study Centre'],
+        password:btoa('sample123'), isAI:false, createdAt: new Date().toISOString()
+      },
+      {
+        name:'Arjun Verma', email:'arjun@example.com', phone:'+91 95555 12345',
+        location:'Sector 62, Noida', board:'JEE Main & Advanced',
+        subjects:'Physics, Chemistry, Mathematics (PCM)',
+        timing:'Mon–Sat, 6 AM – 9 AM & 7 PM – 9 PM',
+        bio:'IIT Delhi alumnus with 10 years of JEE coaching. 200+ students placed in IITs and NITs. Specializes in problem-solving techniques and exam strategy.',
+        meetLink:'https://meet.google.com/jee-arjun-001',
+        modes:['Online (Google Meet)','Study Centre'],
+        password:btoa('sample123'), isAI:false, createdAt: new Date().toISOString()
+      },
+      {
+        name:'Sunita Rao', email:'sunita@example.com', phone:'+91 94444 67890',
+        location:'Banjara Hills, Hyderabad', board:'Spoken English',
+        subjects:'Spoken English, Grammar, IELTS Preparation, Public Speaking',
+        timing:'Mon–Sat, 8 AM – 12 PM',
+        bio:'British Council certified English trainer with 12 years experience. Helped 500+ students and professionals improve fluency and crack IELTS with 7+ band scores.',
+        meetLink:'https://meet.google.com/eng-sunita-002',
+        modes:['Online (Google Meet)','Home Tutor','Study Centre'],
+        password:btoa('sample123'), isAI:false, createdAt: new Date().toISOString()
+      },
+    ];
+    DB.teachers = samples;
+  }
+  updateNav(); buildHeroTags(); renderCatChips(); renderHomeTeachers(); renderGC(); setupReveal();
+  document.getElementById('searchInput').addEventListener('keydown',e=>{if(e.key==='Enter')runSearch();});
+});
+
+// ══════════════════════════════════════════
+// INBOX / MESSAGING SYSTEM
+// ══════════════════════════════════════════
+let currentInboxTab = 'received';
+let currentThreadId = null;
+let currentMsgTeacherEmail = '';
+
+function openSendMsg(teacherEmail, teacherName) {
+  currentMsgTeacherEmail = teacherEmail;
+  document.getElementById('msgTeacherName').textContent = teacherName;
+  document.getElementById('msg_subject').value = '';
+  document.getElementById('msg_body').value = '';
+  document.getElementById('msgCharCount').textContent = '0';
+  hideAlert('msgSendAlert');
+  // Pre-fill if student already sent before (stored name/email)
+  const lastStudent = JSON.parse(localStorage.getItem('ptn_last_student') || 'null');
+  if (lastStudent) {
+    document.getElementById('msg_student_name').value = lastStudent.name || '';
+    document.getElementById('msg_student_email').value = lastStudent.email || '';
+  } else {
+    document.getElementById('msg_student_name').value = '';
+    document.getElementById('msg_student_email').value = '';
+  }
+  openModal('sendmsg');
+}
+
+function updateMsgCount() {
+  const v = document.getElementById('msg_body').value;
+  document.getElementById('msgCharCount').textContent = v.length;
+}
+
+function doSendMessage() {
+  const sName = document.getElementById('msg_student_name').value.trim();
+  const sEmail = document.getElementById('msg_student_email').value.trim();
+  const subject = document.getElementById('msg_subject').value.trim();
+  const body = document.getElementById('msg_body').value.trim();
+  if (!sName) { showAlert('msgSendAlert', 'Please enter your name.'); return; }
+  if (!sEmail || !sEmail.includes('@')) { showAlert('msgSendAlert', 'Please enter a valid email.'); return; }
+  if (!subject) { showAlert('msgSendAlert', 'Please enter a subject.'); return; }
+  if (!body) { showAlert('msgSendAlert', 'Please write your message.'); return; }
+
+  // Save student info for next time
+  localStorage.setItem('ptn_last_student', JSON.stringify({ name: sName, email: sEmail }));
+
+  const msgs = DB.messages;
+  const newMsg = {
+    id: 'msg_' + Date.now(),
+    fromName: sName,
+    fromEmail: sEmail,
+    toEmail: currentMsgTeacherEmail,
+    subject: subject,
+    thread: [
+      { from: 'student', name: sName, text: body, time: new Date().toISOString() }
+    ],
+    read: false,
+    createdAt: new Date().toISOString()
+  };
+  msgs.push(newMsg);
+  DB.messages = msgs;
+  closeModal('sendmsg');
+  showToast('✅ Message sent! The teacher will reply soon.');
+}
+
+function showPage_inbox() { showPage('inbox'); }
+
+function renderInbox() {
+  const session = DB.session;
+  if (!session) { showPage('home'); return; }
+
+  const allMsgs = DB.getMessages();
+  const received = allMsgs.filter(m => m.toEmail === session.email);
+  const sent = allMsgs.filter(m => m.fromEmail === session.email);
+
+  // Update unread badge
+  const unread = received.filter(m => !m.read).length;
+  const badge = document.getElementById('unreadBadge');
+  if (badge) { badge.textContent = unread; badge.style.display = unread > 0 ? 'inline' : 'none'; }
+
+  const msgs = currentInboxTab === 'received' ? received : sent;
+  const list = document.getElementById('msgList');
+  const empty = document.getElementById('msgEmpty');
+
+  // Close thread view
+  document.getElementById('inboxListView').classList.remove('hidden');
+  document.getElementById('inboxThreadView').classList.add('hidden');
+
+  if (msgs.length === 0) {
+    list.innerHTML = '';
+    empty.classList.remove('hidden');
+  } else {
+    empty.classList.add('hidden');
+    list.innerHTML = msgs.slice().reverse().map(m => {
+      const lastMsg = m.thread[m.thread.length - 1];
+      const isUnread = !m.read && currentInboxTab === 'received';
+      const displayName = currentInboxTab === 'received' ? m.fromName : ('To: ' + (DB.getAll().find(t=>t.email===m.toEmail)||{name:m.toEmail}).name);
+      return `<div class="msg-item${isUnread?' unread':''}" onclick="openThread('${m.id}')">
+        ${isUnread ? '<div class="msg-unread-dot"></div>' : ''}
+        <div class="msg-item-top">
+          <div class="msg-sender">${esc(displayName)}</div>
+          <div class="msg-time">${formatTime(m.createdAt)}</div>
+        </div>
+        <div class="msg-subject">${esc(m.subject)}</div>
+        <div class="msg-preview">${esc(lastMsg.text)}</div>
+      </div>`;
+    }).join('');
+  }
+
+  // Update nav unread count
+  updateNav();
+}
+
+function switchInboxTab(tab) {
+  currentInboxTab = tab;
+  document.getElementById('tab-received').classList.toggle('active', tab === 'received');
+  document.getElementById('tab-sent').classList.toggle('active', tab === 'sent');
+  renderInbox();
+}
+
+function openThread(msgId) {
+  const msgs = DB.messages;
+  const idx = msgs.findIndex(m => m.id === msgId);
+  if (idx === -1) return;
+  const m = msgs[idx];
+
+  // Mark as read
+  if (!m.read) {
+    msgs[idx].read = true;
+    DB.messages = msgs;
+    updateNav();
+  }
+
+  currentThreadId = msgId;
+  document.getElementById('threadSubject').textContent = m.subject;
+  const teacher = DB.getAll().find(t => t.email === m.toEmail);
+  document.getElementById('threadMeta').textContent =
+    currentInboxTab === 'received'
+      ? 'From: ' + m.fromName + ' (' + m.fromEmail + ')'
+      : 'To: ' + (teacher ? teacher.name : m.toEmail);
+
+  // Show reply area only for received messages (teacher replying)
+  const session = DB.session;
+  const isTeacher = session && session.email === m.toEmail;
+  document.getElementById('threadReplyArea').style.display = isTeacher ? 'flex' : 'none';
+  document.getElementById('replyText').value = '';
+
+  renderThread(m);
+
+  document.getElementById('inboxListView').classList.add('hidden');
+  document.getElementById('inboxThreadView').classList.remove('hidden');
+}
+
+function renderThread(m) {
+  const session = DB.session;
+  document.getElementById('threadMsgs').innerHTML = m.thread.map(msg => {
+    const isTeacher = session && msg.from === 'teacher';
+    return `<div>
+      <div class="bubble ${isTeacher ? 'bubble-teacher' : 'bubble-student'}">
+        ${esc(msg.text)}
+        <div class="bubble-meta">${esc(msg.name)} · ${formatTime(msg.time)}</div>
+      </div>
+    </div>`;
+  }).join('');
+  // Auto scroll to bottom
+  const container = document.getElementById('threadMsgs');
+  container.scrollTop = container.scrollHeight;
+}
+
+function sendReply() {
+  const text = document.getElementById('replyText').value.trim();
+  if (!text) return;
+  const session = DB.session;
+  const msgs = DB.messages;
+  const idx = msgs.findIndex(m => m.id === currentThreadId);
+  if (idx === -1) return;
+  msgs[idx].thread.push({
+    from: 'teacher',
+    name: session.name,
+    text: text,
+    time: new Date().toISOString()
+  });
+  DB.messages = msgs;
+  document.getElementById('replyText').value = '';
+  renderThread(msgs[idx]);
+  showToast('✅ Reply sent!');
+}
+
+function closeThread() {
+  currentThreadId = null;
+  document.getElementById('inboxListView').classList.remove('hidden');
+  document.getElementById('inboxThreadView').classList.add('hidden');
+}
+
+function formatTime(iso) {
+  try {
+    const d = new Date(iso);
+    const now = new Date();
+    const diff = now - d;
+    if (diff < 60000) return 'Just now';
+    if (diff < 3600000) return Math.floor(diff/60000) + 'm ago';
+    if (diff < 86400000) return Math.floor(diff/3600000) + 'h ago';
+    return d.toLocaleDateString('en-IN', { day:'numeric', month:'short' });
+  } catch(e) { return ''; }
+}
+
+
+// ══════════════════════════════════════════════════════
+// DATA STORAGE — All saved in Admin Panel at yoursite/#admin
+// Access: privatetutornearme.netlify.app/#admin
+// Password: admin@ptm2025
+// ══════════════════════════════════════════════════════
+
+// ══════════════════════════════════════════════════════
+// ADMIN PANEL LOGIC
+// ══════════════════════════════════════════════════════
+const ADMIN_PASSWORD = 'admin@ptm2025';
+let adminLoggedIn = false;
+
+window.addEventListener('hashchange',()=>{ if(location.hash==='#admin') showPage('admin'); });
+window.addEventListener('load',()=>{ if(location.hash==='#admin') setTimeout(()=>showPage('admin'),400); });
+
+function doAdminLogin(){
+  const pass = document.getElementById('adminPassInput').value;
+  if(pass === ADMIN_PASSWORD){
+    adminLoggedIn = true;
+    document.getElementById('adminLoginSection').classList.add('hidden');
+    document.getElementById('adminDashSection').classList.remove('hidden');
+    renderAdminPanel();
+  } else {
+    showAlert('adminLoginAlert','❌ Wrong password. Try again.');
+  }
+}
+
+function adminLogout(){
+  adminLoggedIn = false;
+  document.getElementById('adminLoginSection').classList.remove('hidden');
+  document.getElementById('adminDashSection').classList.add('hidden');
+  document.getElementById('adminPassInput').value='';
+  showPage('home');
+}
+
+function renderAdminPanel(){
+  const realTeachers = DB.teachers;
+  const allTeachers  = DB.getAll();
+  const messages     = DB.getMessages();
+  const unread       = messages.filter(m=>!m.read).length;
+
+  document.getElementById('aStat1').textContent = allTeachers.length;
+  document.getElementById('aStat2').textContent = realTeachers.length;
+  document.getElementById('aStat3').textContent = messages.length;
+  document.getElementById('aStat4').textContent = unread;
+
+  // Teachers table
+  const tbody = document.getElementById('adminTeacherBody');
+  if(!realTeachers.length){
+    tbody.innerHTML='<tr><td colspan="10" class="admin-empty">📭 No real teacher registrations yet</td></tr>';
+  } else {
+    tbody.innerHTML = realTeachers.map((t,i)=>`
+      <tr>
+        <td style="color:var(--muted);font-size:.75rem;">${i+1}</td>
+        <td><strong>${esc(t.name)}</strong></td>
+        <td style="font-size:.78rem;">${esc(t.email)}</td>
+        <td style="font-size:.78rem;">${esc(t.phone||'—')}</td>
+        <td style="font-size:.78rem;">${esc(t.location||'—')}</td>
+        <td style="font-weight:600;color:var(--accent2);font-size:.78rem;">${esc(t.board||'—')}</td>
+        <td style="font-size:.78rem;">${esc((t.subjects||'').split(',').slice(0,3).join(', '))}</td>
+        <td style="font-size:.75rem;">${(t.modes||[]).map(m=>`<span class="admin-badge admin-badge-real">${m.replace('Online (Google Meet)','Online').replace('Home Tutor','Home').replace('Study Centre','Centre')}</span>`).join(' ')}</td>
+        <td style="font-size:.75rem;color:var(--muted);">${t.createdAt?new Date(t.createdAt).toLocaleDateString('en-IN'):'—'}</td>
+        <td><span class="admin-badge admin-badge-new">Real</span></td>
+      </tr>`).join('');
+  }
+
+  // Messages table
+  const mbody = document.getElementById('adminMsgBody');
+  if(!messages.length){
+    mbody.innerHTML='<tr><td colspan="8" class="admin-empty">📭 No student messages yet</td></tr>';
+  } else {
+    mbody.innerHTML = messages.slice().reverse().map((m,i)=>{
+      const teacher = DB.getAll().find(t=>t.email===m.toEmail);
+      const firstMsg = m.thread[0]||{text:''};
+      return `<tr>
+        <td style="color:var(--muted);font-size:.75rem;">${i+1}</td>
+        <td><strong>${esc(m.fromName)}</strong></td>
+        <td style="font-size:.78rem;">${esc(m.fromEmail)}</td>
+        <td style="font-size:.78rem;font-weight:600;">${esc(teacher?teacher.name:m.toEmail)}</td>
+        <td style="font-size:.78rem;">${esc(m.subject)}</td>
+        <td style="font-size:.78rem;">${esc(firstMsg.text.slice(0,80)+(firstMsg.text.length>80?'…':''))}</td>
+        <td style="font-size:.75rem;color:var(--muted);">${m.createdAt?new Date(m.createdAt).toLocaleDateString('en-IN'):'—'}</td>
+        <td><span class="admin-badge ${m.read?'admin-badge-real':'admin-badge-new'}">${m.read?'Read':'New'}</span></td>
+      </tr>`;
+    }).join('');
+  }
+}
+
+function exportCSV(type){
+  let headers, rows, filename;
+  if(type==='teachers'){
+    headers=['#','Name','Email','Phone','Location','Board','Subjects','Modes','Timing','Bio','Registered On'];
+    rows=DB.teachers.map((t,i)=>[
+      i+1,t.name,t.email,t.phone||'',t.location||'',
+      t.board||'',t.subjects||'',(t.modes||[]).join(' | '),
+      t.timing||'',(t.bio||'').replace(/,/g,';'),
+      t.createdAt?new Date(t.createdAt).toLocaleDateString('en-IN'):''
+    ]);
+    filename='PTN_Teachers_'+new Date().toISOString().slice(0,10)+'.csv';
+  } else {
+    headers=['#','Student Name','Student Email','Teacher','Teacher Email','Subject','Message','Date','Status'];
+    rows=DB.getMessages().map((m,i)=>{
+      const teacher=DB.getAll().find(t=>t.email===m.toEmail);
+      return[i+1,m.fromName,m.fromEmail,
+        teacher?teacher.name:m.toEmail,m.toEmail,
+        m.subject,(m.thread[0]?m.thread[0].text:'').replace(/,/g,';'),
+        m.createdAt?new Date(m.createdAt).toLocaleDateString('en-IN'):'',
+        m.read?'Read':'Unread'
+      ];
+    });
+    filename='PTN_Messages_'+new Date().toISOString().slice(0,10)+'.csv';
+  }
+  const csv=[headers,...rows].map(r=>r.map(v=>'"'+String(v||'').replace(/"/g,'""')+'"').join(',')).join('\n');
+  const blob=new Blob([csv],{type:'text/csv;charset=utf-8;'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');a.href=url;a.download=filename;a.click();
+  URL.revokeObjectURL(url);
+  showToast('✅ CSV downloaded!');
+}
+
+</script>
+
+<!-- ADMIN LOGIN PAGE -->
+<div id="page-admin" class="page">
+  <div id="adminLoginSection">
+    <div class="admin-login-wrap">
+      <div class="admin-login-icon">🔐</div>
+      <div class="admin-login-title">Admin Panel</div>
+      <div class="admin-login-sub">Enter admin password to access all data</div>
+      <div id="adminLoginAlert" class="alert alert-error hidden"></div>
+      <div class="form-group"><input class="form-input" id="adminPassInput" type="password" placeholder="Enter admin password" onkeydown="if(event.key==='Enter')doAdminLogin()"></div>
+      <button class="btn-primary" onclick="doAdminLogin()">🔓 Access Admin Panel</button>
+      <div style="margin-top:1rem;font-size:.78rem;color:var(--muted);">Default password: <strong>admin@ptm2025</strong><br>Change it in the code after setup.</div>
+    </div>
+  </div>
+  <div id="adminDashSection" class="hidden">
+    <div class="admin-wrap">
+      <div class="admin-topbar">
+        <h2>🛡️ PrivateTutorNearMe — Admin Panel</h2>
+        <div style="display:flex;gap:.7rem;align-items:center;">
+          <span style="font-size:.82rem;color:#aaa;">Logged in as Admin</span>
+          <button onclick="adminLogout()" style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#fff;border-radius:8px;padding:.35rem .8rem;font-size:.8rem;cursor:pointer;font-family:'DM Sans',sans-serif;">Logout</button>
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="admin-stats-row">
+        <div class="admin-stat"><div class="admin-stat-num" id="aStat1">0</div><div class="admin-stat-label">Total Teachers</div></div>
+        <div class="admin-stat"><div class="admin-stat-num" id="aStat2">0</div><div class="admin-stat-label">Real Registrations</div></div>
+        <div class="admin-stat"><div class="admin-stat-num" id="aStat3">0</div><div class="admin-stat-label">Student Messages</div></div>
+        <div class="admin-stat"><div class="admin-stat-num" id="aStat4">0</div><div class="admin-stat-label">Unread Messages</div></div>
+      </div>
+
+      <!-- Teacher Registrations Table -->
+      <div class="admin-section">
+        <div class="admin-section-head">
+          <div class="admin-section-title">👨‍🏫 Teacher Registrations</div>
+          <button class="admin-export-btn" onclick="exportCSV('teachers')">⬇ Export CSV</button>
+        </div>
+        <div class="admin-table-wrap">
+          <table class="admin-table" id="adminTeacherTable">
+            <thead><tr>
+              <th>#</th><th>Name</th><th>Email</th><th>Phone</th><th>Location</th>
+              <th>Board</th><th>Subjects</th><th>Modes</th><th>Registered</th><th>Type</th>
+            </tr></thead>
+            <tbody id="adminTeacherBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Student Messages Table -->
+      <div class="admin-section">
+        <div class="admin-section-head">
+          <div class="admin-section-title">💬 Student Messages</div>
+          <button class="admin-export-btn" onclick="exportCSV('messages')">⬇ Export CSV</button>
+        </div>
+        <div class="admin-table-wrap">
+          <table class="admin-table" id="adminMsgTable">
+            <thead><tr>
+              <th>#</th><th>Student Name</th><th>Student Email</th><th>Teacher</th>
+              <th>Subject</th><th>Message</th><th>Date</th><th>Status</th>
+            </tr></thead>
+            <tbody id="adminMsgBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer><div class="footer-brand">PrivateTutorNearMe</div><p>PrivateTutorNearMe Admin © 2025</p></footer>
+</div>
+
+</body>
+</html>
