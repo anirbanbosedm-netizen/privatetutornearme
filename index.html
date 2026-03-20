@@ -456,7 +456,7 @@ footer a{color:#888;text-decoration:none}
           </div>
         </div>
         <div class="form-group"><label class="form-label">Subjects You Teach</label><input class="form-input" id="edit_subjects" placeholder="e.g. Mathematics, Physics, Chemistry"></div>
-        <div class="form-group"><label class="form-label">Teaching Hours / Timing</label><input class="form-input" id="edit_timing" placeholder="e.g. Mon–Sat, 4 PM – 8 PM"></div>
+
         <div class="form-group"><label class="form-label">Bio / About</label><textarea class="form-textarea" id="edit_bio" placeholder="Describe your teaching experience…"></textarea></div>
         <div class="form-group"><label class="form-label">Google Meet Link</label><input class="form-input" id="edit_meet" placeholder="https://meet.google.com/xxx-xxxx-xxx"></div>
         <div class="form-group">
@@ -598,10 +598,7 @@ footer a{color:#888;text-decoration:none}
           <input class="form-input" id="reg_subjects" placeholder="e.g. Mathematics, Physics, Chemistry (auto-filled on board select)">
         </div>
 
-        <div class="form-group">
-          <label class="form-label">Teaching Hours / Timing</label>
-          <input class="form-input" id="reg_timing" placeholder="e.g. Mon–Sat, 4 PM – 8 PM">
-        </div>
+
 
         <div class="form-group">
           <label class="form-label">Bio / About Yourself</label>
@@ -1229,7 +1226,7 @@ function getSelectedLocation(){
 let regStep=1;
 function resetRegForm(){
   regStep=1; showRegStep(1);
-  ['reg_name','reg_email','reg_phone','reg_board','reg_subjects','reg_timing','reg_bio','reg_meet','reg_password','reg_confirm','reg_city_custom']
+  ['reg_name','reg_email','reg_phone','reg_board','reg_subjects','reg_bio','reg_meet','reg_password','reg_confirm','reg_city_custom']
     .forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
   document.getElementById('reg_region').innerHTML='<option value="">— Select State / Region —</option>';
   document.getElementById('reg_region').disabled=true;
@@ -1306,21 +1303,31 @@ function doRegister(){
     location:loc.full,
     board:document.getElementById('reg_board').value.trim(),
     subjects:document.getElementById('reg_subjects').value.trim(),
-    timing:document.getElementById('reg_timing').value.trim(),
+    timing:'',
     bio:document.getElementById('reg_bio').value.trim(),
     meetLink:document.getElementById('reg_meet').value.trim(),
     modes:getCheckedModes('reg_modes'),
     password:simpleHash(pass), isAI:false, createdAt:new Date().toISOString()
   };
   teacher.slug=generateSlug(teacher);
-  showToast('Creating profile...');
+  showToast('⏳ Creating your profile...');
+  // Check email not already registered
+  const existing=DB.getAll().find(t=>t.email.toLowerCase()===teacher.email.toLowerCase());
+  if(existing){showAlert('regAlert','❌ This email is already registered. Please sign in.');return;}
   DB.saveTeacher(teacher).then(ok=>{
     if(ok){
-      DB.session={email:teacher.email,name:teacher.name};
+      DB.session={email:teacher.email,name:teacher.name,id:teacher.id||''};
       closeModal('register'); updateNav();
-      showToast('🎉 Welcome, '+teacher.name.split(' ')[0]+'!');
-      setTimeout(()=>showPage('dashboard'),300);
-    } else showAlert('regAlert','Error. Try again.');
+      showToast('🎉 Welcome, '+teacher.name.split(' ')[0]+'! Profile created.');
+      // Reload teachers so profile appears for all users
+      if(rtdb){
+        DB.loadTeachers().then(()=>{ renderHomeTeachers(); setTimeout(()=>showPage('dashboard'),300); });
+      } else {
+        setTimeout(()=>showPage('dashboard'),300);
+      }
+    } else {
+      showAlert('regAlert','❌ Error saving profile. Check connection and try again.');
+    }
   });
 }
 
@@ -1330,11 +1337,42 @@ function doRegister(){
 function doLogin(){
   const email=document.getElementById('login_email').value.trim(), pass=document.getElementById('login_password').value;
   if(!email||!pass){showAlert('loginAlert','Please enter email and password.');return}
-  const t=DB.teachers.find(t=>t.email.toLowerCase()===email.toLowerCase());
-  if(!t||t.password!==simpleHash(pass)){showAlert('loginAlert','Invalid email or password.');return}
-  DB.session={email:t.email,name:t.name}; closeModal('login'); updateNav();
-  showToast('Welcome back, '+t.name.split(' ')[0]+'!');
-  setTimeout(()=>showPage('dashboard'),300);
+  showAlert('loginAlert','⏳ Signing in...');
+
+  function tryLogin(teachers){
+    const t=teachers.find(t=>(t.email||'').toLowerCase()===email.toLowerCase());
+    if(!t||t.password!==simpleHash(pass)){
+      showAlert('loginAlert','❌ Invalid email or password.');return;
+    }
+    DB.session={email:t.email,name:t.name,id:t.id||''};
+    // Ensure teacher is in local cache
+    if(!DB._teachers.find(x=>x.email===t.email)) DB._teachers.unshift(t);
+    closeModal('login'); updateNav();
+    showToast('Welcome back, '+t.name.split(' ')[0]+'!');
+    setTimeout(()=>showPage('dashboard'),300);
+  }
+
+  // Try Firebase first
+  if(rtdb){
+    rtdb.ref('teachers').orderByChild('email').equalTo(email).once('value')
+      .then(snap=>{
+        if(snap.exists()){
+          const teachers=[];
+          snap.forEach(ch=>teachers.push({...ch.val(),id:ch.key}));
+          tryLogin(teachers);
+        } else {
+          // Not in Firebase — try local AI teachers
+          tryLogin(DB.getAll());
+        }
+      })
+      .catch(e=>{
+        console.error(e);
+        // Firebase failed — try local cache
+        tryLogin(DB.getAll());
+      });
+  } else {
+    tryLogin(DB.getAll());
+  }
 }
 function logout(){ DB.clearSession(); updateNav(); showToast('Signed out successfully'); showPage('home'); }
 
@@ -1370,7 +1408,7 @@ function renderDashboard(){
   document.getElementById('edit_location').value=t.location||'';
   document.getElementById('edit_board').value=t.board||'';
   document.getElementById('edit_subjects').value=t.subjects||'';
-  document.getElementById('edit_timing').value=t.timing||'';
+
   document.getElementById('edit_bio').value=t.bio||'';
   document.getElementById('edit_meet').value=t.meetLink||'';
   const cm=t.modes||[];
@@ -1380,7 +1418,9 @@ function renderDashboard(){
 }
 function toggleEditProfile(){ document.getElementById('editProfileForm').classList.toggle('open'); }
 function saveProfile(){
-  const s=DB.session, teachers=DB.teachers, idx=teachers.findIndex(t=>t.email===s.email); if(idx===-1)return;
+  const s=DB.session; if(!s)return;
+  const idx=DB._teachers.findIndex(t=>t.email===s.email);
+  if(idx===-1){showToast('❌ Session error. Please sign out and sign in again.');return;}
   const upd={
     phone:document.getElementById('edit_phone').value.trim(),
     location:document.getElementById('edit_location').value.trim(),
@@ -1391,13 +1431,28 @@ function saveProfile(){
     modes:getCheckedModes('edit_modes'),
   };
   upd.slug=generateSlug({...DB._teachers[idx],...upd});
-  DB.updateTeacher(DB._teachers[idx].id||'',upd).then(()=>{
-    showToast('✅ Profile updated! Visible to all students.');
+  DB._teachers[idx]={...DB._teachers[idx],...upd};
+  const teacherId=DB._teachers[idx].id;
+  const done=()=>{
+    showToast('✅ Profile updated! Visible to all students now.');
     document.getElementById('editProfileForm').classList.remove('open');
-    DB.loadTeachers().then(()=>{renderDashboard();renderHomeTeachers();});
-  });
+    renderDashboard(); renderHomeTeachers();
+  };
+  if(rtdb && teacherId){
+    rtdb.ref('teachers/'+teacherId).update(upd).then(done).catch(()=>{
+      rtdb.ref('teachers').orderByChild('email').equalTo(s.email).once('value').then(snap=>{
+        if(snap.exists()) snap.forEach(ch=>rtdb.ref('teachers/'+ch.key).update(upd));
+        done();
+      });
+    });
+  } else if(rtdb){
+    rtdb.ref('teachers').orderByChild('email').equalTo(s.email).once('value').then(snap=>{
+      if(snap.exists()) snap.forEach(ch=>{ DB._teachers[idx].id=ch.key; rtdb.ref('teachers/'+ch.key).update(upd); });
+      else DB.saveTeacher(DB._teachers[idx]);
+      done();
+    });
+  } else { done(); }
 }
-
 // ══════════════════════════════════════════
 // GOOGLE COURSES
 // ══════════════════════════════════════════
@@ -1430,10 +1485,22 @@ function closeModal(name){ document.getElementById('modal-'+name).classList.add(
 function closeModalOutside(e,name){ if(e.target===document.getElementById('modal-'+name))closeModal(name); }
 
 // CHECKBOX HELPER
-document.addEventListener('click',e=>{
-  const item=e.target.closest('.checkbox-item'); if(!item) return;
-  item.classList.toggle('checked'); item.querySelector('input').checked=item.classList.contains('checked');
+document.addEventListener('click',function(e){
+  const item=e.target.closest('.checkbox-item');
+  if(!item)return;
+  e.preventDefault();
+  item.classList.toggle('checked');
+  const inp=item.querySelector('input');
+  if(inp)inp.checked=item.classList.contains('checked');
 });
+document.addEventListener('touchend',function(e){
+  const item=e.target.closest('.checkbox-item');
+  if(!item)return;
+  e.preventDefault();
+  item.classList.toggle('checked');
+  const inp=item.querySelector('input');
+  if(inp)inp.checked=item.classList.contains('checked');
+},{passive:false});
 function getCheckedModes(cid){
   const m=[]; document.querySelectorAll('#'+cid+' .checkbox-item.checked').forEach(el=>m.push(el.getAttribute('data-val'))); return m;
 }
@@ -1880,25 +1947,17 @@ function renderReviews(uid, reviews){
   const dist=[5,4,3,2,1].map(n=>({n, count:reviews.filter(r=>r.rating===n).length}));
   const stars='★'.repeat(Math.round(avg))+'☆'.repeat(5-Math.round(avg));
 
-  summaryEl.innerHTML=`
-    <div style="text-align:center;">
-      <div class="avg-score">${avg.toFixed(1)}</div>
-      <div class="avg-stars">${[1,2,3,4,5].map(n=>`<span style="color:${n<=Math.round(avg)?'#f59e0b':'#d1d9f0';font-size:1.1rem;">★</span>`).join('')}</div>
-      <div class="avg-count">${reviews.length} review${reviews.length!==1?'s':''}</div>
-    </div>
-    <div class="star-bars">
-      ${dist.map(({n,count})=>{
-        const pct=reviews.length?Math.round(count/reviews.length*100):0;
-        return `<div class="star-bar-row">
-          <div class="star-bar-label">${n}★</div>
-          <div class="star-bar-track"><div class="star-bar-fill" style="width:${pct}%"></div></div>
-          <div class="star-bar-num">${count}</div>
-        </div>`;
-      }).join('')}
-    </div>`;
+  // Build star display for summary
+  const avgStarsHtml=[1,2,3,4,5].map(n=>'<span style="color:'+(n<=Math.round(avg)?'#f59e0b':'#d1d9f0')+';font-size:1.1rem;">★</span>').join('');
+  const barsHtml=dist.map(function(item){
+    const pct=reviews.length?Math.round(item.count/reviews.length*100):0;
+    return '<div class="star-bar-row"><div class="star-bar-label">'+item.n+'★</div><div class="star-bar-track"><div class="star-bar-fill" style="width:'+pct+'%"></div></div><div class="star-bar-num">'+item.count+'</div></div>';
+  }).join('');
+
+  summaryEl.innerHTML='<div style="text-align:center;"><div class="avg-score">'+avg.toFixed(1)+'</div><div class="avg-stars">'+avgStarsHtml+'</div><div class="avg-count">'+reviews.length+' review'+(reviews.length!==1?'s':'')+'</div></div><div class="star-bars">'+barsHtml+'</div>';
 
   listEl.innerHTML=reviews.map(r=>{
-    const rStars=[1,2,3,4,5].map(n=>`<span style="color:${n<=r.rating?'#f59e0b':'#d1d9f0'}"">★</span>`).join('');
+    const rStars=[1,2,3,4,5].map(n=>'<span style="color:'+(n<=r.rating?'#f59e0b':'#d1d9f0')+'">★</span>').join('');
     const date=new Date(r.createdAt).toLocaleDateString('en-IN',{day:'numeric',month:'short',year:'numeric'});
     return `<div class="review-card">
       <div class="review-card-top">
