@@ -3,112 +3,94 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PrivateTutorNearMe – Find Your Perfect Tutor in India</title>
+<title>PrivateTutorNearMe – Find Your Perfect Tutor</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{
-  --ink:#0a0f1e;
-  --paper:#e8eef8;
-  --warm:#f0f4fb;
-  --accent:#2563eb;
-  --accent2:#1a3a8f;
-  --gold:#2563eb;
-  --muted:#6b7280;
-  --border:#d1d9f0;
-  --success:#16a34a;
-  --danger:#dc2626;
-  --card-bg:#ffffff;
-  --shadow:0 4px 24px rgba(10,15,30,.08);
-  --shadow-lg:0 12px 48px rgba(10,15,30,.15);
-  --red:#e8001c;
-  --blue:#2563eb;
-  --red-light:rgba(37,99,235,.08);
-  --blue-light:rgba(37,99,235,.08);
-}
+:root{--ink:#1a1208;--paper:#fdf8f0;--warm:#f5efe0;--accent:#c8622a;--accent2:#2a7c8a;--gold:#d4a84b;--muted:#8a7968;--border:#e2d9c8;--success:#3a8a5c;--danger:#c82a2a;--card-bg:#fff;--shadow:0 4px 24px rgba(26,18,8,.10);--shadow-lg:0 12px 48px rgba(26,18,8,.18)}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'DM Sans',sans-serif;background:#e8eef8;color:#0a0f1e;min-height:100vh;overflow-x:hidden}
+body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);min-height:100vh;overflow-x:hidden}
 .hidden{display:none!important}.text-center{text-align:center}
 
 /* NAV */
-nav{background:#fff;color:#0a0f1e;padding:0 2rem;height:68px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(10,15,30,.08);border-bottom:1px solid #d1d9f0}
-.nav-logo{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:900;color:#0a0f1e;letter-spacing:-.5px;cursor:pointer;text-decoration:none}
-.nav-logo span{color:#2563eb}
+nav{background:var(--ink);color:var(--paper);padding:0 2rem;height:64px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,.3)}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:900;color:var(--gold);letter-spacing:-.5px;cursor:pointer;text-decoration:none}
+.nav-logo span{color:var(--paper)}
 .nav-actions{display:flex;align-items:center;gap:.75rem}
-.nav-btn{padding:.4rem .8rem;border-radius:6px;font-size:.8rem;font-weight:600;cursor:pointer;border:none;transition:all .2s;font-family:'DM Sans',sans-serif;white-space:nowrap}
-.nav-btn-outline{background:transparent;border:1.5px solid #d1d9f0;color:#0a0f1e}.nav-btn-outline:hover{background:#e8eef8;color:#2563eb;border-color:#2563eb}
-.nav-btn-solid{background:#2563eb;color:#fff;border-radius:8px}.nav-btn-solid:hover{background:#1d4ed8}
-.nav-btn-ghost{background:transparent;color:#6b7280;border:1.5px solid #d1d9f0}.nav-btn-ghost:hover{background:#e8eef8;color:#0a0f1e}
-.nav-user-info{display:flex;align-items:center;gap:.6rem;color:#0a0f1e;font-weight:600;font-size:.9rem}
-.nav-avatar{width:34px;height:34px;border-radius:50%;background:#2563eb;display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;font-size:.85rem}
+.nav-btn{padding:.45rem 1.1rem;border-radius:6px;font-size:.88rem;font-weight:600;cursor:pointer;border:none;transition:all .2s;font-family:'DM Sans',sans-serif}
+.nav-btn-outline{background:transparent;border:1.5px solid var(--gold);color:var(--gold)}.nav-btn-outline:hover{background:var(--gold);color:var(--ink)}
+.nav-btn-solid{background:var(--accent);color:#fff}.nav-btn-solid:hover{background:#a8521e}
+.nav-btn-ghost{background:transparent;color:#ccc;border:1.5px solid #444}.nav-btn-ghost:hover{background:#333;color:#fff}
+.nav-user-info{display:flex;align-items:center;gap:.6rem;color:var(--gold);font-weight:600;font-size:.9rem}
+.nav-avatar{width:34px;height:34px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;font-size:.85rem}
 
 .page{display:none;min-height:calc(100vh - 64px)}.page.active{display:block}
 
 /* HERO */
-.hero{background:linear-gradient(160deg,#dce8fb 0%,#e8eef8 50%,#d6e4f7 100%);color:#0a0f1e;padding:5.5rem 2rem 5rem;text-align:center;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 30%,rgba(37,99,235,.12) 0%,transparent 60%),radial-gradient(ellipse at 80% 70%,rgba(37,99,235,.08) 0%,transparent 55%)}
-.hero-pattern{position:absolute;inset:0;opacity:.4;background-image:radial-gradient(circle,#2563eb 1px,transparent 1px);background-size:32px 32px}
+.hero{background:linear-gradient(135deg,var(--ink) 0%,#2d2010 60%,#3a2a18 100%);color:var(--paper);padding:5rem 2rem 4rem;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(200,98,42,.15) 0%,transparent 60%),radial-gradient(ellipse at 70% 30%,rgba(42,124,138,.12) 0%,transparent 55%)}
+.hero-pattern{position:absolute;inset:0;opacity:.04;background-image:repeating-linear-gradient(45deg,var(--gold) 0,var(--gold) 1px,transparent 0,transparent 50%);background-size:24px 24px}
 .hero-content{position:relative;z-index:1;max-width:720px;margin:0 auto}
-.hero-eyebrow{font-size:.8rem;letter-spacing:3px;text-transform:uppercase;color:#2563eb;font-weight:700;margin-bottom:1.2rem}
-.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.4rem,5.5vw,4rem);font-weight:900;line-height:1.05;margin-bottom:1.2rem;color:#0a0f1e;letter-spacing:-1px}
-.hero h1 em{color:#2563eb;font-style:normal}
-.hero p{font-size:1.05rem;color:#6b7280;margin-bottom:2.5rem;line-height:1.7}
+.hero-eyebrow{font-size:.82rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:1rem}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,5vw,3.8rem);font-weight:900;line-height:1.1;margin-bottom:1.2rem}
+.hero h1 em{color:var(--gold);font-style:normal}
+.hero p{font-size:1.05rem;color:#b8a88a;margin-bottom:2.5rem;line-height:1.7}
 
-.search-wrap{background:#fff;border-radius:50px;padding:.4rem .4rem .4rem 1.2rem;display:flex;gap:.5rem;max-width:600px;margin:0 auto 2rem;box-shadow:0 4px 24px rgba(37,99,235,.15),0 1px 4px rgba(10,15,30,.08);position:relative;border:1.5px solid #d1d9f0;align-items:center}
-.search-wrap input{flex:1;border:none;outline:none;font-size:.95rem;padding:.55rem .5rem;color:#0a0f1e;font-family:'DM Sans',sans-serif;background:transparent}
-.search-wrap input::placeholder{color:#9ca3af}
-.btn-search{background:#2563eb;color:#fff;border:none;border-radius:50px;padding:.7rem 1.8rem;font-size:.92rem;font-weight:700;cursor:pointer;transition:all .2s;font-family:'DM Sans',sans-serif;white-space:nowrap;letter-spacing:.3px}
-.btn-search:hover{background:#1d4ed8;transform:scale(1.02)}
+.search-wrap{background:#fff;border-radius:16px;padding:.5rem;display:flex;gap:.5rem;max-width:640px;margin:0 auto 2rem;box-shadow:0 8px 32px rgba(0,0,0,.3);position:relative}
+.search-wrap input{flex:1;border:none;outline:none;font-size:1rem;padding:.7rem 1rem;color:var(--ink);font-family:'DM Sans',sans-serif;background:transparent}
+.search-wrap input::placeholder{color:#aaa}
+.btn-search{background:var(--accent);color:#fff;border:none;border-radius:12px;padding:.7rem 1.6rem;font-size:.95rem;font-weight:700;cursor:pointer;transition:background .2s;font-family:'DM Sans',sans-serif;white-space:nowrap}
+.btn-search:hover{background:#a8521e}
 
 .autocomplete-list{position:absolute;top:calc(100% + .3rem);left:0;right:0;background:#fff;border:1.5px solid var(--border);border-radius:12px;z-index:200;max-height:220px;overflow-y:auto;box-shadow:var(--shadow-lg);display:none}
 .autocomplete-list.open{display:block}
 .ac-item{padding:.6rem 1.1rem;font-size:.9rem;cursor:pointer;color:var(--ink);border-bottom:1px solid var(--border)}.ac-item:last-child{border-bottom:none}.ac-item:hover{background:var(--warm)}
 
 .hero-tags{display:flex;gap:.5rem;flex-wrap:wrap;justify-content:center}
-.hero-tag{background:#fff;border:1px solid #d1d9f0;color:#374151;padding:.3rem .9rem;border-radius:20px;font-size:.8rem;cursor:pointer;transition:all .2s;box-shadow:0 1px 4px rgba(10,15,30,.06)}
-.hero-tag:hover{background:#2563eb;color:#fff;border-color:#2563eb}
+.hero-tag{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#ccc;padding:.3rem .8rem;border-radius:20px;font-size:.8rem;cursor:pointer;transition:all .2s}
+.hero-tag:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
 
-.stats-strip{background:#fff;border-top:1px solid #d1d9f0;border-bottom:1px solid #d1d9f0;padding:1.5rem 2rem;display:flex;justify-content:center;gap:4rem;flex-wrap:wrap;box-shadow:0 2px 8px rgba(10,15,30,.05)}
-.stat{text-align:center}.stat-num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;color:#2563eb}.stat-label{font-size:.82rem;color:#6b7280;font-weight:500;margin-top:.1rem}
+.stats-strip{background:var(--warm);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:1.5rem 2rem;display:flex;justify-content:center;gap:4rem;flex-wrap:wrap}
+.stat{text-align:center}.stat-num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;color:var(--accent)}.stat-label{font-size:.82rem;color:var(--muted);font-weight:500;margin-top:.1rem}
 
 .section{max-width:1100px;margin:0 auto;padding:3.5rem 1.5rem}
-.section-title{font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;margin-bottom:.4rem;color:#0a0f1e}
+.section-title{font-family:'Playfair Display',serif;font-size:2rem;font-weight:800;margin-bottom:.4rem}
 .section-sub{color:var(--muted);font-size:.95rem;margin-bottom:2rem}
 
 /* AI BADGE */
-.ai-badge{display:inline-flex;align-items:center;gap:.3rem;background:rgba(37,99,235,.08);border:1px solid rgba(37,99,235,.2);border-radius:20px;padding:.25rem .7rem;font-size:.72rem;font-weight:700;color:#2563eb;margin-bottom:.8rem}
+.ai-badge{display:inline-flex;align-items:center;gap:.3rem;background:linear-gradient(90deg,rgba(42,124,138,.12),rgba(200,98,42,.08));border:1px solid rgba(42,124,138,.25);border-radius:20px;padding:.25rem .7rem;font-size:.72rem;font-weight:700;color:var(--accent2);margin-bottom:.8rem}
 
 /* CATEGORY CHIPS */
 .ai-categories{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.5rem}
-.ai-cat-chip{background:#fff;border:1.5px solid #d1d9f0;color:#374151;padding:.35rem .9rem;border-radius:25px;font-size:.82rem;font-weight:600;cursor:pointer;transition:all .2s;box-shadow:0 1px 3px rgba(10,15,30,.05)}
-.ai-cat-chip:hover,.ai-cat-chip.active{background:#2563eb;color:#fff;border-color:#2563eb}
+.ai-cat-chip{background:#fff;border:1.5px solid var(--border);color:var(--ink);padding:.35rem .9rem;border-radius:25px;font-size:.82rem;font-weight:600;cursor:pointer;transition:all .2s}
+.ai-cat-chip:hover,.ai-cat-chip.active{background:var(--accent);color:#fff;border-color:var(--accent)}
 
 /* AI SUGGEST BOX */
-.ai-suggest-box{background:rgba(37,99,235,.04);border:1.5px solid rgba(37,99,235,.15);border-radius:16px;padding:1.5rem;margin-bottom:1.5rem;display:none}
+.ai-suggest-box{background:linear-gradient(135deg,rgba(42,124,138,.08),rgba(200,98,42,.06));border:1.5px solid rgba(42,124,138,.2);border-radius:16px;padding:1.5rem;margin-bottom:1.5rem;display:none}
 .ai-suggest-box.show{display:block}
 .ai-suggest-title{font-weight:700;font-size:.95rem;display:flex;align-items:center;gap:.5rem;margin-bottom:.8rem}
 .ai-suggest-tags{display:flex;gap:.5rem;flex-wrap:wrap}
-.ai-suggest-tag{background:#fff;border:1px solid #d1d9f0;color:#2563eb;padding:.3rem .75rem;border-radius:20px;font-size:.82rem;font-weight:600;cursor:pointer;transition:all .2s}
-.ai-suggest-tag:hover{background:#2563eb;color:#fff}
+.ai-suggest-tag{background:#fff;border:1px solid var(--border);color:var(--accent2);padding:.3rem .75rem;border-radius:20px;font-size:.82rem;font-weight:600;cursor:pointer;transition:all .2s}
+.ai-suggest-tag:hover{background:var(--accent2);color:#fff}
 
 /* TEACHER CARDS */
 .teachers-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:1.5rem}
-.teacher-card{background:#fff;border:1px solid #d1d9f0;border-radius:16px;overflow:hidden;cursor:pointer;transition:all .25s;box-shadow:0 2px 12px rgba(10,15,30,.06)}
-.teacher-card:hover{transform:translateY(-5px);box-shadow:0 16px 48px rgba(37,99,235,.18);border-color:#2563eb}
-.card-header{background:linear-gradient(135deg,#1e40af 0%,#2563eb 100%);padding:1.5rem 1.5rem 3.5rem;position:relative}
+.teacher-card{background:var(--card-bg);border:1px solid var(--border);border-radius:16px;overflow:hidden;cursor:pointer;transition:all .25s;box-shadow:var(--shadow)}
+.teacher-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:var(--accent)}
+.card-header{background:linear-gradient(135deg,var(--ink) 0%,#2d2010 100%);padding:1.5rem 1.5rem 3.5rem;position:relative}
 .card-header-badge{position:absolute;top:1rem;right:1rem;font-size:.7rem;font-weight:700;padding:.2rem .6rem;border-radius:20px;text-transform:uppercase;letter-spacing:.5px}
-.badge-real{background:#2563eb;color:#fff}.badge-ai{background:#1a3a8f;color:#fff}
+.badge-real{background:var(--gold);color:var(--ink)}.badge-ai{background:var(--accent2);color:#fff}
 .card-body{padding:0 1.5rem 1.5rem;position:relative}
-.card-avatar{width:60px;height:60px;border-radius:50%;border:3px solid #fff;background:#2563eb;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:#fff;margin-top:-30px;margin-bottom:.6rem;box-shadow:0 2px 12px rgba(37,99,235,.3)}
+.card-avatar{width:60px;height:60px;border-radius:50%;border:3px solid #fff;background:var(--accent);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:#fff;margin-top:-30px;margin-bottom:.6rem;box-shadow:0 2px 12px rgba(0,0,0,.2)}
 .card-name{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:var(--ink)}
 .card-location{font-size:.82rem;color:var(--muted);margin:.2rem 0 .6rem;display:flex;align-items:center;gap:.3rem}
 .card-subjects{display:flex;flex-wrap:wrap;gap:.35rem;margin-bottom:.8rem}
 .subject-tag{background:var(--warm);border:1px solid var(--border);color:var(--ink);padding:.2rem .6rem;border-radius:20px;font-size:.75rem;font-weight:500}
 .card-modes{display:flex;gap:.4rem;margin-bottom:.8rem;flex-wrap:wrap}
 .mode-badge{font-size:.72rem;padding:.22rem .6rem;border-radius:5px;font-weight:600;text-transform:uppercase;letter-spacing:.3px}
-.mode-online{background:rgba(37,99,235,.1);color:#2563eb}.mode-home{background:rgba(16,163,74,.1);color:#16a34a}.mode-centre{background:rgba(124,58,237,.1);color:#7c3aed}
+.mode-online{background:rgba(42,124,138,.12);color:var(--accent2)}.mode-home{background:rgba(212,168,75,.15);color:#8a6a10}.mode-centre{background:rgba(58,138,92,.12);color:var(--success)}
 .card-bio{font-size:.84rem;color:var(--muted);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .card-footer{border-top:1px solid var(--border);margin:.8rem -1.5rem -1.5rem;padding:.8rem 1.5rem;display:flex;align-items:center;justify-content:space-between}
-.card-board{font-size:.78rem;color:var(--muted);font-weight:500}.view-profile-btn{font-size:.8rem;font-weight:700;color:#2563eb}
+.card-board{font-size:.78rem;color:var(--muted);font-weight:500}.view-profile-btn{font-size:.8rem;font-weight:700;color:var(--accent)}
 
 .no-results{text-align:center;padding:4rem 2rem;color:var(--muted)}.no-results-icon{font-size:3rem;margin-bottom:1rem}
 .no-results h3{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--ink);margin-bottom:.5rem}
@@ -116,7 +98,7 @@ nav{background:#fff;color:#0a0f1e;padding:0 2rem;height:68px;display:flex;align-
 /* MODAL */
 .modal-overlay{position:fixed;inset:0;background:rgba(26,18,8,.7);z-index:200;display:flex;align-items:center;justify-content:center;padding:1rem;backdrop-filter:blur(4px);animation:fadeIn .2s}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
-.modal{background:#fff;border-radius:20px;max-width:540px;width:100%;max-height:92vh;overflow-y:auto;box-shadow:0 20px 60px rgba(10,15,30,.2);animation:slideUp .3s cubic-bezier(.34,1.56,.64,1)}
+.modal{background:#fff;border-radius:20px;max-width:540px;width:100%;max-height:92vh;overflow-y:auto;box-shadow:var(--shadow-lg);animation:slideUp .3s cubic-bezier(.34,1.56,.64,1)}
 @keyframes slideUp{from{transform:translateY(40px);opacity:0}to{transform:translateY(0);opacity:1}}
 .modal-header{padding:1.8rem 2rem 0;display:flex;align-items:flex-start;justify-content:space-between}
 .modal-title{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:800}
@@ -128,13 +110,13 @@ nav{background:#fff;color:#0a0f1e;padding:0 2rem;height:68px;display:flex;align-
 .form-step{display:none}.form-step.active{display:block}
 .step-indicator{display:flex;gap:.5rem;margin-bottom:1.8rem;align-items:center}
 .step-dot{width:8px;height:8px;border-radius:50%;background:var(--border);transition:all .3s}
-.step-dot.done{background:#16a34a}.step-dot.active{background:#2563eb;width:24px;border-radius:4px}
+.step-dot.done{background:var(--success)}.step-dot.active{background:var(--accent);width:24px;border-radius:4px}
 .step-label{font-size:.8rem;color:var(--muted);margin-left:auto}
 .form-group{margin-bottom:1.1rem}
 .form-label{display:block;font-size:.84rem;font-weight:600;color:var(--ink);margin-bottom:.35rem}
 .form-label span{color:var(--accent)}
-.form-input,.form-select,.form-textarea{width:100%;border:1.5px solid #d1d9f0;border-radius:10px;padding:.65rem .9rem;font-size:.95rem;font-family:'DM Sans',sans-serif;color:#0a0f1e;background:#fff;transition:border-color .2s,box-shadow .2s;outline:none}
-.form-input:focus,.form-select:focus,.form-textarea:focus{border-color:#2563eb;box-shadow:0 0 0 3px rgba(37,99,235,.12);background:#fff}
+.form-input,.form-select,.form-textarea{width:100%;border:1.5px solid var(--border);border-radius:10px;padding:.65rem .9rem;font-size:.95rem;font-family:'DM Sans',sans-serif;color:var(--ink);background:var(--paper);transition:border-color .2s,box-shadow .2s;outline:none}
+.form-input:focus,.form-select:focus,.form-textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(200,98,42,.12);background:#fff}
 .form-textarea{resize:vertical;min-height:90px;line-height:1.6}
 .form-hint{font-size:.78rem;color:var(--muted);margin-top:.3rem}
 
@@ -145,31 +127,31 @@ nav{background:#fff;color:#0a0f1e;padding:0 2rem;height:68px;display:flex;align-
 .board-opt-group{padding:.4rem .8rem;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--muted);background:var(--warm);border-bottom:1px solid var(--border);position:sticky;top:0}
 .board-opt{padding:.55rem 1rem;font-size:.9rem;cursor:pointer;color:var(--ink);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
 .board-opt:last-child{border-bottom:none}.board-opt:hover{background:var(--warm)}
-.board-opt-badge{font-size:.68rem;padding:.15rem .5rem;border-radius:10px;font-weight:600;background:rgba(37,99,235,.1);color:#2563eb}
+.board-opt-badge{font-size:.68rem;padding:.15rem .5rem;border-radius:10px;font-weight:600;background:rgba(200,98,42,.1);color:var(--accent)}
 
 /* CHECKBOX MODES */
 .checkbox-group{display:flex;flex-wrap:wrap;gap:.5rem}
-.checkbox-item{display:flex;align-items:center;gap:.5rem;background:var(--warm);border:2px solid var(--border);border-radius:10px;padding:.6rem 1rem;cursor:pointer;transition:all .2s;font-size:.88rem;font-weight:600;user-select:none;-webkit-tap-highlight-color:transparent;touch-action:manipulation;min-height:44px}
+.checkbox-item{display:flex;align-items:center;gap:.4rem;background:var(--warm);border:1.5px solid var(--border);border-radius:8px;padding:.4rem .8rem;cursor:pointer;transition:all .2s;font-size:.85rem;font-weight:500;user-select:none}
 .checkbox-item input{display:none}
-.checkbox-item.checked{background:rgba(37,99,235,.12);border-color:#2563eb;color:#2563eb;font-weight:700}
+.checkbox-item.checked{background:rgba(200,98,42,.1);border-color:var(--accent);color:var(--accent)}
 
-.btn-primary{width:100%;padding:.8rem;background:#2563eb;color:#fff;border:none;border-radius:10px;font-size:1rem;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s;margin-top:.5rem}
-.btn-primary:hover{background:#1d4ed8;transform:translateY(-1px)}
+.btn-primary{width:100%;padding:.8rem;background:var(--accent);color:#fff;border:none;border-radius:10px;font-size:1rem;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s;margin-top:.5rem}
+.btn-primary:hover{background:#a8521e;transform:translateY(-1px)}
 .btn-secondary{width:100%;padding:.75rem;background:transparent;color:var(--ink);border:1.5px solid var(--border);border-radius:10px;font-size:.95rem;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s;margin-top:.5rem}
 .btn-secondary:hover{border-color:var(--ink)}
 .form-divider{text-align:center;color:var(--muted);font-size:.83rem;margin:.8rem 0;position:relative}
 .form-divider::before,.form-divider::after{content:'';position:absolute;top:50%;width:40%;height:1px;background:var(--border)}
 .form-divider::before{left:0}.form-divider::after{right:0}
-.form-link{color:#2563eb;cursor:pointer;font-weight:600;text-decoration:none}.form-link:hover{text-decoration:underline}
+.form-link{color:var(--accent);cursor:pointer;font-weight:600;text-decoration:none}.form-link:hover{text-decoration:underline}
 .alert{padding:.7rem 1rem;border-radius:8px;font-size:.87rem;font-weight:500;margin-bottom:1rem}
-.alert-error{background:rgba(232,0,28,.08);color:#e8001c;border:1px solid rgba(232,0,28,.2)}
+.alert-error{background:rgba(200,42,42,.1);color:var(--danger);border:1px solid rgba(200,42,42,.2)}
 
 /* PROFILE */
-.profile-hero{background:linear-gradient(135deg,#1e40af 0%,#2563eb 100%);padding:3rem 2rem 5rem;color:#fff}
+.profile-hero{background:linear-gradient(135deg,var(--ink) 0%,#2d2010 100%);padding:3rem 2rem 5rem;color:var(--paper)}
 .profile-content{max-width:900px;margin:-3rem auto 0;padding:0 1.5rem 3rem}
 .profile-card{background:#fff;border-radius:20px;box-shadow:var(--shadow-lg);overflow:hidden;margin-bottom:1.5rem}
 .profile-card-header{padding:2rem;display:flex;gap:1.5rem;align-items:flex-start;border-bottom:1px solid var(--border)}
-.profile-avatar-lg{width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,#2563eb,#1e40af);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:#fff;flex-shrink:0}
+.profile-avatar-lg{width:80px;height:80px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:#fff;flex-shrink:0}
 .profile-name{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:800}
 .profile-meta{display:flex;flex-wrap:wrap;gap:.5rem;margin:.5rem 0}
 .profile-meta-item{display:flex;align-items:center;gap:.3rem;font-size:.85rem;color:var(--muted)}
@@ -180,13 +162,13 @@ nav{background:#fff;color:#0a0f1e;padding:0 2rem;height:68px;display:flex;align-
 .subject-pill{background:var(--warm);border:1.5px solid var(--border);color:var(--ink);padding:.4rem .9rem;border-radius:25px;font-size:.85rem;font-weight:500}
 
 /* CONNECT SECTION MULTI-SELECT */
-.connect-section{background:#f0f5ff;border:1px solid #d1d9f0;border-radius:16px;padding:1.5rem;margin-top:1rem}
+.connect-section{background:var(--warm);border-radius:16px;padding:1.5rem;margin-top:1rem}
 .connect-title{font-weight:700;font-size:1rem;margin-bottom:1rem;color:var(--ink)}
 .connect-subtitle{font-size:.83rem;color:var(--muted);margin-bottom:1.2rem;margin-top:-.6rem}
 .connect-modes-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.8rem;margin-bottom:1.2rem}
 .connect-mode-btn{display:flex;flex-direction:column;align-items:center;gap:.4rem;padding:1rem .8rem;border-radius:12px;border:2px solid var(--border);background:#fff;cursor:pointer;transition:all .25s;font-family:'DM Sans',sans-serif;text-align:center}
-.connect-mode-btn:hover{border-color:#2563eb;box-shadow:0 4px 16px rgba(37,99,235,.15)}
-.connect-mode-btn.selected{border-color:#2563eb;background:rgba(37,99,235,.06);box-shadow:0 4px 16px rgba(37,99,235,.15)}
+.connect-mode-btn:hover{border-color:var(--accent);box-shadow:0 4px 16px rgba(200,98,42,.15)}
+.connect-mode-btn.selected{border-color:var(--accent);background:rgba(200,98,42,.06);box-shadow:0 4px 16px rgba(200,98,42,.15)}
 .connect-mode-btn.selected .mode-icon{transform:scale(1.15)}
 .connect-mode-btn .mode-icon{font-size:1.8rem;transition:transform .2s}
 .connect-mode-btn .mode-label{font-size:.85rem;font-weight:700;color:var(--ink)}
@@ -197,32 +179,32 @@ nav{background:#fff;color:#0a0f1e;padding:0 2rem;height:68px;display:flex;align-
 .action-btn{display:flex;align-items:center;gap:.5rem;padding:.7rem 1.4rem;border-radius:10px;font-size:.9rem;font-weight:700;cursor:pointer;border:none;font-family:'DM Sans',sans-serif;transition:all .2s;text-decoration:none}
 .action-btn:hover{transform:translateY(-1px)}
 .action-btn-meet{background:#1a73e8;color:#fff}.action-btn-meet:hover{background:#1557b0}
-.action-btn-contact{background:#2563eb;color:#fff}.action-btn-contact:hover{background:#1d4ed8}
-.action-btn-home{background:rgba(37,99,235,.08);color:#2563eb;border:1.5px solid rgba(37,99,235,.2)}
-.action-btn-centre{background:rgba(37,99,235,.06);color:#2563eb;border:1.5px solid rgba(37,99,235,.15)}
-.back-btn{display:inline-flex;align-items:center;gap:.4rem;color:rgba(255,255,255,.85);cursor:pointer;font-size:.9rem;font-weight:500;background:none;border:none;font-family:'DM Sans',sans-serif;margin-bottom:1.5rem;transition:color .2s}
+.action-btn-contact{background:var(--accent);color:#fff}.action-btn-contact:hover{background:#a8521e}
+.action-btn-home{background:rgba(212,168,75,.15);color:#8a6a10;border:1.5px solid rgba(212,168,75,.3)}
+.action-btn-centre{background:rgba(58,138,92,.1);color:var(--success);border:1.5px solid rgba(58,138,92,.25)}
+.back-btn{display:inline-flex;align-items:center;gap:.4rem;color:rgba(255,255,255,.7);cursor:pointer;font-size:.9rem;font-weight:500;background:none;border:none;font-family:'DM Sans',sans-serif;margin-bottom:1.5rem;transition:color .2s}
 .back-btn:hover{color:#fff}
 
 /* DASHBOARD */
-.dashboard-wrap{max-width:900px;margin:0 auto;padding:1.2rem 1rem}
-.dashboard-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.2rem;flex-wrap:wrap;gap:.7rem}
-.dashboard-title{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:800}
-.dashboard-card{background:#fff;border:1px solid #dde3f5;border-radius:16px;padding:2rem;margin-bottom:1.5rem;box-shadow:0 4px 24px rgba(26,58,143,.08)}
+.dashboard-wrap{max-width:900px;margin:0 auto;padding:2.5rem 1.5rem}
+.dashboard-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:2rem;flex-wrap:wrap;gap:1rem}
+.dashboard-title{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:800}
+.dashboard-card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:2rem;margin-bottom:1.5rem;box-shadow:var(--shadow)}
 .dashboard-card-title{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;margin-bottom:1.2rem;display:flex;align-items:center;justify-content:space-between}
-.edit-icon-btn{background:#f0f4ff;border:1px solid #dde3f5;border-radius:8px;padding:.3rem .7rem;cursor:pointer;font-size:.8rem;font-weight:600;color:#5a6a9a;transition:all .2s;font-family:'DM Sans',sans-serif}
-.edit-icon-btn:hover{background:#dde3f5;color:#1a3a8f}
-.profile-preview-mini{display:flex;gap:.8rem;align-items:center;flex-wrap:wrap}
-.mini-avatar{width:56px;height:56px;border-radius:50%;background:#2563eb;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:#fff;flex-shrink:0}
+.edit-icon-btn{background:var(--warm);border:1px solid var(--border);border-radius:8px;padding:.3rem .7rem;cursor:pointer;font-size:.8rem;font-weight:600;color:var(--muted);transition:all .2s;font-family:'DM Sans',sans-serif}
+.edit-icon-btn:hover{background:var(--border);color:var(--ink)}
+.profile-preview-mini{display:flex;gap:1.2rem;align-items:center;flex-wrap:wrap}
+.mini-avatar{width:56px;height:56px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:#fff;flex-shrink:0}
 .mini-info .mini-name{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700}
 .mini-info .mini-meta{font-size:.84rem;color:var(--muted);margin-top:.2rem}
-.btn-view-profile{margin-left:auto;background:#2563eb;color:#fff;border:none;border-radius:8px;padding:.5rem 1.1rem;font-size:.88rem;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s}
-.btn-view-profile:hover{background:#1d4ed8}
+.btn-view-profile{margin-left:auto;background:var(--accent);color:#fff;border:none;border-radius:8px;padding:.5rem 1.1rem;font-size:.88rem;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s}
+.btn-view-profile:hover{background:#a8521e}
 .edit-form{display:none}.edit-form.open{display:block;margin-top:1.2rem;border-top:1px solid var(--border);padding-top:1.2rem}
 
 /* SEARCH PAGE */
 .search-bar-inline{background:#fff;border:1.5px solid var(--border);border-radius:12px;display:flex;margin-bottom:2rem;overflow:hidden;box-shadow:var(--shadow)}
 .search-bar-inline input{flex:1;border:none;outline:none;padding:.8rem 1.2rem;font-size:.95rem;font-family:'DM Sans',sans-serif;color:var(--ink)}
-.search-bar-inline button{background:#1a3a8f;color:#fff;border:none;padding:.8rem 1.5rem;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:.9rem}
+.search-bar-inline button{background:var(--accent);color:#fff;border:none;padding:.8rem 1.5rem;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:.9rem}
 .search-result-count{font-size:.9rem;color:var(--muted);margin-bottom:1.2rem}.search-result-count strong{color:var(--ink)}
 
 /* LEARN FREE */
@@ -252,157 +234,72 @@ nav{background:#fff;color:#0a0f1e;padding:0 2rem;height:68px;display:flex;align-
 .gc-arrow{color:rgba(255,255,255,.4);font-size:.9rem;transition:transform .2s}
 .gc-card:hover .gc-arrow{transform:translateX(4px);color:#fff}
 
-footer{background:#0a0f1e;color:#9ca3af;text-align:center;padding:2rem;font-size:.85rem}
-footer .footer-brand{font-family:'Playfair Display',serif;color:#60a5fa;font-size:1.1rem;font-weight:700;margin-bottom:.4rem}
-footer a{color:#9ca3af;text-decoration:none}footer a:hover{color:#60a5fa}
+footer{background:var(--ink);color:#888;text-align:center;padding:2rem;font-size:.85rem}
+footer .footer-brand{font-family:'Playfair Display',serif;color:var(--gold);font-size:1.1rem;font-weight:700;margin-bottom:.4rem}
+footer a{color:#888;text-decoration:none}
 .reveal{opacity:0;transform:translateY(20px);transition:all .5s}.reveal.visible{opacity:1;transform:translateY(0)}
-.toast{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(20px);background:#0a0f1e;color:#fff;padding:.8rem 1.8rem;border-radius:50px;font-size:.9rem;font-weight:500;z-index:999;opacity:0;transition:all .3s;white-space:nowrap;box-shadow:0 4px 20px rgba(10,15,30,.3)}
+.toast{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(20px);background:var(--ink);color:#fff;padding:.8rem 1.8rem;border-radius:50px;font-size:.9rem;font-weight:500;z-index:999;opacity:0;transition:all .3s;white-space:nowrap}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 
-/* ── INBOX STYLES ── */
-.inbox-wrap{max-width:900px;margin:0 auto;padding:2.5rem 1.5rem}
-.inbox-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem;flex-wrap:wrap;gap:1rem}
-.inbox-title{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:800}
-.inbox-tabs{display:flex;gap:.5rem;background:var(--warm);border:1px solid var(--border);border-radius:10px;padding:.3rem}
-.inbox-tab{padding:.4rem 1rem;border-radius:7px;font-size:.85rem;font-weight:600;cursor:pointer;border:none;background:transparent;color:var(--muted);font-family:'DM Sans',sans-serif;transition:all .2s}
-.inbox-tab.active{background:#fff;color:var(--ink);box-shadow:var(--shadow)}
-.inbox-badge{background:var(--accent);color:#fff;border-radius:50px;font-size:.65rem;padding:.1rem .4rem;margin-left:.3rem;font-weight:700}
-.msg-list{display:flex;flex-direction:column;gap:.8rem}
-.msg-item{background:#fff;border:1.5px solid var(--border);border-radius:14px;padding:1.2rem 1.5rem;cursor:pointer;transition:all .2s;position:relative}
-.msg-item:hover{border-color:var(--accent);box-shadow:var(--shadow)}
-.msg-item.unread{border-left:3px solid #2563eb}
-.msg-item-top{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;margin-bottom:.4rem}
-.msg-sender{font-weight:700;font-size:.95rem;color:var(--ink)}
-.msg-time{font-size:.75rem;color:var(--muted);white-space:nowrap}
-.msg-subject{font-size:.85rem;color:var(--ink);font-weight:600;margin-bottom:.2rem}
-.msg-preview{font-size:.82rem;color:var(--muted);display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden}
-.msg-unread-dot{position:absolute;top:1.2rem;right:1.2rem;width:8px;height:8px;background:var(--accent);border-radius:50%}
-.msg-empty{text-align:center;padding:3rem 2rem;color:var(--muted)}
-.msg-empty-icon{font-size:2.5rem;margin-bottom:.8rem;opacity:.4}
-/* THREAD VIEW */
-.thread-wrap{background:#fff;border:1px solid var(--border);border-radius:16px;overflow:hidden}
-.thread-head{padding:1.2rem 1.5rem;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:1rem}
-.thread-back{background:var(--warm);border:1px solid var(--border);border-radius:8px;padding:.3rem .8rem;font-size:.82rem;font-weight:600;cursor:pointer;color:var(--muted);font-family:'DM Sans',sans-serif;transition:all .2s}
-.thread-back:hover{background:var(--border);color:var(--ink)}
-.thread-subject{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700}
-.thread-teacher{font-size:.82rem;color:var(--muted);margin-top:.1rem}
-.thread-msgs{padding:1.5rem;display:flex;flex-direction:column;gap:1rem;max-height:400px;overflow-y:auto}
-.bubble{max-width:80%;padding:.9rem 1.1rem;border-radius:14px;font-size:.88rem;line-height:1.6}
-.bubble-student{background:var(--warm);border:1px solid var(--border);align-self:flex-start;border-bottom-left-radius:4px}
-.bubble-teacher{background:#2563eb;color:#fff;align-self:flex-end;border-bottom-right-radius:4px}
-.bubble-meta{font-size:.72rem;margin-top:.4rem;opacity:.6}
-.thread-reply{padding:1rem 1.5rem;border-top:1px solid var(--border);display:flex;gap:.7rem;align-items:flex-end}
-.thread-reply textarea{flex:1;border:1.5px solid var(--border);border-radius:10px;padding:.6rem .9rem;font-size:.88rem;font-family:'DM Sans',sans-serif;color:var(--ink);background:var(--paper);outline:none;resize:none;min-height:60px;transition:border-color .2s}
-.thread-reply textarea:focus{border-color:var(--accent)}
-.reply-send-btn{background:#2563eb;color:#fff;border:none;border-radius:10px;padding:.65rem 1.2rem;font-size:.88rem;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;white-space:nowrap;transition:all .2s}
-.reply-send-btn:hover{background:#1d4ed8}
-/* SEND MESSAGE MODAL */
-.send-msg-form .form-group{margin-bottom:.9rem}
-.char-count{font-size:.75rem;color:var(--muted);text-align:right;margin-top:.2rem}
-
 @media(max-width:640px){
-  nav{padding:0 .8rem;height:58px}
-  .nav-logo{font-size:.95rem}
-  .nav-btn{padding:.35rem .65rem;font-size:.75rem}
-  .hero{padding:2.5rem 1rem 2.5rem}
+  nav{padding:0 1rem}.nav-logo{font-size:1.05rem}
+  .hero{padding:3rem 1rem 3rem}
   .profile-card-header{flex-direction:column}
   .connect-modes-grid{grid-template-columns:1fr}
   .gc-grid{grid-template-columns:1fr}
-  .stats-strip{gap:1.5rem;padding:1rem}
-  .stat-num{font-size:1.5rem}
-  .dashboard-wrap{padding:1rem .8rem}
-  .dashboard-card{padding:1rem}
-  .profile-preview-mini{flex-direction:column;align-items:flex-start}
-  .btn-view-profile{margin-left:0;width:100%}
-  .mini-avatar{width:44px;height:44px;font-size:1rem}
-  .section{padding:2rem 1rem}
-  .section-title{font-size:1.5rem}
-  .modal{border-radius:16px 16px 0 0;position:fixed;bottom:0;left:0;right:0;max-width:100%;max-height:90vh}
-  .modal-overlay{align-items:flex-end;padding:0}
-  .dashboard-header{margin-bottom:1rem}
+  .stats-strip{gap:2rem}
 }
 /* STEP BANNERS & BOARD QUICK PILLS */
-.step-section-banner{background:linear-gradient(135deg,rgba(26,58,143,.08),rgba(255,255,255,0));border:1px solid rgba(26,58,143,.2);border-radius:12px;padding:1rem 1.2rem;margin-bottom:1.3rem;display:flex;align-items:center;gap:.8rem}
+.step-section-banner{background:linear-gradient(135deg,var(--bc,rgba(200,98,42,.1)),rgba(255,255,255,0));border:1px solid var(--bi,rgba(200,98,42,.25));border-radius:12px;padding:1rem 1.2rem;margin-bottom:1.3rem;display:flex;align-items:center;gap:.8rem}
 .step-section-banner>span{font-size:1.6rem;flex-shrink:0}
 .step-section-banner strong{font-size:.92rem;display:block;margin-bottom:.1rem}
 .step-section-banner small{font-size:.77rem;color:var(--muted);line-height:1.4}
 .board-quick-pill{background:#fff;border:1.5px solid var(--border);color:var(--ink);padding:.3rem .8rem;border-radius:20px;font-size:.76rem;font-weight:600;cursor:pointer;transition:all .18s;white-space:nowrap}
-.board-quick-pill:hover{background:#1a3a8f;color:#fff;border-color:#1a3a8f}
+.board-quick-pill:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
 
-/* ── ADMIN PANEL ── */
-.admin-wrap{max-width:1100px;margin:0 auto;padding:2rem 1.5rem}
-.admin-topbar{background:linear-gradient(135deg,#2563eb,#1e40af);color:#fff;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;margin-bottom:2rem;border-radius:12px}
-.admin-topbar h2{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:800;color:#ff9999}
-.admin-stats-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem;margin-bottom:2rem}
-.admin-stat{background:#fff;border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.5rem;box-shadow:var(--shadow)}
-.admin-stat-num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;color:#2563eb}
-.admin-stat-label{font-size:.8rem;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin-top:.2rem}
-.admin-section{background:#fff;border:1px solid var(--border);border-radius:14px;margin-bottom:1.5rem;overflow:hidden;box-shadow:var(--shadow)}
-.admin-section-head{padding:1rem 1.5rem;border-bottom:1px solid #dde3f5;display:flex;align-items:center;justify-content:space-between;background:#f0f4ff}
-.admin-section-title{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700}
-.admin-export-btn{background:var(--success);color:#fff;border:none;border-radius:8px;padding:.4rem .9rem;font-size:.8rem;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s}
-.admin-export-btn:hover{background:#2a6e47}
-.admin-table-wrap{overflow-x:auto}
-.admin-table{width:100%;border-collapse:collapse;font-size:.83rem}
-.admin-table th{background:#2563eb;color:#fff;padding:.7rem 1rem;text-align:left;font-weight:600;font-size:.78rem;text-transform:uppercase;letter-spacing:.5px;white-space:nowrap}
-.admin-table td{padding:.7rem 1rem;border-bottom:1px solid var(--border);vertical-align:top;max-width:200px;word-break:break-word;color:var(--ink)}
-.admin-table tr:last-child td{border-bottom:none}
-.admin-table tr:hover td{background:#f0f4ff}
-.admin-badge{display:inline-block;padding:.15rem .55rem;border-radius:5px;font-size:.7rem;font-weight:700;text-transform:uppercase}
-.admin-badge-real{background:rgba(212,168,75,.2);color:#8a6a10}
-.admin-badge-ai{background:rgba(42,124,138,.15);color:var(--accent2)}
-.admin-badge-new{background:rgba(232,0,28,.12);color:#e8001c}
-.admin-empty{text-align:center;padding:2.5rem;color:var(--muted);font-size:.9rem}
-.admin-login-wrap{max-width:420px;margin:6rem auto;background:#fff;border:1px solid var(--border);border-radius:20px;padding:2.5rem;box-shadow:var(--shadow-lg);text-align:center}
-.admin-login-icon{font-size:3rem;margin-bottom:1rem}
-.admin-login-title{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:800;margin-bottom:.4rem}
-.admin-login-sub{font-size:.85rem;color:var(--muted);margin-bottom:1.5rem}
-.email-status{margin-top:.5rem;font-size:.78rem;padding:.3rem .7rem;border-radius:6px;display:none}
-.email-status.sending{background:rgba(42,124,138,.1);color:var(--accent2);display:block}
-.email-status.sent{background:rgba(58,138,92,.1);color:var(--success);display:block}
-.email-status.failed{background:rgba(200,42,42,.1);color:var(--danger);display:block}
-
-/* ── FOUNDER PHOTO IN HERO ── */
-
-.hero-photo-wrap{flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:1rem;position:relative;z-index:2}
-.hero-photo-ring{position:relative;width:185px;height:185px}
-.hero-photo-ring::before{content:'';position:absolute;inset:-6px;border-radius:50%;
-  background:conic-gradient(#e8001c 0deg,#ff6666 90deg,#1a3a8f 180deg,#4466cc 270deg,#e8001c 360deg);
-  animation:spin 8s linear infinite;z-index:0}
-.hero-photo-ring::after{content:'';position:absolute;inset:-2px;border-radius:50%;background:linear-gradient(135deg,#0d2060,#1a3a8f);z-index:1}
-@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
-.hero-photo{width:180px;height:180px;border-radius:50%;object-fit:cover;object-position:top center;border:4px solid #fff;position:relative;z-index:2;display:block;box-shadow:0 8px 40px rgba(0,0,0,.5)}
-.hero-photo-badge{background:linear-gradient(135deg,#e8001c,#b8000f);color:#fff;font-size:.72rem;font-weight:800;padding:.35rem 1rem;border-radius:50px;letter-spacing:1px;text-transform:uppercase;box-shadow:0 4px 16px rgba(232,0,28,.5);display:flex;align-items:center;gap:.35rem}
-.hero-photo-stats{display:flex;gap:1rem;margin-top:.3rem}
-.hero-photo-stat{text-align:center}
-.hero-photo-stat-num{font-size:.95rem;font-weight:800;color:#fff}
-.hero-photo-stat-label{font-size:.65rem;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:.5px}
-
-.hero-trust-row{display:flex;align-items:center;gap:1rem;margin-top:1.2rem;flex-wrap:wrap}
-.hero-trust-item{display:flex;align-items:center;gap:.4rem;font-size:.78rem;color:rgba(255,255,255,.7);font-weight:500}
-.hero-trust-icon{width:20px;height:20px;border-radius:50%;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-size:.7rem}
-@media(max-width:700px){
-  .hero-layout{flex-direction:column;text-align:center}
-  .hero-text-wrap{text-align:center;min-width:unset}
-  .hero-photo-ring{width:150px;height:150px}
-  .hero-photo{width:145px;height:145px}
-  .hero-eyebrow{justify-content:center}
-  .hero p{margin-left:auto;margin-right:auto}
-  .hero-trust-row{justify-content:center}
+/* ── REVIEWS ── */
+.reviews-section{margin-top:1.5rem}
+.reviews-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.2rem;flex-wrap:wrap;gap:.8rem}
+.reviews-title{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:800;color:var(--ink)}
+.rating-summary{display:flex;align-items:center;gap:.8rem}
+.avg-score{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:900;color:var(--accent2)}
+.avg-stars{display:flex;gap:.15rem;font-size:1.2rem}
+.avg-count{font-size:.8rem;color:var(--muted);margin-top:.1rem}
+.star-bars{flex:1;min-width:160px}
+.star-bar-row{display:flex;align-items:center;gap:.5rem;margin-bottom:.3rem}
+.star-bar-label{font-size:.72rem;color:var(--muted);width:30px;text-align:right;white-space:nowrap}
+.star-bar-track{flex:1;height:6px;background:var(--border);border-radius:3px;overflow:hidden}
+.star-bar-fill{height:100%;background:linear-gradient(90deg,#f59e0b,#fbbf24);border-radius:3px;transition:width .5s}
+.star-bar-num{font-size:.72rem;color:var(--muted);width:20px}
+/* Write review form */
+.write-review-box{background:var(--warm);border:1.5px solid var(--border);border-radius:14px;padding:1.3rem;margin-bottom:1.5rem}
+.write-review-title{font-weight:700;font-size:.95rem;margin-bottom:1rem;color:var(--ink);display:flex;align-items:center;gap:.4rem}
+.star-picker{display:flex;gap:.25rem;margin-bottom:.8rem}
+.star-pick{font-size:1.8rem;cursor:pointer;color:#d1d9f0;transition:all .15s;line-height:1}
+.star-pick.active,.star-pick:hover{color:#f59e0b;transform:scale(1.15)}
+.star-pick.hover-active{color:#fbbf24}
+.review-name-row{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-bottom:.7rem}
+.review-textarea{width:100%;border:1.5px solid var(--border);border-radius:10px;padding:.65rem .9rem;font-size:.88rem;font-family:'DM Sans',sans-serif;color:var(--ink);background:#fff;outline:none;resize:vertical;min-height:80px;transition:border-color .2s;line-height:1.6}
+.review-textarea:focus{border-color:var(--accent2)}
+.review-submit-btn{background:var(--accent2);color:#fff;border:none;border-radius:9px;padding:.65rem 1.5rem;font-size:.88rem;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s;margin-top:.7rem}
+.review-submit-btn:hover{background:#1a5f6e;transform:translateY(-1px)}
+/* Review cards */
+.reviews-list{display:flex;flex-direction:column;gap:.9rem}
+.review-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:1.1rem 1.3rem;position:relative}
+.review-card-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:.5rem;gap:.8rem}
+.reviewer-name{font-weight:700;font-size:.9rem;color:var(--ink)}
+.reviewer-date{font-size:.75rem;color:var(--muted)}
+.review-stars{display:flex;gap:.1rem;font-size:.9rem;margin-bottom:.4rem}
+.review-text{font-size:.86rem;color:var(--muted);line-height:1.65}
+.review-verified{font-size:.68rem;background:rgba(58,138,92,.1);color:var(--success);border-radius:4px;padding:.1rem .45rem;font-weight:700;margin-left:.4rem}
+.no-reviews{text-align:center;padding:2rem;color:var(--muted);font-size:.9rem}
+.no-reviews-icon{font-size:2rem;margin-bottom:.5rem;opacity:.4}
+.reviews-rating-in-card{display:flex;align-items:center;gap:.3rem}
+.avg-star-inline{font-size:.82rem;color:#f59e0b}
+@media(max-width:600px){
+  .review-name-row{grid-template-columns:1fr}
+  .rating-summary{flex-direction:column;align-items:flex-start}
 }
-
-/* CHECKBOX CHECKMARK */
-.cb-check{display:none;font-size:.75rem;font-weight:900;color:#2563eb}
-.checkbox-item.checked .cb-check{display:inline}
-
-/* ── PROFILE PHOTO UPLOAD ── */
-.photo-upload-wrap{display:flex;flex-direction:column;align-items:center;gap:.7rem;margin-bottom:1.2rem;padding:1.2rem;background:#f0f5ff;border:2px dashed #d1d9f0;border-radius:14px;cursor:pointer;transition:all .2s}
-.photo-upload-wrap:hover{border-color:#2563eb;background:#e8f0ff}
-.photo-preview{width:80px;height:80px;border-radius:50%;object-fit:cover;border:3px solid #fff;box-shadow:0 2px 12px rgba(37,99,235,.2)}
-.photo-avatar-placeholder{width:80px;height:80px;border-radius:50%;background:#2563eb;display:flex;align-items:center;justify-content:center;font-size:2rem;color:#fff;font-weight:700;font-family:'Playfair Display',serif}
-.photo-upload-label{font-size:.82rem;font-weight:600;color:#2563eb;cursor:pointer}
-.photo-upload-hint{font-size:.72rem;color:var(--muted)}
-
 </style>
 </head>
 <body>
@@ -423,13 +320,18 @@ footer a{color:#9ca3af;text-decoration:none}footer a:hover{color:#60a5fa}
     <div class="hero-content">
       <div class="hero-eyebrow">India's #1 Private Tutor Discovery Platform</div>
       <h1>Find the <em>Perfect Tutor</em> Near You</h1>
-      <p>Connect with expert private tutors for CBSE, ICSE, IB, skill courses, and more — online or near you across India.</p>
+      <p>Connect with verified private tutors for CBSE, ICSE, IB, skill courses, and more — online or at your doorstep.</p>
       <div class="search-wrap" id="heroSearchWrap">
-        <input type="text" id="heroSearch" placeholder="Search by subject, board, location, or tutor name…" oninput="showAC(this.value)" onkeydown="if(event.key==='Enter'){closeAC();doSearch()}" autocomplete="off">
+        <input type="text" id="heroSearch" placeholder="Search by subject, board, location, or teacher name…" oninput="showAC(this.value)" onkeydown="if(event.key==='Enter'){closeAC();doSearch()}" autocomplete="off">
         <button class="btn-search" onclick="closeAC();doSearch()">🔍 Search</button>
         <div class="autocomplete-list" id="acList"></div>
       </div>
       <div class="hero-tags" id="heroTags"></div>
+      <div style="margin-top:1rem;">
+        <button id="nearbyBtn" onclick="findNearbyTutors()" style="background:#fff;border:1.5px solid rgba(255,255,255,.3);border-radius:50px;padding:.55rem 1.3rem;font-size:.85rem;font-weight:700;color:#1e40af;cursor:pointer;display:inline-flex;align-items:center;gap:.4rem;transition:all .2s;">
+          📍 Find Tutors Near Me
+        </button>
+      </div>
     </div>
   </div>
 
@@ -441,9 +343,9 @@ footer a{color:#9ca3af;text-decoration:none}footer a:hover{color:#60a5fa}
   </div>
 
   <div class="section">
-    <div class="ai-badge">✨ AI-Powered Tutor Directory</div>
+    <div class="ai-badge">✨ AI-Powered Directory</div>
     <div class="section-title reveal">Browse Tutors by Category</div>
-    <div class="section-sub reveal">Tap a category to filter tutors instantly — AI backend ensures results are always available</div>
+    <div class="section-sub reveal">Tap a category to filter teachers instantly — AI backend ensures results are always available</div>
     <div class="ai-categories" id="categoryChips"></div>
     <div class="ai-suggest-box" id="aiSuggestBox">
       <div class="ai-suggest-title">🤖 AI Suggestion — Try searching for:</div>
@@ -473,7 +375,7 @@ footer a{color:#9ca3af;text-decoration:none}footer a:hover{color:#60a5fa}
   <footer>
     <div class="footer-brand">PrivateTutorNearMe</div>
     <p>© 2025 PrivateTutorNearMe · <a href="#">Privacy Policy</a> · <a href="#">Terms of Use</a></p>
-    <p style="margin-top:.5rem;font-size:.78rem;">Empowering tutors &amp; learners across India 🇮🇳</p>
+    <p style="margin-top:.5rem;font-size:.78rem;">Empowering teachers &amp; learners across India 🇮🇳</p>
   </footer>
 </div>
 
@@ -483,7 +385,7 @@ footer a{color:#9ca3af;text-decoration:none}footer a:hover{color:#60a5fa}
     <button class="back-btn" style="color:var(--muted);margin-bottom:1rem;" onclick="showPage('home')">← Back to Home</button>
     <div class="section-title">Search Results</div>
     <div class="search-bar-inline">
-      <input type="text" id="searchInput" placeholder="Search tutor, board, location…" onkeydown="if(event.key==='Enter')runSearch()">
+      <input type="text" id="searchInput" placeholder="Search subject, board, location…" onkeydown="if(event.key==='Enter')runSearch()">
       <button onclick="runSearch()">Search</button>
     </div>
     <div class="ai-suggest-box" id="searchAiBox">
@@ -523,19 +425,9 @@ footer a{color:#9ca3af;text-decoration:none}footer a:hover{color:#60a5fa}
       <button class="nav-btn nav-btn-ghost" onclick="viewMyProfile()">👁 View My Profile</button>
     </div>
     <div class="dashboard-card">
-      <div class="dashboard-card-title">Your Tutor Profile <button class="edit-icon-btn" onclick="toggleEditProfile()">✏️ Edit</button></div>
+      <div class="dashboard-card-title">Your Profile <button class="edit-icon-btn" onclick="toggleEditProfile()">✏️ Edit</button></div>
       <div class="profile-preview-mini" id="dashProfilePreview"></div>
       <div class="edit-form" id="editProfileForm">
-        <!-- Profile Photo Upload -->
-        <div class="form-group">
-          <label class="form-label">Profile Photo</label>
-          <div class="photo-upload-wrap" onclick="document.getElementById('photoInput').click()">
-            <div id="photoPreviewWrap"><div class="photo-avatar-placeholder" id="photoPlaceholder"></div></div>
-            <div class="photo-upload-label">📷 Tap to upload photo</div>
-            <div class="photo-upload-hint">JPG or PNG · Max 2MB</div>
-          </div>
-          <input type="file" id="photoInput" accept="image/*" style="display:none" onchange="handlePhotoUpload(this)">
-        </div>
         <div class="form-group"><label class="form-label">Phone Number</label><input class="form-input" id="edit_phone" placeholder="+91 XXXXX XXXXX"></div>
         <div class="form-group"><label class="form-label">Location / City</label><input class="form-input" id="edit_location" placeholder="e.g. Andheri West, Mumbai"></div>
         <div class="form-group">
@@ -546,15 +438,15 @@ footer a{color:#9ca3af;text-decoration:none}footer a:hover{color:#60a5fa}
           </div>
         </div>
         <div class="form-group"><label class="form-label">Subjects You Teach</label><input class="form-input" id="edit_subjects" placeholder="e.g. Mathematics, Physics, Chemistry"></div>
-
+        <div class="form-group"><label class="form-label">Teaching Hours / Timing</label><input class="form-input" id="edit_timing" placeholder="e.g. Mon–Sat, 4 PM – 8 PM"></div>
         <div class="form-group"><label class="form-label">Bio / About</label><textarea class="form-textarea" id="edit_bio" placeholder="Describe your teaching experience…"></textarea></div>
         <div class="form-group"><label class="form-label">Google Meet Link</label><input class="form-input" id="edit_meet" placeholder="https://meet.google.com/xxx-xxxx-xxx"></div>
         <div class="form-group">
           <label class="form-label">Teaching Modes</label>
           <div class="checkbox-group" id="edit_modes">
-            <label class="checkbox-item" data-val="Online (Google Meet)"><input type="checkbox"><span class="cb-check">✓</span> 🖥 Online (Google Meet)</label>
-            <label class="checkbox-item" data-val="Home Tutor"><input type="checkbox"><span class="cb-check">✓</span> 🏠 Home Tutor</label>
-            <label class="checkbox-item" data-val="Study Centre"><input type="checkbox"><span class="cb-check">✓</span> 🏫 Study Centre</label>
+            <label class="checkbox-item" data-val="Online (Google Meet)"><input type="checkbox"> 🖥 Online (Google Meet)</label>
+            <label class="checkbox-item" data-val="Home Tutor"><input type="checkbox"> 🏠 Home Tutor</label>
+            <label class="checkbox-item" data-val="Study Centre"><input type="checkbox"> 🏫 Study Centre</label>
           </div>
         </div>
         <button class="btn-primary" onclick="saveProfile()">Save Changes</button>
@@ -568,90 +460,13 @@ footer a{color:#9ca3af;text-decoration:none}footer a:hover{color:#60a5fa}
   <footer><div class="footer-brand">PrivateTutorNearMe</div><p>© 2025 PrivateTutorNearMe</p></footer>
 </div>
 
-<!-- INBOX PAGE -->
-<div id="page-inbox" class="page">
-  <div class="inbox-wrap">
-    <div class="inbox-header">
-      <div>
-        <div style="font-size:.8rem;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:.2rem;">Messages</div>
-        <div class="inbox-title">📬 Inbox</div>
-      </div>
-      <div class="inbox-tabs">
-        <button class="inbox-tab active" id="tab-received" onclick="switchInboxTab('received')">Received <span class="inbox-badge" id="unreadBadge" style="display:none">0</span></button>
-        <button class="inbox-tab" id="tab-sent" onclick="switchInboxTab('sent')">Sent</button>
-      </div>
-    </div>
-    <div id="inboxListView">
-      <div class="msg-list" id="msgList"></div>
-      <div class="msg-empty hidden" id="msgEmpty">
-        <div class="msg-empty-icon">📭</div>
-        <div style="font-weight:600;color:var(--ink);margin-bottom:.3rem;">No messages yet</div>
-        <div style="font-size:.85rem;">Messages from students will appear here</div>
-      </div>
-    </div>
-    <div id="inboxThreadView" class="hidden">
-      <div class="thread-wrap">
-        <div class="thread-head">
-          <button class="thread-back" onclick="closeThread()">← Back</button>
-          <div>
-            <div class="thread-subject" id="threadSubject"></div>
-            <div class="thread-teacher" id="threadMeta"></div>
-          </div>
-        </div>
-        <div class="thread-msgs" id="threadMsgs"></div>
-        <div class="thread-reply" id="threadReplyArea">
-          <textarea id="replyText" placeholder="Type your reply…" rows="2" maxlength="500"></textarea>
-          <button class="reply-send-btn" onclick="sendReply()">Send ↗</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <footer><div class="footer-brand">PrivateTutorNearMe</div><p>© 2025 PrivateTutorNearMe</p></footer>
-</div>
-
-<!-- SEND MESSAGE MODAL -->
-<div id="modal-sendmsg" class="modal-overlay hidden" onclick="closeModalOutside(event,'sendmsg')">
-  <div class="modal">
-    <div class="modal-header">
-      <div>
-        <div class="modal-title">✉️ Message Teacher</div>
-        <div style="font-size:.83rem;color:var(--muted);margin-top:.2rem;">Send a query to <span id="msgTeacherName" style="font-weight:700;color:var(--ink);"></span></div>
-      </div>
-      <button class="modal-close" onclick="closeModal('sendmsg')">✕</button>
-    </div>
-    <div class="modal-body">
-      <div id="msgSendAlert" class="alert alert-error hidden"></div>
-      <div id="studentInfoFields">
-        <div class="form-group">
-          <label class="form-label">Your Name <span>*</span></label>
-          <input class="form-input" id="msg_student_name" placeholder="e.g. Rahul Singh">
-        </div>
-        <div class="form-group">
-          <label class="form-label">Your Email <span>*</span></label>
-          <input class="form-input" id="msg_student_email" type="email" placeholder="yourname@email.com">
-        </div>
-      </div>
-      <div class="form-group">
-        <label class="form-label">Subject <span>*</span></label>
-        <input class="form-input" id="msg_subject" placeholder="e.g. Inquiry about CBSE Maths classes">
-      </div>
-      <div class="form-group">
-        <label class="form-label">Your Message <span>*</span></label>
-        <textarea class="form-textarea" id="msg_body" placeholder="Write your question or inquiry here…" maxlength="500" oninput="updateMsgCount()" style="min-height:110px;"></textarea>
-        <div style="font-size:.75rem;color:var(--muted);text-align:right;margin-top:.2rem;"><span id="msgCharCount">0</span>/500</div>
-      </div>
-      <button class="btn-primary" onclick="doSendMessage()">Send Message ↗</button>
-    </div>
-  </div>
-</div>
-
 <!-- REGISTER MODAL -->
 <div id="modal-register" class="modal-overlay hidden" onclick="closeModalOutside(event,'register')">
   <div class="modal">
     <div class="modal-header">
       <div>
         <div class="modal-title">Create Tutor Profile</div>
-        <div style="font-size:.83rem;color:var(--muted);margin-top:.2rem;">Join thousands of tutors across India 🇮🇳 &amp; worldwide</div>
+        <div style="font-size:.83rem;color:var(--muted);margin-top:.2rem;">Join thousands of tutors across India &amp; worldwide</div>
       </div>
       <button class="modal-close" onclick="closeModal('register')">✕</button>
     </div>
@@ -765,7 +580,10 @@ footer a{color:#9ca3af;text-decoration:none}footer a:hover{color:#60a5fa}
           <input class="form-input" id="reg_subjects" placeholder="e.g. Mathematics, Physics, Chemistry (auto-filled on board select)">
         </div>
 
-
+        <div class="form-group">
+          <label class="form-label">Teaching Hours / Timing</label>
+          <input class="form-input" id="reg_timing" placeholder="e.g. Mon–Sat, 4 PM – 8 PM">
+        </div>
 
         <div class="form-group">
           <label class="form-label">Bio / About Yourself</label>
@@ -780,9 +598,9 @@ footer a{color:#9ca3af;text-decoration:none}footer a:hover{color:#60a5fa}
         <div class="form-group">
           <label class="form-label">Teaching Mode <span>*</span></label>
           <div class="checkbox-group" id="reg_modes">
-            <label class="checkbox-item" data-val="Online (Google Meet)"><input type="checkbox"><span class="cb-check">✓</span> 🖥 Online (Google Meet)</label>
-            <label class="checkbox-item" data-val="Home Tutor"><input type="checkbox"><span class="cb-check">✓</span> 🏠 Home Tutor</label>
-            <label class="checkbox-item" data-val="Study Centre"><input type="checkbox"><span class="cb-check">✓</span> 🏫 Study Centre</label>
+            <label class="checkbox-item" data-val="Online (Google Meet)"><input type="checkbox"> 🖥 Online (Google Meet)</label>
+            <label class="checkbox-item" data-val="Home Tutor"><input type="checkbox"> 🏠 Home Tutor</label>
+            <label class="checkbox-item" data-val="Study Centre"><input type="checkbox"> 🏫 Study Centre</label>
           </div>
         </div>
 
@@ -839,37 +657,9 @@ footer a{color:#9ca3af;text-decoration:none}footer a:hover{color:#60a5fa}
 
 <div class="toast" id="toast"></div>
 
-<!-- Firebase SDKs loaded here to ensure proper order -->
-<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js" onload="window._fbApp=true"></script>
 <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database-compat.js"></script>
-
 <script>
-// ═══════════════════════════════════════════
-// FIREBASE REALTIME DATABASE CONFIGURATION
-// ═══════════════════════════════════════════
-const firebaseConfig = {
-  apiKey: "AIzaSyCy4EXmOgoVdJgKAXhR1JW3X83FcTB_7FM",
-  authDomain: "privatetutornearme-1303a.firebaseapp.com",
-  projectId: "privatetutornearme-1303a",
-  storageBucket: "privatetutornearme-1303a.firebasestorage.app",
-  messagingSenderId: "806182405144",
-  appId: "1:806182405144:web:8ef42c6a44b85765832f6d",
-  databaseURL: "https://privatetutornearme-1303a-default-rtdb.asia-southeast1.firebasedatabase.app"
-};
-
-// Initialize Firebase safely
-let rtdb;
-try {
-  firebase.initializeApp(firebaseConfig);
-  rtdb = firebase.database();
-  console.log('✅ Firebase Realtime Database connected!');
-} catch(e) {
-  console.error('Firebase init error:', e);
-}
-const TEACHERS_REF = 'teachers';
-const MESSAGES_REF = 'messages';
-
-
 // ══════════════════════════════════════════
 // AI KNOWLEDGE BASE
 // ══════════════════════════════════════════
@@ -1020,110 +810,17 @@ const GC_CATS = ['All','AI & Tech','Marketing','Data','Design','Business'];
 // DATA LAYER
 // ══════════════════════════════════════════
 const DB = {
-  // Session stored locally (device specific)
+  get teachers(){ return JSON.parse(localStorage.getItem('ptn_teachers')||'[]') },
+  set teachers(v){ localStorage.setItem('ptn_teachers',JSON.stringify(v)) },
   get session(){ return JSON.parse(localStorage.getItem('ptn_session')||'null') },
   set session(v){ localStorage.setItem('ptn_session',JSON.stringify(v)) },
   clearSession(){ localStorage.removeItem('ptn_session') },
-
-  // In-memory cache
-  _teachers: [],
-  _messages: [],
-
-  get teachers(){ return this._teachers; },
-  set teachers(v){ this._teachers = v; },
-  get messages(){ return this._messages; },
-  getMessages(){ return this._messages; },
-
   getAll(){
-    const real = this._teachers;
-    const realEmails = new Set(real.map(t=>t.email));
-    return [...real, ...AI_TEACHERS.filter(t=>!realEmails.has(t.email))];
-  },
-
-  // ── LOAD all teachers from Firebase ──
-  async loadTeachers(){
-    try {
-      if(!rtdb) throw new Error('Firebase not initialized');
-      const snap = await rtdb.ref(TEACHERS_REF).once('value');
-      const data = snap.val() || {};
-      this._teachers = Object.entries(data).map(([id,t])=>({...t, id}))
-        .sort((a,b)=> (b.createdAt||'').localeCompare(a.createdAt||''));
-      console.log('✅ Loaded', this._teachers.length, 'teachers');
-    } catch(e){
-      console.error('Load teachers error:', e);
-      this._teachers = [];
-    }
-  },
-
-  // ── SAVE teacher to Firebase ──
-  async saveTeacher(teacher){
-    try {
-      const newRef = rtdb.ref(TEACHERS_REF).push();
-      teacher.id = newRef.key;
-      teacher.createdAt = new Date().toISOString();
-      await newRef.set(teacher);
-      this._teachers.unshift(teacher);
-      console.log('✅ Teacher saved:', teacher.name);
-      return true;
-    } catch(e){
-      console.error('Save teacher error:', e);
-      return false;
-    }
-  },
-
-  // ── UPDATE teacher in Firebase ──
-  async updateTeacher(id, data){
-    try {
-      await rtdb.ref(TEACHERS_REF+'/'+id).update(data);
-      const idx = this._teachers.findIndex(t=>t.id===id);
-      if(idx>-1) this._teachers[idx] = {...this._teachers[idx], ...data};
-      console.log('✅ Teacher updated');
-      return true;
-    } catch(e){
-      console.error('Update teacher error:', e);
-      return false;
-    }
-  },
-
-  // ── LOAD all messages from Firebase ──
-  async loadMessages(){
-    try {
-      const snap = await rtdb.ref(MESSAGES_REF).once('value');
-      const data = snap.val() || {};
-      this._messages = Object.entries(data).map(([id,m])=>({...m, id}))
-        .sort((a,b)=> (b.createdAt||'').localeCompare(a.createdAt||''));
-      console.log('✅ Loaded', this._messages.length, 'messages');
-    } catch(e){
-      console.error('Load messages error:', e);
-      this._messages = [];
-    }
-  },
-
-  // ── SAVE message to Firebase ──
-  async saveMessage(msg){
-    try {
-      const newRef = rtdb.ref(MESSAGES_REF).push();
-      msg.id = newRef.key;
-      msg.createdAt = new Date().toISOString();
-      await newRef.set(msg);
-      this._messages.unshift(msg);
-      console.log('✅ Message saved');
-      return true;
-    } catch(e){
-      console.error('Save message error:', e);
-      return false;
-    }
-  },
-
-  // ── UPDATE message in Firebase ──
-  async updateMessage(id, data){
-    try {
-      await rtdb.ref(MESSAGES_REF+'/'+id).update(data);
-      const idx = this._messages.findIndex(m=>m.id===id);
-      if(idx>-1) this._messages[idx] = {...this._messages[idx], ...data};
-    } catch(e){ console.error('Update message error:', e); }
+    const real=this.teachers;
+    const realEmails=new Set(real.map(t=>t.email));
+    return [...real,...AI_TEACHERS.filter(t=>!realEmails.has(t.email))];
   }
-}
+};
 
 let curPage='home', profileReturnPage='home', activeCat='', activeGcCat='All';
 
@@ -1136,20 +833,13 @@ function showPage(name){
   curPage=name; window.scrollTo(0,0);
   if(name==='home'){activeCat='';renderCatChips();renderHomeTeachers();renderGC();}
   if(name==='dashboard') renderDashboard();
-  if(name==='inbox') renderInbox();
-  if(name==='admin'){ if(adminLoggedIn) renderAdminPanel(); }
-  if(name==='admin'){ if(adminLoggedIn) renderAdminPanel(); }
   setupReveal();
 }
 function updateNav(){
   const s=DB.session, nav=document.getElementById('navActions');
   if(s){
-    const unread=DB.getMessages().filter(m=>m.toEmail===s.email&&!m.read).length;
     nav.innerHTML=`<div class="nav-user-info"><div class="nav-avatar">${s.name[0].toUpperCase()}</div><span>${s.name.split(' ')[0]}</span></div>
       <button class="nav-btn nav-btn-outline" onclick="showPage('dashboard')">Dashboard</button>
-      <button class="nav-btn nav-btn-outline" onclick="showPage('inbox')" style="position:relative;">
-        📬 Inbox${unread>0?`<span style="position:absolute;top:-6px;right:-6px;background:var(--accent);color:#fff;border-radius:50%;width:18px;height:18px;font-size:.65rem;display:flex;align-items:center;justify-content:center;font-weight:700;">${unread}</span>`:''}
-      </button>
       <button class="nav-btn nav-btn-ghost" onclick="logout()">Sign Out</button>`;
   } else {
     nav.innerHTML=`<button class="nav-btn nav-btn-outline" onclick="openModal('login')">Sign In</button>
@@ -1176,8 +866,9 @@ function teacherCard(t){
   return `<div class="teacher-card" onclick="viewProfile('${t.email}')">
     <div class="card-header"><span class="card-header-badge ${t.isAI?'badge-ai':'badge-real'}">${t.isAI?'AI Listed':'Verified'}</span></div>
     <div class="card-body">
-      <div class="card-avatar">${t.photo?'<img src="'+t.photo+'" style="width:100%;height:100%;border-radius:50%;object-fit:cover;">':t.name[0].toUpperCase()}</div>
+      <div class="card-avatar">${t.name[0].toUpperCase()}</div>
       <div class="card-name">${esc(t.name)}</div>
+      ${starsHtml}
       <div class="card-location">📍 ${esc(t.location||'')}</div>
       <div class="card-subjects">${subs.map(s=>`<span class="subject-tag">${esc(s)}</span>`).join('')}</div>
       <div class="card-modes">
@@ -1277,33 +968,17 @@ document.addEventListener('click',e=>{
 // PROFILE VIEW
 // ══════════════════════════════════════════
 function viewProfile(email){
-  const all=DB.getAll();
-  const t=all.find(t=>t.email===email); if(!t)return;
+  const t=DB.getAll().find(t=>t.email===email); if(!t) return;
   const subs=(t.subjects||'').split(',').map(s=>s.trim()).filter(Boolean);
   const modes=t.modes||[];
-  const uid='u'+Math.random().toString(36).slice(2,7);
+  // Build unique ID for this profile's connect section
+  const uid=Math.random().toString(36).slice(2,8);
+  window['_connectData_'+uid]={t,modes};
 
-  // Build mode buttons
-  let modeBtns='';
-  if(modes.includes('Online (Google Meet)'))
-    modeBtns+=`<button class="connect-mode-btn" id="cm-on-${uid}" onclick="toggleMode('${uid}','on')"><span class="mode-icon">🖥️</span><span class="mode-label">Online Study</span><span class="mode-sub">Google Meet</span></button>`;
-  if(modes.includes('Home Tutor'))
-    modeBtns+=`<button class="connect-mode-btn" id="cm-hm-${uid}" onclick="toggleMode('${uid}','hm')"><span class="mode-icon">🏠</span><span class="mode-label">Home Tuition</span><span class="mode-sub">Teacher visits you</span></button>`;
-  if(modes.includes('Study Centre'))
-    modeBtns+=`<button class="connect-mode-btn" id="cm-ct-${uid}" onclick="toggleMode('${uid}','ct')"><span class="mode-icon">🏫</span><span class="mode-label">Centre Tuition</span><span class="mode-sub">Visit the centre</span></button>`;
-
-  // Build action buttons
-  let actionBtns='';
-  if(modes.includes('Online (Google Meet)'))
-    actionBtns+=`<a class="action-btn action-btn-meet" id="ca-on-${uid}" href="${esc(t.meetLink||'#')}" target="_blank" style="display:none;">🎥 Join Google Meet</a>`;
-  if(modes.includes('Home Tutor'))
-    actionBtns+=`<button class="action-btn action-btn-home" id="ca-hm-${uid}" onclick="showToast('📞 Contact teacher via message for Home Tuition')" style="display:none;">🏠 Book Home Tuition</button>`;
-  if(modes.includes('Study Centre'))
-    actionBtns+=`<button class="action-btn action-btn-centre" id="ca-ct-${uid}" onclick="showToast('📍 Contact teacher via message for Study Centre details')" style="display:none;">🏫 Visit Study Centre</button>`;
-
-  // Safe teacher name for onclick (escape single quotes)
-  const safeName = t.name.replace(/\\/g,'\\\\').replace(/'/g,"\\'");
-  const safeEmail = t.email;
+  const modeBtns=`
+    ${modes.includes('Online (Google Meet)')?`<button class="connect-mode-btn" id="cm-online-${uid}" onclick="toggleMode('${uid}','online')"><span class="mode-icon">🖥️</span><span class="mode-label">Online Study</span><span class="mode-sub">Live Google Meet</span></button>`:''}
+    ${modes.includes('Home Tutor')?`<button class="connect-mode-btn" id="cm-home-${uid}" onclick="toggleMode('${uid}','home')"><span class="mode-icon">🏠</span><span class="mode-label">Home Tuition</span><span class="mode-sub">Teacher visits you</span></button>`:''}
+    ${modes.includes('Study Centre')?`<button class="connect-mode-btn" id="cm-centre-${uid}" onclick="toggleMode('${uid}','centre')"><span class="mode-icon">🏫</span><span class="mode-label">Centre Tuition</span><span class="mode-sub">Visit teacher's centre</span></button>`:''}`;
 
   document.getElementById('profileContent').innerHTML=`
     <div class="profile-card">
@@ -1311,14 +986,15 @@ function viewProfile(email){
         <div class="profile-avatar-lg">${t.name[0].toUpperCase()}</div>
         <div style="flex:1;">
           <div class="profile-name">${esc(t.name)}</div>
-          ${t.isAI?'<div class="ai-badge">✨ AI-Listed Tutor Profile</div>':''}
+          ${t.isAI?'<div class="ai-badge" style="margin:.3rem 0;">✨ AI-Listed Profile</div>':''}
           <div class="profile-meta">
             <span class="profile-meta-item">📍 ${esc(t.location||'')}</span>
             ${t.timing?`<span class="profile-meta-item">🕐 ${esc(t.timing)}</span>`:''}
+            <span class="profile-meta-item">📱 ${esc(t.phone||'')}</span>
           </div>
           <div class="card-modes" style="margin-top:.6rem;">
             ${modes.includes('Online (Google Meet)')?'<span class="mode-badge mode-online">🖥 Online</span>':''}
-            ${modes.includes('Home Tutor')?'<span class="mode-badge mode-home">🏠 Home</span>':''}
+            ${modes.includes('Home Tutor')?'<span class="mode-badge mode-home">🏠 Home Tutor</span>':''}
             ${modes.includes('Study Centre')?'<span class="mode-badge mode-centre">🏫 Centre</span>':''}
           </div>
         </div>
@@ -1327,38 +1003,41 @@ function viewProfile(email){
         ${t.bio?`<div class="profile-section-title">About</div><div class="profile-bio">${esc(t.bio)}</div><hr style="border:none;border-top:1px solid var(--border);margin:1.5rem 0;">`:''}
         <div class="profile-section-title">Board / Course</div>
         <p style="color:var(--muted);font-size:.95rem;margin-bottom:1.2rem;">📚 ${esc(t.board||'')}</p>
-        ${subs.length?`<div class="profile-section-title">Subjects</div>
-        <div class="subjects-list" style="margin-bottom:1.5rem;">${subs.map(s=>`<span class="subject-pill">${esc(s)}</span>`).join('')}</div>`:''}
+        ${subs.length?`<div class="profile-section-title">Subjects</div><div class="subjects-list" style="margin-bottom:1.5rem;">${subs.map(s=>`<span class="subject-pill">${esc(s)}</span>`).join('')}</div>`:''}
+
         <div class="profile-section-title">Connect with ${esc(t.name.split(' ')[0])}</div>
         <div class="connect-section">
-          <div class="connect-title">📌 How would you like to connect with your tutor?</div>
+          <div class="connect-title">📌 Select how you'd like to study</div>
           <div class="connect-subtitle">You can select multiple options — then click the action buttons below.</div>
           <div class="connect-modes-grid">${modeBtns}</div>
-          <div class="connect-actions" id="ca-${uid}">${actionBtns}</div>
-          <div style="margin-top:1rem;">
-            <button class="action-btn action-btn-contact" id="sendMsgBtn-${uid}" onclick="openSendMsg('${safeEmail}','${safeName}')">✉️ Send Message to Teacher</button>
+          <div class="connect-actions" id="ca-${uid}">
+            ${modes.includes('Online (Google Meet)')?`<a class="action-btn action-btn-meet" id="ca-meet-${uid}" href="${esc(t.meetLink||'#')}" target="_blank" style="display:none;">🎥 Join Google Meet</a>`:''}
+            ${modes.includes('Home Tutor')?`<button class="action-btn action-btn-home" id="ca-home-${uid}" onclick="showToast('📞 Call ${esc(t.phone||'')} for Home Tuition booking')" style="display:none;">🏠 Book Home Tuition</button>`:''}
+            ${modes.includes('Study Centre')?`<button class="action-btn action-btn-centre" id="ca-centre-${uid}" onclick="showToast('📍 Visit at ${esc(t.location||'')} for Centre Tuition')" style="display:none;">🏫 Visit Study Centre</button>`:''}
+            <button class="action-btn action-btn-contact" onclick="showToast('✉️ Email: ${esc(t.email)}')">✉️ Email Teacher</button>
           </div>
-          <div style="margin-top:.8rem;padding:.8rem 1rem;background:#fff;border:1px solid var(--border);border-radius:10px;font-size:.83rem;color:var(--muted);">
-            🔒 Phone number is private. Use the message button to contact this teacher.
+          <div style="margin-top:1rem;padding:.9rem 1rem;background:#fff;border-radius:10px;font-size:.85rem;color:var(--muted);">
+            📞 <strong style="color:var(--ink);">${esc(t.phone||'Not provided')}</strong> &nbsp;·&nbsp; ✉️ <strong style="color:var(--ink);">${esc(t.email)}</strong>
           </div>
         </div>
       </div>
     </div>`;
+  // Store uid for toggleMode
+  window._activeProfileUID=uid;
   showPage('profile');
 }
 
-function toggleMode(uid,mode){
-  const btn=document.getElementById('cm-'+mode+'-'+uid); if(!btn)return;
+function toggleMode(uid, mode){
+  const btn=document.getElementById('cm-'+mode+'-'+uid); if(!btn) return;
   btn.classList.toggle('selected');
-  const any=document.querySelectorAll('[id^="cm-"][id$="-'+uid+'"].selected').length>0;
+  const anySelected=document.querySelectorAll(`[id^="cm-"][id$="-${uid}"].selected`).length>0;
   const actRow=document.getElementById('ca-'+uid);
-  if(actRow) actRow.style.display=any?'flex':'none';
-  ['on','hm','ct'].forEach(m=>{
+  actRow.classList.toggle('show',anySelected);
+  ['meet','home','centre'].forEach(m=>{
     const b=document.getElementById('ca-'+m+'-'+uid);
     if(b) b.style.display=document.getElementById('cm-'+m+'-'+uid)?.classList.contains('selected')?'flex':'none';
   });
 }
-
 
 function goBackFromProfile(){ showPage(profileReturnPage); }
 function viewMyProfile(){
@@ -1532,7 +1211,7 @@ function getSelectedLocation(){
 let regStep=1;
 function resetRegForm(){
   regStep=1; showRegStep(1);
-  ['reg_name','reg_email','reg_phone','reg_board','reg_subjects','reg_bio','reg_meet','reg_password','reg_confirm','reg_city_custom']
+  ['reg_name','reg_email','reg_phone','reg_board','reg_subjects','reg_timing','reg_bio','reg_meet','reg_password','reg_confirm','reg_city_custom']
     .forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
   document.getElementById('reg_region').innerHTML='<option value="">— Select State / Region —</option>';
   document.getElementById('reg_region').disabled=true;
@@ -1596,17 +1275,6 @@ function regStep3(){
     </div>`;
   showRegStep(4);
 }
-// Simple password hash — works reliably on all devices
-function simpleHash(str){
-  let hash=0;
-  for(let i=0;i<str.length;i++){
-    const char=str.charCodeAt(i);
-    hash=((hash<<5)-hash)+char;
-    hash=hash&hash;
-  }
-  return 'h'+Math.abs(hash).toString(36)+str.length;
-}
-
 function doRegister(){
   const pass=document.getElementById('reg_password').value, conf=document.getElementById('reg_confirm').value;
   if(pass.length<6){showAlert('regAlert','Password must be at least 6 characters.');return}
@@ -1620,23 +1288,21 @@ function doRegister(){
     location:loc.full,
     board:document.getElementById('reg_board').value.trim(),
     subjects:document.getElementById('reg_subjects').value.trim(),
-    timing:'',
+    timing:document.getElementById('reg_timing').value.trim(),
     bio:document.getElementById('reg_bio').value.trim(),
     meetLink:document.getElementById('reg_meet').value.trim(),
     modes:getCheckedModes('reg_modes'),
     password:simpleHash(pass), isAI:false, createdAt:new Date().toISOString()
   };
-  // Show saving indicator
-  showToast('⏳ Creating your profile...');
-  DB.saveTeacher(teacher).then(success=>{
-    if(success){
+  teacher.slug=generateSlug(teacher);
+  showToast('Creating profile...');
+  DB.saveTeacher(teacher).then(ok=>{
+    if(ok){
       DB.session={email:teacher.email,name:teacher.name};
       closeModal('register'); updateNav();
-      showToast('🎉 Welcome, '+teacher.name.split(' ')[0]+'! Profile created.');
+      showToast('🎉 Welcome, '+teacher.name.split(' ')[0]+'!');
       setTimeout(()=>showPage('dashboard'),300);
-    } else {
-      showAlert('regAlert','❌ Error saving profile. Please try again.');
-    }
+    } else showAlert('regAlert','Error. Try again.');
   });
 }
 
@@ -1646,22 +1312,11 @@ function doRegister(){
 function doLogin(){
   const email=document.getElementById('login_email').value.trim(), pass=document.getElementById('login_password').value;
   if(!email||!pass){showAlert('loginAlert','Please enter email and password.');return}
-  showAlert('loginAlert','⏳ Signing in...');
-  // Search in Realtime Database
-  rtdb.ref(TEACHERS_REF).orderByChild('email').equalTo(email).once('value').then(snap=>{
-    if(!snap.exists()){showAlert('loginAlert','Invalid email or password.');return}
-    let t = null;
-    snap.forEach(child=>{ t = {...child.val(), id:child.key}; });
-    if(!t || t.password!==simpleHash(pass)){showAlert('loginAlert','Invalid email or password.');return}
-    DB.session={email:t.email, name:t.name, id:t.id};
-    if(!DB._teachers.find(x=>x.email===t.email)) DB._teachers.unshift(t);
-    closeModal('login'); updateNav();
-    showToast('Welcome back, '+t.name.split(' ')[0]+'!');
-    setTimeout(()=>showPage('dashboard'),300);
-  }).catch(e=>{
-    console.error(e);
-    showAlert('loginAlert','Connection error. Please try again.');
-  });
+  const t=DB.teachers.find(t=>t.email.toLowerCase()===email.toLowerCase());
+  if(!t||t.password!==simpleHash(pass)){showAlert('loginAlert','Invalid email or password.');return}
+  DB.session={email:t.email,name:t.name}; closeModal('login'); updateNav();
+  showToast('Welcome back, '+t.name.split(' ')[0]+'!');
+  setTimeout(()=>showPage('dashboard'),300);
 }
 function logout(){ DB.clearSession(); updateNav(); showToast('Signed out successfully'); showPage('home'); }
 
@@ -1686,19 +1341,18 @@ function renderDashboard(){
     </div>
     <button class="btn-view-profile" onclick="viewMyProfile()">View Profile</button>`;
   document.getElementById('dashStats').innerHTML=[
-    {label:'Email',val:t.email,icon:'✉️'},{label:'Subjects',val:t.subjects||'Not set',icon:'📖'},
-{label:'Location',val:t.location||'Not set',icon:'📍'},
+    {label:'Email',val:t.email,icon:'✉️'},{label:'Phone',val:t.phone||'Not set',icon:'📱'},
+    {label:'Subjects',val:t.subjects||'Not set',icon:'📖'},{label:'Timing',val:t.timing||'Not set',icon:'🕐'},
   ].map(s=>`<div style="background:var(--warm);border:1px solid var(--border);border-radius:10px;padding:1rem;">
     <div style="font-size:1.2rem;margin-bottom:.3rem;">${s.icon}</div>
     <div style="font-size:.75rem;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.5px;">${s.label}</div>
     <div style="font-size:.9rem;font-weight:600;margin-top:.2rem;word-break:break-all;">${esc(s.val)}</div>
   </div>`).join('');
-  loadPhotoPreview(t);
   document.getElementById('edit_phone').value=t.phone||'';
   document.getElementById('edit_location').value=t.location||'';
   document.getElementById('edit_board').value=t.board||'';
   document.getElementById('edit_subjects').value=t.subjects||'';
-
+  document.getElementById('edit_timing').value=t.timing||'';
   document.getElementById('edit_bio').value=t.bio||'';
   document.getElementById('edit_meet').value=t.meetLink||'';
   const cm=t.modes||[];
@@ -1709,16 +1363,21 @@ function renderDashboard(){
 function toggleEditProfile(){ document.getElementById('editProfileForm').classList.toggle('open'); }
 function saveProfile(){
   const s=DB.session, teachers=DB.teachers, idx=teachers.findIndex(t=>t.email===s.email); if(idx===-1)return;
-  teachers[idx].phone=document.getElementById('edit_phone').value.trim();
-  teachers[idx].location=document.getElementById('edit_location').value.trim();
-  teachers[idx].board=document.getElementById('edit_board').value.trim();
-  teachers[idx].subjects=document.getElementById('edit_subjects').value.trim();
-
-  teachers[idx].bio=document.getElementById('edit_bio').value.trim();
-  teachers[idx].meetLink=document.getElementById('edit_meet').value.trim();
-  teachers[idx].modes=getCheckedModes('edit_modes');
-  DB.teachers=teachers; showToast('✅ Profile updated!');
-  document.getElementById('editProfileForm').classList.remove('open'); renderDashboard();
+  const upd={
+    phone:document.getElementById('edit_phone').value.trim(),
+    location:document.getElementById('edit_location').value.trim(),
+    board:document.getElementById('edit_board').value.trim(),
+    subjects:document.getElementById('edit_subjects').value.trim(),
+    bio:document.getElementById('edit_bio').value.trim(),
+    meetLink:document.getElementById('edit_meet').value.trim(),
+    modes:getCheckedModes('edit_modes'),
+  };
+  upd.slug=generateSlug({...DB._teachers[idx],...upd});
+  DB.updateTeacher(DB._teachers[idx].id||'',upd).then(()=>{
+    showToast('✅ Profile updated! Visible to all students.');
+    document.getElementById('editProfileForm').classList.remove('open');
+    DB.loadTeachers().then(()=>{renderDashboard();renderHomeTeachers();});
+  });
 }
 
 // ══════════════════════════════════════════
@@ -1753,24 +1412,10 @@ function closeModal(name){ document.getElementById('modal-'+name).classList.add(
 function closeModalOutside(e,name){ if(e.target===document.getElementById('modal-'+name))closeModal(name); }
 
 // CHECKBOX HELPER
-// Mobile-friendly checkbox handler
-document.addEventListener('click',function(e){
-  const item=e.target.closest('.checkbox-item');
-  if(!item) return;
-  e.preventDefault();
-  e.stopPropagation();
-  item.classList.toggle('checked');
-  const inp=item.querySelector('input');
-  if(inp) inp.checked=item.classList.contains('checked');
+document.addEventListener('click',e=>{
+  const item=e.target.closest('.checkbox-item'); if(!item) return;
+  item.classList.toggle('checked'); item.querySelector('input').checked=item.classList.contains('checked');
 });
-document.addEventListener('touchend',function(e){
-  const item=e.target.closest('.checkbox-item');
-  if(!item) return;
-  e.preventDefault();
-  item.classList.toggle('checked');
-  const inp=item.querySelector('input');
-  if(inp) inp.checked=item.classList.contains('checked');
-},{passive:false});
 function getCheckedModes(cid){
   const m=[]; document.querySelectorAll('#'+cid+' .checkbox-item.checked').forEach(el=>m.push(el.getAttribute('data-val'))); return m;
 }
@@ -1785,476 +1430,466 @@ function setupReveal(){ const obs=new IntersectionObserver(es=>{es.forEach(e=>{i
 
 // INIT
 window.addEventListener('DOMContentLoaded',()=>{
-  // Load teachers from Firebase first, then init UI
+  document.getElementById('searchInput').addEventListener('keydown',e=>{if(e.key==='Enter')runSearch();});
   showLoadingOverlay();
-  DB.loadTeachers().then(()=>{
-    DB.loadMessages().then(()=>{
-      hideLoadingOverlay();
-      initApp();
-    });
-  }).catch(()=>{
-    hideLoadingOverlay();
-    initApp();
-  });
+  function startApp(){
+    initFirebase();
+    const load=()=>{
+      DB.loadTeachers().then(()=>{
+        DB.loadMessages().then(()=>{
+          hideLoadingOverlay();
+          updateNav(); buildHeroTags(); renderCatChips(); renderHomeTeachers(); renderGC(); setupReveal();
+          DB.startRealtimeSync();
+        });
+      });
+    };
+    if(rtdb) load();
+    else { hideLoadingOverlay(); updateNav(); buildHeroTags(); renderCatChips(); renderHomeTeachers(); renderGC(); setupReveal(); }
+  }
+  setTimeout(startApp, 800);
 });
 
-function initApp(){
-  // Add sample real teachers on first load (localStorage fallback)
-  if(DB._teachers.length === 0){
-    const samples = [
-      {
-        name:'Priya Sharma', email:'priya@example.com', phone:'+91 98765 43210',
-        location:'Andheri West, Mumbai', board:'CBSE',
-        subjects:'Mathematics, Physics, Chemistry',
-        timing:'Mon–Sat, 4 PM – 8 PM',
-        bio:'IIT graduate with 8 years of teaching experience. Specialized in making complex concepts simple and helping students score 90+ in board exams. Friendly and patient teaching style.',
-        meetLink:'https://meet.google.com/abc-defg-hij',
-        modes:['Online (Google Meet)','Home Tutor'],
-        password:btoa('sample123'), isAI:false, createdAt: new Date().toISOString()
-      },
-      {
-        name:'Rajesh Kumar', email:'rajesh@example.com', phone:'+91 87654 32109',
-        location:'Koramangala, Bangalore', board:'CISCE (ICSE)',
-        subjects:'English Literature, History, Economics',
-        timing:'Tue–Sun, 5 PM – 9 PM',
-        bio:'Former school principal with 15 years experience. Expertise in ICSE English and Humanities. Proven track record of 95%+ results. Strong focus on writing skills and critical thinking.',
-        meetLink:'',
-        modes:['Home Tutor','Study Centre'],
-        password:btoa('sample123'), isAI:false, createdAt: new Date().toISOString()
-      },
-      {
-        name:'Meera Patel', email:'meera@example.com', phone:'+91 76543 21098',
-        location:'Navrangpura, Ahmedabad', board:'Digital Marketing',
-        subjects:'SEO, Google Ads, Social Media Marketing, Content Strategy',
-        timing:'Mon–Fri, 10 AM – 6 PM',
-        bio:'Certified Google & Meta marketing professional with 6 years industry experience. Hands-on training with live projects and placement assistance for students and working professionals.',
-        meetLink:'https://meet.google.com/xyz-uvwx-abc',
-        modes:['Online (Google Meet)','Study Centre'],
-        password:btoa('sample123'), isAI:false, createdAt: new Date().toISOString()
-      },
-      {
-        name:'Arjun Verma', email:'arjun@example.com', phone:'+91 95555 12345',
-        location:'Sector 62, Noida', board:'JEE Main & Advanced',
-        subjects:'Physics, Chemistry, Mathematics (PCM)',
-        timing:'Mon–Sat, 6 AM – 9 AM & 7 PM – 9 PM',
-        bio:'IIT Delhi alumnus with 10 years of JEE coaching. 200+ students placed in IITs and NITs. Specializes in problem-solving techniques and exam strategy.',
-        meetLink:'https://meet.google.com/jee-arjun-001',
-        modes:['Online (Google Meet)','Study Centre'],
-        password:btoa('sample123'), isAI:false, createdAt: new Date().toISOString()
-      },
-      {
-        name:'Sunita Rao', email:'sunita@example.com', phone:'+91 94444 67890',
-        location:'Banjara Hills, Hyderabad', board:'Spoken English',
-        subjects:'Spoken English, Grammar, IELTS Preparation, Public Speaking',
-        timing:'Mon–Sat, 8 AM – 12 PM',
-        bio:'British Council certified English trainer with 12 years experience. Helped 500+ students and professionals improve fluency and crack IELTS with 7+ band scores.',
-        meetLink:'https://meet.google.com/eng-sunita-002',
-        modes:['Online (Google Meet)','Home Tutor','Study Centre'],
-        password:btoa('sample123'), isAI:false, createdAt: new Date().toISOString()
-      },
-    ];
-    DB.teachers = samples;
-  }
-  updateNav(); buildHeroTags(); renderCatChips(); renderHomeTeachers(); renderGC(); setupReveal();
-  document.getElementById('searchInput').addEventListener('keydown',e=>{if(e.key==='Enter')runSearch();});
+// ═══════════════════════════════════
+// FIREBASE CONFIG
+// ═══════════════════════════════════
+const firebaseConfig={
+  apiKey:"AIzaSyCy4EXmOgoVdJgKAXhR1JW3X83FcTB_7FM",
+  authDomain:"privatetutornearme-1303a.firebaseapp.com",
+  projectId:"privatetutornearme-1303a",
+  databaseURL:"https://privatetutornearme-1303a-default-rtdb.asia-southeast1.firebasedatabase.app",
+  storageBucket:"privatetutornearme-1303a.firebasestorage.app",
+  messagingSenderId:"806182405144",
+  appId:"1:806182405144:web:8ef42c6a44b85765832f6d"
+};
+let rtdb=null;
+function initFirebase(){
+  try{
+    if(typeof firebase==='undefined') return false;
+    if(!firebase.apps.length) firebase.initializeApp(firebaseConfig);
+    rtdb=firebase.database();
+    console.log('Firebase ready');
+    return true;
+  }catch(e){console.error(e);return false;}
 }
 
-// ══════════════════════════════════════════
-// INBOX / MESSAGING SYSTEM
-// ══════════════════════════════════════════
-let currentInboxTab = 'received';
-let currentThreadId = null;
-let currentMsgTeacherEmail = '';
-
-function openSendMsg(teacherEmail, teacherName) {
-  currentMsgTeacherEmail = teacherEmail;
-  document.getElementById('msgTeacherName').textContent = teacherName;
-  document.getElementById('msg_subject').value = '';
-  document.getElementById('msg_body').value = '';
-  document.getElementById('msgCharCount').textContent = '0';
-  hideAlert('msgSendAlert');
-  // Pre-fill if student already sent before (stored name/email)
-  const lastStudent = JSON.parse(localStorage.getItem('ptn_last_student') || 'null');
-  if (lastStudent) {
-    document.getElementById('msg_student_name').value = lastStudent.name || '';
-    document.getElementById('msg_student_email').value = lastStudent.email || '';
-  } else {
-    document.getElementById('msg_student_name').value = '';
-    document.getElementById('msg_student_email').value = '';
-  }
-  openModal('sendmsg');
+// Simple password hash
+function simpleHash(str){
+  let h=0;
+  for(let i=0;i<str.length;i++){h=((h<<5)-h)+str.charCodeAt(i);h=h&h;}
+  return 'h'+Math.abs(h).toString(36)+str.length;
 }
 
-function updateMsgCount() {
-  const v = document.getElementById('msg_body').value;
-  document.getElementById('msgCharCount').textContent = v.length;
+// SEO slug generator
+function generateSlug(t){
+  function sl(s){return(s||'').toLowerCase().replace(/[^a-z0-9]/g,' ').trim().replace(/\s+/g,'-');}
+  const name=sl(t.name);
+  const board=sl(t.board).slice(0,35);
+  const city=sl(t.city||(t.location||'').split(',')[0]||'india');
+  return name+'/'+(board?board+'-in-':'')+city;
 }
 
-function doSendMessage() {
-  const sName = document.getElementById('msg_student_name').value.trim();
-  const sEmail = document.getElementById('msg_student_email').value.trim();
-  const subject = document.getElementById('msg_subject').value.trim();
-  const body = document.getElementById('msg_body').value.trim();
-  if (!sName) { showAlert('msgSendAlert', 'Please enter your name.'); return; }
-  if (!sEmail || !sEmail.includes('@')) { showAlert('msgSendAlert', 'Please enter a valid email.'); return; }
-  if (!subject) { showAlert('msgSendAlert', 'Please enter a subject.'); return; }
-  if (!body) { showAlert('msgSendAlert', 'Please write your message.'); return; }
-
-  // Save student info for next time
-  localStorage.setItem('ptn_last_student', JSON.stringify({ name: sName, email: sEmail }));
-
-  const msgs = DB.messages;
-  const newMsg = {
-    id: 'msg_' + Date.now(),
-    fromName: sName,
-    fromEmail: sEmail,
-    toEmail: currentMsgTeacherEmail,
-    subject: subject,
-    thread: [
-      { from: 'student', name: sName, text: body, time: new Date().toISOString() }
-    ],
-    read: false,
-    createdAt: new Date().toISOString()
+// ═══════════════════════════════════
+// IMAGE COMPRESSION (auto under 100KB)
+// ═══════════════════════════════════
+function compressImage(file,maxKB,cb){
+  const r=new FileReader();
+  r.onload=function(e){
+    const img=new Image();
+    img.onload=function(){
+      const canvas=document.createElement('canvas');
+      let w=img.width,h=img.height,MAX=600;
+      if(w>h&&w>MAX){h=Math.round(h*MAX/w);w=MAX;}
+      else if(h>MAX){w=Math.round(w*MAX/h);h=MAX;}
+      canvas.width=w;canvas.height=h;
+      canvas.getContext('2d').drawImage(img,0,0,w,h);
+      let q=0.8,res=canvas.toDataURL('image/jpeg',q);
+      while(res.length>maxKB*1024*1.37&&q>0.1){q-=0.05;res=canvas.toDataURL('image/jpeg',q);}
+      console.log('Compressed to ~'+Math.round(res.length*0.75/1024)+'KB');
+      cb(res);
+    };
+    img.src=e.target.result;
   };
-  DB.saveMessage(newMsg).then(()=>{
-    closeModal('sendmsg');
-    showToast('✅ Message sent! The teacher will reply soon.');
+  r.readAsDataURL(file);
+}
+
+function handlePhotoUpload(input){
+  const file=input.files[0];if(!file)return;
+  if(file.size>10*1024*1024){showToast('Max 10MB');return;}
+  showToast('Compressing photo...');
+  compressImage(file,100,function(data){
+    const s=DB.session;if(!s)return;
+    if(rtdb){
+      const ref=rtdb.ref('teachers');
+      ref.orderByChild('email').equalTo(s.email).once('value').then(snap=>{
+        if(snap.exists()){
+          snap.forEach(ch=>{rtdb.ref('teachers/'+ch.key).update({photo:data});});
+          showToast('Photo updated (compressed to <100KB)!');
+          DB.loadTeachers().then(()=>renderDashboard());
+        }
+      });
+    }
   });
 }
 
-function showPage_inbox() { showPage('inbox'); }
+// ═══════════════════════════════════
+// NEARBY SEARCH — FREE (OpenStreetMap)
+// ═══════════════════════════════════
+let userLat=null,userLng=null;
+const geoCache={};
 
-function renderInbox() {
-  const session = DB.session;
-  if (!session) { showPage('home'); return; }
+function findNearbyTutors(){
+  const btn=document.getElementById('nearbyBtn');
+  if(!btn)return;
+  btn.textContent='Getting location...';
+  btn.disabled=true;
+  if(!navigator.geolocation){showToast('Location not supported');resetNearbyBtn();return;}
+  navigator.geolocation.getCurrentPosition(
+    pos=>{
+      userLat=pos.coords.latitude;userLng=pos.coords.longitude;
+      btn.textContent='Location Found!';
+      btn.style.cssText='background:#16a34a;color:#fff;border-color:#16a34a;';
+      showPage('search');
+      document.getElementById('searchInput').value='Near Me';
+      filterNearbyTeachers();
+    },
+    err=>{resetNearbyBtn();showToast('Allow location to find nearby tutors');},
+    {enableHighAccuracy:true,timeout:8000}
+  );
+}
 
-  const allMsgs = DB.getMessages();
-  const received = allMsgs.filter(m => m.toEmail === session.email);
-  const sent = allMsgs.filter(m => m.fromEmail === session.email);
+function resetNearbyBtn(){
+  const btn=document.getElementById('nearbyBtn');
+  if(!btn)return;
+  btn.textContent='Find Tutors Near Me';
+  btn.disabled=false;
+  btn.style.cssText='';
+}
 
-  // Update unread badge
-  const unread = received.filter(m => !m.read).length;
-  const badge = document.getElementById('unreadBadge');
-  if (badge) { badge.textContent = unread; badge.style.display = unread > 0 ? 'inline' : 'none'; }
+function clearNearby(){
+  userLat=null;userLng=null;resetNearbyBtn();showPage('home');
+}
 
-  const msgs = currentInboxTab === 'received' ? received : sent;
-  const list = document.getElementById('msgList');
-  const empty = document.getElementById('msgEmpty');
+function distKm(a,b,c,d){
+  const R=6371,dL=(c-a)*Math.PI/180,dN=(d-b)*Math.PI/180;
+  const x=Math.sin(dL/2)*Math.sin(dL/2)+Math.cos(a*Math.PI/180)*Math.cos(c*Math.PI/180)*Math.sin(dN/2)*Math.sin(dN/2);
+  return R*2*Math.atan2(Math.sqrt(x),Math.sqrt(1-x));
+}
 
-  // Close thread view
-  document.getElementById('inboxListView').classList.remove('hidden');
-  document.getElementById('inboxThreadView').classList.add('hidden');
+async function geocodeFree(loc){
+  if(geoCache[loc])return geoCache[loc];
+  try{
+    const r=await fetch('https://nominatim.openstreetmap.org/search?q='+encodeURIComponent(loc+' India')+'&format=json&limit=1',
+      {headers:{'Accept-Language':'en'}});
+    const d=await r.json();
+    if(d&&d[0]){const v={lat:+d[0].lat,lng:+d[0].lon};geoCache[loc]=v;return v;}
+  }catch(e){}
+  return null;
+}
 
-  if (msgs.length === 0) {
-    list.innerHTML = '';
-    empty.classList.remove('hidden');
-  } else {
-    empty.classList.add('hidden');
-    list.innerHTML = msgs.slice().reverse().map(m => {
-      const lastMsg = m.thread[m.thread.length - 1];
-      const isUnread = !m.read && currentInboxTab === 'received';
-      const displayName = currentInboxTab === 'received' ? m.fromName : ('To: ' + (DB.getAll().find(t=>t.email===m.toEmail)||{name:m.toEmail}).name);
-      return `<div class="msg-item${isUnread?' unread':''}" onclick="openThread('${m.id}')">
-        ${isUnread ? '<div class="msg-unread-dot"></div>' : ''}
-        <div class="msg-item-top">
-          <div class="msg-sender">${esc(displayName)}</div>
-          <div class="msg-time">${formatTime(m.createdAt)}</div>
-        </div>
-        <div class="msg-subject">${esc(m.subject)}</div>
-        <div class="msg-preview">${esc(lastMsg.text)}</div>
-      </div>`;
-    }).join('');
+async function filterNearbyTeachers(){
+  if(!userLat||!userLng)return;
+  const all=DB.getAll();
+  const grid=document.getElementById('searchGrid');
+  const cnt=document.getElementById('searchCount')||document.getElementById('resultCount');
+  if(cnt)cnt.innerHTML='Finding tutors near you...';
+  grid.innerHTML='<div style="text-align:center;padding:2rem;color:var(--muted)">📍 Calculating distances...</div>';
+
+  const results=[];
+  for(let i=0;i<all.length;i++){
+    const t=all[i];
+    if(!t.location)continue;
+    if(i>0)await new Promise(r=>setTimeout(r,250));
+    const co=await geocodeFree(t.location);
+    results.push({t,dist:co?distKm(userLat,userLng,co.lat,co.lng):9999});
   }
-
-  // Update nav unread count
-  updateNav();
+  results.sort((a,b)=>a.dist-b.dist);
+  const nearby=results.filter(x=>x.dist<=50);
+  const show=nearby.length?nearby:results.slice(0,12);
+  if(cnt)cnt.innerHTML=nearby.length
+    ?'Found <strong>'+nearby.length+'</strong> tutors within 50km'
+    :'Showing nearest tutors (none within 50km)';
+  grid.innerHTML=show.map(({t,dist})=>teacherCard(t,dist)).join('');
 }
 
-function switchInboxTab(tab) {
-  currentInboxTab = tab;
-  document.getElementById('tab-received').classList.toggle('active', tab === 'received');
-  document.getElementById('tab-sent').classList.toggle('active', tab === 'sent');
-  renderInbox();
+// Override teacherCard to accept optional dist
+const _origCard=teacherCard;
+function teacherCard(t,dist){
+  let card=_origCard(t);
+  if(dist&&dist<9999){
+    const badge='<span style="font-size:.7rem;background:rgba(22,163,74,.1);color:#16a34a;border-radius:4px;padding:.15rem .5rem;font-weight:700;">'+
+      (dist<1?'< 1':dist.toFixed(1))+' km</span>';
+    card=card.replace('📍 '+esc(t.location||''),'📍 '+esc(t.location||'')+' '+badge);
+  }
+  return card;
 }
 
-function openThread(msgId) {
-  const msgs = DB.messages;
-  const idx = msgs.findIndex(m => m.id === msgId);
-  if (idx === -1) return;
-  const m = msgs[idx];
+// ═══════════════════════════════════
+// FIREBASE DATA LAYER
+// ═══════════════════════════════════
+const _DB_orig={...DB};
 
-  // Mark as read
-  if (!m.read) {
-    msgs[idx].read = true;
-    DB.messages = msgs;
+DB.loadTeachers=async function(){
+  if(!rtdb){return;}
+  try{
+    const snap=await rtdb.ref('teachers').once('value');
+    const data=snap.val()||{};
+    this._teachers=Object.entries(data).map(([id,t])=>({...t,id}))
+      .sort((a,b)=>(b.createdAt||'').localeCompare(a.createdAt||''));
+  }catch(e){console.error(e);this._teachers=[];}
+};
+
+DB.saveTeacher=async function(teacher){
+  if(!rtdb)return false;
+  try{
+    teacher.slug=generateSlug(teacher);
+    teacher.createdAt=new Date().toISOString();
+    const ref=rtdb.ref('teachers').push();
+    teacher.id=ref.key;
+    await ref.set(teacher);
+    this._teachers.unshift(teacher);
+    return true;
+  }catch(e){console.error(e);return false;}
+};
+
+DB.updateTeacher=async function(id,data){
+  if(!rtdb||!id)return false;
+  try{
+    await rtdb.ref('teachers/'+id).update(data);
+    const i=this._teachers.findIndex(t=>t.id===id);
+    if(i>-1)this._teachers[i]={...this._teachers[i],...data};
+    return true;
+  }catch(e){console.error(e);return false;}
+};
+
+DB.loadMessages=async function(){
+  if(!rtdb)return;
+  try{
+    const snap=await rtdb.ref('messages').once('value');
+    const data=snap.val()||{};
+    this._messages=Object.entries(data).map(([id,m])=>({...m,id}))
+      .sort((a,b)=>(b.createdAt||'').localeCompare(a.createdAt||''));
+  }catch(e){this._messages=[];}
+};
+
+DB.saveMessage=async function(msg){
+  if(!rtdb)return false;
+  try{
+    msg.createdAt=new Date().toISOString();
+    const ref=rtdb.ref('messages').push();
+    msg.id=ref.key;
+    await ref.set(msg);
+    this._messages.unshift(msg);
+    return true;
+  }catch(e){return false;}
+};
+
+DB.updateMessage=async function(id,data){
+  if(!rtdb||!id)return;
+  try{
+    await rtdb.ref('messages/'+id).update(data);
+    const i=this._messages.findIndex(m=>m.id===id);
+    if(i>-1)this._messages[i]={...this._messages[i],...data};
+  }catch(e){}
+};
+
+DB.startRealtimeSync=function(){
+  if(!rtdb)return;
+  rtdb.ref('teachers').on('value',snap=>{
+    const data=snap.val()||{};
+    DB._teachers=Object.entries(data).map(([id,t])=>({...t,id}))
+      .sort((a,b)=>(b.createdAt||'').localeCompare(a.createdAt||''));
+    if(document.getElementById('page-home').classList.contains('active'))renderHomeTeachers();
+  });
+  rtdb.ref('messages').on('value',snap=>{
+    const data=snap.val()||{};
+    DB._messages=Object.entries(data).map(([id,m])=>({...m,id}))
+      .sort((a,b)=>(b.createdAt||'').localeCompare(a.createdAt||''));
     updateNav();
-  }
+  });
+};
 
-  currentThreadId = msgId;
-  document.getElementById('threadSubject').textContent = m.subject;
-  const teacher = DB.getAll().find(t => t.email === m.toEmail);
-  document.getElementById('threadMeta').textContent =
-    currentInboxTab === 'received'
-      ? 'From: ' + m.fromName + ' (' + m.fromEmail + ')'
-      : 'To: ' + (teacher ? teacher.name : m.toEmail);
-
-  // Show reply area only for received messages (teacher replying)
-  const session = DB.session;
-  const isTeacher = session && session.email === m.toEmail;
-  document.getElementById('threadReplyArea').style.display = isTeacher ? 'flex' : 'none';
-  document.getElementById('replyText').value = '';
-
-  renderThread(m);
-
-  document.getElementById('inboxListView').classList.add('hidden');
-  document.getElementById('inboxThreadView').classList.remove('hidden');
+// Loading overlay
+function showLoadingOverlay(){
+  if(document.getElementById('lo'))return;
+  const d=document.createElement('div');
+  d.id='lo';d.style.cssText='position:fixed;inset:0;background:#e8eef8;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:DM Sans,sans-serif';
+  d.innerHTML='<div style="font-size:2.5rem">🎓</div><div style="font-weight:700;color:#1e40af;margin-top:.5rem">PrivateTutorNearMe</div><div style="color:#6b7280;font-size:.85rem;margin-top:.3rem">Loading tutors...</div>';
+  document.body.appendChild(d);
+}
+function hideLoadingOverlay(){
+  const el=document.getElementById('lo');
+  if(el){el.style.opacity='0';el.style.transition='opacity .3s';setTimeout(()=>el.remove(),300);}
 }
 
-function renderThread(m) {
-  const session = DB.session;
-  document.getElementById('threadMsgs').innerHTML = m.thread.map(msg => {
-    const isTeacher = session && msg.from === 'teacher';
-    return `<div>
-      <div class="bubble ${isTeacher ? 'bubble-teacher' : 'bubble-student'}">
-        ${esc(msg.text)}
-        <div class="bubble-meta">${esc(msg.name)} · ${formatTime(msg.time)}</div>
+
+// ═══════════════════════════════════════════
+// REVIEWS SYSTEM
+// ═══════════════════════════════════════════
+
+// Star picker interaction
+function setRating(uid, val){
+  const picker=document.getElementById('starPicker-'+uid);
+  if(!picker)return;
+  picker.dataset.rating=val;
+  picker.querySelectorAll('.star-pick').forEach(s=>{
+    const sv=parseInt(s.dataset.val);
+    s.classList.toggle('active', sv<=val);
+    s.style.color=sv<=val?'#f59e0b':'#d1d9f0';
+  });
+}
+function hoverRating(uid, val){
+  const picker=document.getElementById('starPicker-'+uid);
+  if(!picker)return;
+  picker.querySelectorAll('.star-pick').forEach(s=>{
+    const sv=parseInt(s.dataset.val);
+    s.style.color=sv<=val?'#fbbf24':'#d1d9f0';
+  });
+}
+function unhoverRating(uid){
+  const picker=document.getElementById('starPicker-'+uid);
+  if(!picker)return;
+  const cur=parseInt(picker.dataset.rating||'0');
+  picker.querySelectorAll('.star-pick').forEach(s=>{
+    const sv=parseInt(s.dataset.val);
+    s.style.color=sv<=cur?'#f59e0b':'#d1d9f0';
+  });
+}
+
+// Submit review — saves to Firebase
+async function submitReview(uid, teacherEmail){
+  const picker=document.getElementById('starPicker-'+uid);
+  const rating=parseInt(picker?.dataset.rating||'0');
+  const name=(document.getElementById('rName-'+uid)?.value||'').trim();
+  const city=(document.getElementById('rCity-'+uid)?.value||'').trim();
+  const text=(document.getElementById('rText-'+uid)?.value||'').trim();
+
+  if(!rating){ showToast('⭐ Please select a star rating first!'); return; }
+  if(!name){ showToast('Please enter your name'); return; }
+
+  const review={
+    id:'rv_'+Date.now(),
+    teacherEmail, rating, name, city, text,
+    createdAt:new Date().toISOString(),
+  };
+
+  // Save to Firebase
+  if(rtdb){
+    try{
+      await rtdb.ref('reviews/'+teacherEmail.replace(/[.#$/\[\]]/g,'_')+'/'+review.id).set(review);
+      // Update teacher's average rating in Firebase
+      await updateTeacherRating(teacherEmail);
+    }catch(e){ console.error('Review save error:',e); }
+  } else {
+    // localStorage fallback
+    const key='ptn_reviews_'+teacherEmail;
+    const existing=JSON.parse(localStorage.getItem(key)||'[]');
+    existing.unshift(review);
+    localStorage.setItem(key, JSON.stringify(existing));
+  }
+
+  showToast('✅ Review submitted! Thank you.');
+  // Reset form
+  setRating(uid,0);
+  if(document.getElementById('rName-'+uid)) document.getElementById('rName-'+uid).value='';
+  if(document.getElementById('rCity-'+uid)) document.getElementById('rCity-'+uid).value='';
+  if(document.getElementById('rText-'+uid)) document.getElementById('rText-'+uid).value='';
+  // Reload reviews
+  loadReviews(uid, teacherEmail);
+}
+
+// Load reviews from Firebase
+async function loadReviews(uid, teacherEmail){
+  let reviews=[];
+  if(rtdb){
+    try{
+      const snap=await rtdb.ref('reviews/'+teacherEmail.replace(/[.#$/\[\]]/g,'_')).once('value');
+      const data=snap.val()||{};
+      reviews=Object.values(data).sort((a,b)=>b.createdAt.localeCompare(a.createdAt));
+    }catch(e){ console.error(e); }
+  } else {
+    reviews=JSON.parse(localStorage.getItem('ptn_reviews_'+teacherEmail)||'[]');
+  }
+
+  renderReviews(uid, reviews);
+}
+
+function renderReviews(uid, reviews){
+  // Rating summary
+  const summaryEl=document.getElementById('ratingSummary-'+uid);
+  const listEl=document.getElementById('reviewsList-'+uid);
+  if(!summaryEl||!listEl) return;
+
+  if(!reviews.length){
+    summaryEl.innerHTML='<div style="font-size:.82rem;color:var(--muted);">No reviews yet</div>';
+    listEl.innerHTML='<div class="no-reviews"><div class="no-reviews-icon">💬</div>No reviews yet — be the first!</div>';
+    return;
+  }
+
+  // Calculate average + distribution
+  const avg=reviews.reduce((s,r)=>s+r.rating,0)/reviews.length;
+  const dist=[5,4,3,2,1].map(n=>({n, count:reviews.filter(r=>r.rating===n).length}));
+  const stars='★'.repeat(Math.round(avg))+'☆'.repeat(5-Math.round(avg));
+
+  summaryEl.innerHTML=`
+    <div style="text-align:center;">
+      <div class="avg-score">${avg.toFixed(1)}</div>
+      <div class="avg-stars">${[1,2,3,4,5].map(n=>`<span style="color:${n<=Math.round(avg)?'#f59e0b':'#d1d9f0';font-size:1.1rem;">★</span>`).join('')}</div>
+      <div class="avg-count">${reviews.length} review${reviews.length!==1?'s':''}</div>
+    </div>
+    <div class="star-bars">
+      ${dist.map(({n,count})=>{
+        const pct=reviews.length?Math.round(count/reviews.length*100):0;
+        return `<div class="star-bar-row">
+          <div class="star-bar-label">${n}★</div>
+          <div class="star-bar-track"><div class="star-bar-fill" style="width:${pct}%"></div></div>
+          <div class="star-bar-num">${count}</div>
+        </div>`;
+      }).join('')}
+    </div>`;
+
+  listEl.innerHTML=reviews.map(r=>{
+    const rStars=[1,2,3,4,5].map(n=>`<span style="color:${n<=r.rating?'#f59e0b':'#d1d9f0'}"">★</span>`).join('');
+    const date=new Date(r.createdAt).toLocaleDateString('en-IN',{day:'numeric',month:'short',year:'numeric'});
+    return `<div class="review-card">
+      <div class="review-card-top">
+        <div>
+          <div class="reviewer-name">
+            ${esc(r.name)}
+            ${r.city?`<span style="font-weight:400;color:var(--muted);font-size:.8rem;">, ${esc(r.city)}</span>`:''}
+            <span class="review-verified">✓ Visitor</span>
+          </div>
+          <div class="review-stars">${rStars}</div>
+        </div>
+        <div class="reviewer-date">${date}</div>
       </div>
+      ${r.text?`<div class="review-text">"${esc(r.text)}"</div>`:''}
     </div>`;
   }).join('');
-  // Auto scroll to bottom
-  const container = document.getElementById('threadMsgs');
-  container.scrollTop = container.scrollHeight;
 }
 
-function sendReply() {
-  const text = document.getElementById('replyText').value.trim();
-  if (!text) return;
-  const session = DB.session;
-  const msgs = DB.messages;
-  const idx = msgs.findIndex(m => m.id === currentThreadId);
-  if (idx === -1) return;
-  const newThread = [...msgs[idx].thread, {
-    from: 'teacher',
-    name: session.name,
-    text: text,
-    time: new Date().toISOString()
-  }];
-  DB.updateMessage(msgs[idx].id, {thread: newThread, read: true}).then(()=>{
-    document.getElementById('replyText').value = '';
-    renderThread(DB._messages[DB._messages.findIndex(m=>m.id===currentThreadId)]);
-    showToast('✅ Reply sent!');
-  });
-}
-
-function closeThread() {
-  currentThreadId = null;
-  document.getElementById('inboxListView').classList.remove('hidden');
-  document.getElementById('inboxThreadView').classList.add('hidden');
-}
-
-function formatTime(iso) {
-  try {
-    const d = new Date(iso);
-    const now = new Date();
-    const diff = now - d;
-    if (diff < 60000) return 'Just now';
-    if (diff < 3600000) return Math.floor(diff/60000) + 'm ago';
-    if (diff < 86400000) return Math.floor(diff/3600000) + 'h ago';
-    return d.toLocaleDateString('en-IN', { day:'numeric', month:'short' });
-  } catch(e) { return ''; }
-}
-
-
-// ══════════════════════════════════════════════════════
-// DATA STORAGE — All saved in Admin Panel at yoursite/#admin
-// Access: privatetutornearme.netlify.app/#admin
-// Password: admin@ptm2025
-// ══════════════════════════════════════════════════════
-
-// ══════════════════════════════════════════════════════
-// ADMIN PANEL LOGIC
-// ══════════════════════════════════════════════════════
-const ADMIN_PASSWORD = 'admin@ptm2025';
-let adminLoggedIn = false;
-
-window.addEventListener('hashchange',()=>{ if(location.hash==='#admin') showPage('admin'); });
-window.addEventListener('load',()=>{ if(location.hash==='#admin') setTimeout(()=>showPage('admin'),400); });
-
-function doAdminLogin(){
-  const pass = document.getElementById('adminPassInput').value;
-  if(pass === ADMIN_PASSWORD){
-    adminLoggedIn = true;
-    document.getElementById('adminLoginSection').classList.add('hidden');
-    document.getElementById('adminDashSection').classList.remove('hidden');
-    renderAdminPanel();
-  } else {
-    showAlert('adminLoginAlert','❌ Wrong password. Try again.');
-  }
-}
-
-function adminLogout(){
-  adminLoggedIn = false;
-  document.getElementById('adminLoginSection').classList.remove('hidden');
-  document.getElementById('adminDashSection').classList.add('hidden');
-  document.getElementById('adminPassInput').value='';
-  showPage('home');
-}
-
-function renderAdminPanel(){
-  const realTeachers = DB.teachers;
-  const allTeachers  = DB.getAll();
-  const messages     = DB.getMessages();
-  const unread       = messages.filter(m=>!m.read).length;
-
-  document.getElementById('aStat1').textContent = allTeachers.length;
-  document.getElementById('aStat2').textContent = realTeachers.length;
-  document.getElementById('aStat3').textContent = messages.length;
-  document.getElementById('aStat4').textContent = unread;
-
-  // Teachers table
-  const tbody = document.getElementById('adminTeacherBody');
-  if(!realTeachers.length){
-    tbody.innerHTML='<tr><td colspan="10" class="admin-empty">📭 No real teacher registrations yet</td></tr>';
-  } else {
-    tbody.innerHTML = realTeachers.map((t,i)=>`
-      <tr>
-        <td style="color:var(--muted);font-size:.75rem;">${i+1}</td>
-        <td><strong>${esc(t.name)}</strong></td>
-        <td style="font-size:.78rem;">${esc(t.email)}</td>
-        <td style="font-size:.78rem;">${esc(t.phone||'—')}</td>
-        <td style="font-size:.78rem;">${esc(t.location||'—')}</td>
-        <td style="font-weight:600;color:var(--accent2);font-size:.78rem;">${esc(t.board||'—')}</td>
-        <td style="font-size:.78rem;">${esc((t.subjects||'').split(',').slice(0,3).join(', '))}</td>
-        <td style="font-size:.75rem;">${(t.modes||[]).map(m=>`<span class="admin-badge admin-badge-real">${m.replace('Online (Google Meet)','Online').replace('Home Tutor','Home').replace('Study Centre','Centre')}</span>`).join(' ')}</td>
-        <td style="font-size:.75rem;color:var(--muted);">${t.createdAt?new Date(t.createdAt).toLocaleDateString('en-IN'):'—'}</td>
-        <td><span class="admin-badge admin-badge-new">Real</span></td>
-      </tr>`).join('');
-  }
-
-  // Messages table
-  const mbody = document.getElementById('adminMsgBody');
-  if(!messages.length){
-    mbody.innerHTML='<tr><td colspan="8" class="admin-empty">📭 No student messages yet</td></tr>';
-  } else {
-    mbody.innerHTML = messages.slice().reverse().map((m,i)=>{
-      const teacher = DB.getAll().find(t=>t.email===m.toEmail);
-      const firstMsg = m.thread[0]||{text:''};
-      return `<tr>
-        <td style="color:var(--muted);font-size:.75rem;">${i+1}</td>
-        <td><strong>${esc(m.fromName)}</strong></td>
-        <td style="font-size:.78rem;">${esc(m.fromEmail)}</td>
-        <td style="font-size:.78rem;font-weight:600;">${esc(teacher?teacher.name:m.toEmail)}</td>
-        <td style="font-size:.78rem;">${esc(m.subject)}</td>
-        <td style="font-size:.78rem;">${esc(firstMsg.text.slice(0,80)+(firstMsg.text.length>80?'…':''))}</td>
-        <td style="font-size:.75rem;color:var(--muted);">${m.createdAt?new Date(m.createdAt).toLocaleDateString('en-IN'):'—'}</td>
-        <td><span class="admin-badge ${m.read?'admin-badge-real':'admin-badge-new'}">${m.read?'Read':'New'}</span></td>
-      </tr>`;
-    }).join('');
-  }
-}
-
-function exportCSV(type){
-  let headers, rows, filename;
-  if(type==='teachers'){
-    headers=['#','Name','Email','Phone','Location','Board','Subjects','Modes','Timing','Bio','Registered On'];
-    rows=DB.teachers.map((t,i)=>[
-      i+1,t.name,t.email,t.phone||'',t.location||'',
-      t.board||'',t.subjects||'',(t.modes||[]).join(' | '),
-      t.timing||'',(t.bio||'').replace(/,/g,';'),
-      t.createdAt?new Date(t.createdAt).toLocaleDateString('en-IN'):''
-    ]);
-    filename='PTN_Teachers_'+new Date().toISOString().slice(0,10)+'.csv';
-  } else {
-    headers=['#','Student Name','Student Email','Teacher','Teacher Email','Subject','Message','Date','Status'];
-    rows=DB.getMessages().map((m,i)=>{
-      const teacher=DB.getAll().find(t=>t.email===m.toEmail);
-      return[i+1,m.fromName,m.fromEmail,
-        teacher?teacher.name:m.toEmail,m.toEmail,
-        m.subject,(m.thread[0]?m.thread[0].text:'').replace(/,/g,';'),
-        m.createdAt?new Date(m.createdAt).toLocaleDateString('en-IN'):'',
-        m.read?'Read':'Unread'
-      ];
+// Update teacher's avg rating in Firebase (called after new review)
+async function updateTeacherRating(teacherEmail){
+  if(!rtdb) return;
+  try{
+    const snap=await rtdb.ref('reviews/'+teacherEmail.replace(/[.#$/\[\]]/g,'_')).once('value');
+    const data=snap.val()||{};
+    const reviews=Object.values(data);
+    if(!reviews.length) return;
+    const avg=+(reviews.reduce((s,r)=>s+r.rating,0)/reviews.length).toFixed(1);
+    const count=reviews.length;
+    // Update teacher record
+    const tSnap=await rtdb.ref('teachers').orderByChild('email').equalTo(teacherEmail).once('value');
+    tSnap.forEach(ch=>{
+      rtdb.ref('teachers/'+ch.key).update({avgRating:avg, reviewCount:count});
     });
-    filename='PTN_Messages_'+new Date().toISOString().slice(0,10)+'.csv';
-  }
-  const csv=[headers,...rows].map(r=>r.map(v=>'"'+String(v||'').replace(/"/g,'""')+'"').join(',')).join('\n');
-  const blob=new Blob([csv],{type:'text/csv;charset=utf-8;'});
-  const url=URL.createObjectURL(blob);
-  const a=document.createElement('a');a.href=url;a.download=filename;a.click();
-  URL.revokeObjectURL(url);
-  showToast('✅ CSV downloaded!');
+    // Update local cache
+    const ti=DB._teachers.findIndex(t=>t.email===teacherEmail);
+    if(ti>-1){DB._teachers[ti].avgRating=avg; DB._teachers[ti].reviewCount=count;}
+    // Re-render teacher cards
+    renderHomeTeachers();
+  }catch(e){ console.error('Rating update error:',e); }
 }
 
 </script>
-
-<!-- ADMIN LOGIN PAGE -->
-<div id="page-admin" class="page">
-  <div id="adminLoginSection">
-    <div class="admin-login-wrap">
-      <div class="admin-login-icon">🔐</div>
-      <div class="admin-login-title">Admin Panel</div>
-      <div class="admin-login-sub">Enter admin password to access all data</div>
-      <div id="adminLoginAlert" class="alert alert-error hidden"></div>
-      <div class="form-group"><input class="form-input" id="adminPassInput" type="password" placeholder="Enter admin password" onkeydown="if(event.key==='Enter')doAdminLogin()"></div>
-      <button class="btn-primary" onclick="doAdminLogin()">🔓 Access Admin Panel</button>
-      <div style="margin-top:1rem;font-size:.78rem;color:var(--muted);">Default password: <strong>admin@ptm2025</strong><br>Change it in the code after setup.</div>
-    </div>
-  </div>
-  <div id="adminDashSection" class="hidden">
-    <div class="admin-wrap">
-      <div class="admin-topbar">
-        <h2>🛡️ PrivateTutorNearMe — Admin Panel</h2>
-        <div style="display:flex;gap:.7rem;align-items:center;">
-          <span style="font-size:.82rem;color:#aaa;">Logged in as Admin</span>
-          <button onclick="adminLogout()" style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#fff;border-radius:8px;padding:.35rem .8rem;font-size:.8rem;cursor:pointer;font-family:'DM Sans',sans-serif;">Logout</button>
-        </div>
-      </div>
-
-      <!-- Stats -->
-      <div class="admin-stats-row">
-        <div class="admin-stat"><div class="admin-stat-num" id="aStat1">0</div><div class="admin-stat-label">Total Teachers</div></div>
-        <div class="admin-stat"><div class="admin-stat-num" id="aStat2">0</div><div class="admin-stat-label">Real Registrations</div></div>
-        <div class="admin-stat"><div class="admin-stat-num" id="aStat3">0</div><div class="admin-stat-label">Student Messages</div></div>
-        <div class="admin-stat"><div class="admin-stat-num" id="aStat4">0</div><div class="admin-stat-label">Unread Messages</div></div>
-      </div>
-
-      <!-- Teacher Registrations Table -->
-      <div class="admin-section">
-        <div class="admin-section-head">
-          <div class="admin-section-title">👨‍🏫 Teacher Registrations</div>
-          <button class="admin-export-btn" onclick="exportCSV('teachers')">⬇ Export CSV</button>
-        </div>
-        <div class="admin-table-wrap">
-          <table class="admin-table" id="adminTeacherTable">
-            <thead><tr>
-              <th>#</th><th>Name</th><th>Email</th><th>Phone</th><th>Location</th>
-              <th>Board</th><th>Subjects</th><th>Modes</th><th>Registered</th><th>Type</th>
-            </tr></thead>
-            <tbody id="adminTeacherBody"></tbody>
-          </table>
-        </div>
-      </div>
-
-      <!-- Student Messages Table -->
-      <div class="admin-section">
-        <div class="admin-section-head">
-          <div class="admin-section-title">💬 Student Messages</div>
-          <button class="admin-export-btn" onclick="exportCSV('messages')">⬇ Export CSV</button>
-        </div>
-        <div class="admin-table-wrap">
-          <table class="admin-table" id="adminMsgTable">
-            <thead><tr>
-              <th>#</th><th>Student Name</th><th>Student Email</th><th>Teacher</th>
-              <th>Subject</th><th>Message</th><th>Date</th><th>Status</th>
-            </tr></thead>
-            <tbody id="adminMsgBody"></tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-  </div>
-  <footer><div class="footer-brand">PrivateTutorNearMe</div><p>PrivateTutorNearMe Admin © 2025</p></footer>
-</div>
-
 </body>
 </html>
